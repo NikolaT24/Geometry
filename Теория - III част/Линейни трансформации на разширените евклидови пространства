@@ -1,1 +1,40 @@
+# Линейни трансформации на разширената евклидова равнина. Хомография
 
+*Дефиниция:* Нека $K^\star=E\_0E\_1E\_2E\_3$ е проективна координатна система в $E\_2^\star$. Изображението $\varphi:E\_2^\star\to E\_2^\star$ се нарича проективна трансформация (хомография), ако $\exists C\in M\_3(\mathbb{R})$, $\mathrm{det} C\neq 0$, такава че ако $P(x,y,t)$ спрямо $K^\star$, то $$(x^\star\quad y^\star\quad t^\star)^T=C(x\quad y\quad t)^T$$ са координати спрямо $K^\star$ на $P^\star=\varphi(P)$.
+
+Нека матрицата $C\in M_3(\mathbb{R})$ задава линейна трансформация $\varphi_C$ в $\mathbb{E}_2^\star$:
+
+$$
+\varphi_C:M(x,y,t)\to M^\star=\varphi_C(M)(x^\star,y^\star,t^\star)
+$$
+
+Тъй като хомогенните координати са с точност до ненулев коефициент на пропорционалност, то аналитичното представяне на $\varphi_C$ е 
+
+$$
+\varphi_C: C\begin{pmatrix} x & y & t\end{pmatrix}^T=\rho \begin{pmatrix} x^\star & y^\star & t^\star\end{pmatrix}^T
+$$
+
+където $\rho\neq 0$. Ако изображението е хомография, то $\varphi_C$ е биекция, тоест имаме, че за всеки две различни точки $M_1\in\mathbb{E}_2^\star$ и $M_2\in\mathbb{E}_2^\star$ е изпълнено $\varphi_C(M_1)\neq\varphi_C(M_2)$ и $\forall M^\star\in\mathbb{E}_2^\star\ \exists !M\in\mathbb{E}_2^\star:\varphi_C(M)=M^\star$. Имаме, че
+
+$$\varphi_C^{-1}:\begin{pmatrix} x^\star & y^\star & t^\star\end{pmatrix}^T=\rho C^{-1}\begin{pmatrix} x & y & t\end{pmatrix}^T$$
+
+*Определение:* Ако $$\varphi\_C:g[A\_g,B\_g,C\_g]\to g^\star=\varphi\_C(g)[A\_{g^\star},B\_{g^\star},C\_{g^\star}]$$ където $(A\_g,B\_g)\neq(0,0)$, то 
+
+$$\varphi_C:\begin{bmatrix} A_g & B_g & C_g\end{bmatrix}C^{-1}=\sigma \begin{bmatrix} A_{g^\star} & B_{g^\star} & C_{g^\star}\end{bmatrix}$$
+
+където $\sigma$ е ненулев коефициент на пропорционалност.
+
+*Дефиниция:* Неподвижна точка под действие на линейната трансформация $\varphi\_C$ наричаме точката $X$, за която $\varphi\_C(X)=X$.
+
+*Дефиниция:* Неподвижна права под действие на линейната трансформация $\varphi\_C$ наричаме правата $g$, за която $\varphi\_C(g)=g$.
+
+# Линейни трансформации на разширеното евклидово пространство
+
+Нека матрицата $C\in M_4(\mathbb{R})$ задава линейна трансформация $\varphi\_C$ в $\mathbb{E}\_3^\star$: $$\varphi\_C:M(x,y,z,t)\to M^\star=\varphi\_C(M)(x^\star,y^\star,z^\star,t^\star)$$ Тогава $$\varphi_C: C( x \quad y \quad z \quad t)^T=\rho (x^\star \quad y^\star \quad z^\star \quad t^\star)^T$$
+
+*Теорема:* Нека $\mathrm{rank} C=3$. Тогава съществува равнина $\alpha$, такава че за всяка точка $M\in\mathbb{E}\_3^\star$ е в сила, че $\varphi\_C(M)=M^\star\in\alpha$.
+
+<details>
+    <summary>Доказателство</summary>
+Разглеждаме системата $$(A_\alpha \quad B_\alpha \quad C_\alpha \quad D_\alpha) C = (0 \quad 0 \quad 0 \quad 0)$$ Тъй като $\mathrm{rank} C=3$, то $\exists(A_\alpha,B_\alpha,C_\alpha,D_\alpha)\neq(0,0,0,0)$. Разглеждаме равнината $\alpha:A_\alpha x+B_\alpha y+C_\alpha z+D_\alpha t=0$. Имаме, че $$(A_\alpha \quad B_\alpha \quad C_\alpha \quad D_\alpha) C (x \quad y \quad z \quad t)^T= (0 \quad 0 \quad 0 \quad 0)(x \quad y \quad z \quad t)^T$$ и оттук $$(A_\alpha \quad B_\alpha \quad C_\alpha \quad D_\alpha)\rho (x^\star \quad y^\star \quad z^\star \quad t^\star)^T=0$$ където $\rho$ е ненулев коефициент на пропорционалност. Горното матрично уравнение е еквивалентно на $A_\alpha x^\star+B_\alpha y^\star+C_\alpha z^\star+D_\alpha t^\star=0$, откъдето излиза, че $M^\star=\varphi_C(M)\in\alpha$, с което сме готови.
+</details>
