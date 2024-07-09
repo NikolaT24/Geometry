@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+echo '<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>LaTeX Equations</h1>
-    <p>Here is an example equation rendered with MathJax:</p>
     <p>
         $$
         \psi:
@@ -34,4 +33,7 @@
         $$
     </p>
 </body>
-</html>
+</html>' > index.html
+git add index.html
+git commit -m "Add MathJax example"
+git push origin main
