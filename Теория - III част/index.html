@@ -1,1 +1,37 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rendering LaTeX Equations with MathJax</title>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <h1>LaTeX Equations</h1>
+    <p>Here is an example equation rendered with MathJax:</p>
+    <p>
+        $$
+        \psi:
+        \begin{pmatrix} 
+        x^\star \\ 
+        y^\star 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        \cos\theta & -\varepsilon\sin\theta \\ 
+        \sin\theta & \varepsilon\cos\theta
+        \end{pmatrix}
+        \begin{pmatrix} 
+        x \\ 
+        y 
+        \end{pmatrix}
+        + 
+        \begin{pmatrix} 
+        a \\ 
+        b 
+        \end{pmatrix}
+        $$
+    </p>
+</body>
+</html>
