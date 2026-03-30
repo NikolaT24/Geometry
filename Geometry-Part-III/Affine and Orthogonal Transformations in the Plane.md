@@ -1,6 +1,6 @@
 # Афинни и ортогонални трансформации в равнината
 
-Нека спрямо афинна координатна система $K=O\vec{f}_2\vec{f}_2$ в $\mathbb{E}\_2$, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}\_2\to\mathbb{E}\_2$, като $\varphi:M(x,y)\to M^\star=\varphi(M)(x^\star, y^\star)$.
+Нека спрямо афинна координатна система $K=O\vec{f}_1\vec{f}_2$ в $\mathbb{E}\_2$, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}\_2\to\mathbb{E}\_2$, като $\varphi:M(x,y)\to M^\star=\varphi(M)(x^\star, y^\star)$.
 
 Изображението $\varphi$ е афинно тогава и само тогава, когато $$\varphi:(x^\star \quad y^\star)^T=A_\varphi(x \quad y)^T+\vec{b}\_{\varphi}$$ където $A_\varphi\in M_2(\mathbb{R})$ и $\vec{b}\_{\varphi}=(a\quad b)^T$ е вектор стълб от свободни елементи.
 
