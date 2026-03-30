@@ -1,1 +1,23 @@
+# Кватерниони. Представяне на ротациите в пространството чрез кватерниони
+
+Множеството $$\mathbb{H}:=\lbrace s+ix+jy+kz|s,x,y,z\in\mathbb{R}\rbrace$$ където $i^2=j^2=k^2=-1$ и $ij=-ji=k$, $jk=-kj=i$, $ki=-ik=j$, ще наричаме множеството на кватернионите. Можем да използваме следното означение за кватерниони: $$q=s+ix+jy+kz=(s,(x,y,z))=(s,\vec{v})$$ където $\vec{v}(x,y,z)\in\mathbb{E}_3$.
+
+*Свойства:*
+* $(s_1,\overrightarrow{v_1})+(s_2,\overrightarrow{v_2})=(s_1+s_2,\overrightarrow{v_1}+\overrightarrow{v_2})$
+* $(s_1,\overrightarrow{v_1})(s_2,\overrightarrow{v_2})=(s_1s_2-\overrightarrow{v_1}\cdot\overrightarrow{v_2}, s_1\overrightarrow{v_2}+s_2\overrightarrow{v_1}+\overrightarrow{v_1}\times\overrightarrow{v_2})$
+
+По-общо, $\displaystyle\sum _{i\in I}(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i\in I} s_i,\displaystyle\sum _{i\in I}\overrightarrow{v_i}\right)$, където $I$ е непразно индексно множество.
+
+*Дефиниция:* Спрегнат кватернион на $q=(s,\vec{v})$ наричаме $\overline{q}:=(s,-\vec{v})$.
+
+*Дефиниция:* Норма на кватернион $q$ наричаме $||q||:=\sqrt{q\overline{q}}$. Ако $||q||=1$, то $q$ наричаме единичен кватернион.
+
+*Теорема:* Ако $q$ е единичен кватернион, то $\exists \vec{e}:|\vec{e}|=1$ и $\exists \measuredangle\theta\in[0,\pi]$, такива че $q=(\cos\theta,\sin\theta \vec{e})$.
+
+<details>
+    <summary>Доказателство</summary>
+Нека $q=(s,\overrightarrow{v})$. Тъй като $||q||=1$, то $q\overline{q}=(s^2+\overrightarrow{v}^2,\vec{0})=1$. И така $q\overline{q}=s^2+\overrightarrow{v}^2=1$, откъдето $\exists\measuredangle\theta\in[0,\pi]:s=\cos\theta$, предвид това, че $-1\leq s\leq 1$. Така получаваме, че $\vec{v}^2=\sin^2\theta$, откъдето $\vec{v}=\sin\theta\dfrac{\vec{v}}{|\vec{v}|}$. Излезе, че $\exists \vec{e}=\dfrac{\vec{v}}{|\vec{v}|}:|\vec{e}|=1$, тъй като $\dfrac{\vec{v}}{|\vec{v}|}$ е нормиран вектор, с което сме готови.
+</details>
+
+*Теорема:* Нека е дадена ротация $\rho_g(\theta):\mathbb{E}_3\to\mathbb{E}_3$ с ос правата $g\ni O$ на ъгъл $\theta$ спрямо ОКС $K=O\vec{e}_1\vec{e}_2\vec{e}_3\in S^{+}$. Тогава $$(0,\rho_g(\theta)(\overrightarrow{OP}))=q(0,\overrightarrow{OP})\overline{q}$$ където $q=\left(\cos\dfrac{\theta}{2},\sin\dfrac{\theta}{2}\vec{e}\right)$ и $\vec{e}\uparrow\uparrow g$ е нормиран вектор.
 
