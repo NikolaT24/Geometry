@@ -57,3 +57,11 @@ There is little to no clear and accessible information available online about th
 - ✨ Central projection and duality  
 
 ---
+```latex
+\int_set:Nn \l__att_rows_int {88}
+```
+
+<p align="center">
+  <b>👤 Author</b><br>
+  Nikola Topalov
+</p>
