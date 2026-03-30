@@ -58,6 +58,5 @@ There is little to no clear and accessible information available online about th
 
 ---
 <p align="center">
-  <b>👤 Author</b><br>
-  Nikola Topalov
+  <b>👤 Author:</b> Nikola Topalov
 </p>
