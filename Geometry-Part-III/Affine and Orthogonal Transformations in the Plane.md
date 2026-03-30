@@ -1,1 +1,181 @@
+# Афинни и ортогонални трансформации в равнината
+
+Нека спрямо афинна координатна система $K=O\vec{f}\vec{g}$ в равнината, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}\_2\to\mathbb{E}\_2$, като $\varphi:M(x,y)\to M^\star=\varphi(M)(x^\star, y^\star)$.
+
+Изображението $\varphi$ е афинно тогава и само тогава, когато $$\varphi:(x^\star \quad y^\star)^T=A_\varphi(x \quad y)^T+\vec{b}\_{\varphi}$$ където $A_\varphi\in M_2(\mathbb{R})$ и $\vec{b}\_{\varphi}=(a\quad b)^T$ е вектор стълб от свободни елементи.
+
+Изображението $\varphi$ е афинна трансформация (афинен изоморфизъм) тогава и само тогава, когато $\mathrm{det}(A_\varphi)\neq 0$ (т.е. когато матрицата $A_\varphi$ е обратима).
+
+## Класификация на еднаквостите в равнината
+
+Нека е дадена ОКС $K=Oxy$ в $\mathbb{E}\_2$. Афинната трансформация $\psi:\mathbb{E}\_2\to\mathbb{E}\_2$ е еднаквост тогава и само тогава, когато матрицата ѝ $A_\psi\in M_2(\mathbb{R})$ е ортогонална. Тогава $A_\psi A_\psi^{T}= A_\psi^{T}A_\psi=E\Rightarrow \mathrm{det}(A_\psi)=\pm 1$. Ако $\mathrm{det}(A_\psi)=1$, то $\psi$ е движение - запазва се ориентацията в равнината. Ако $\mathrm{det}(A_\psi)=-1$, то $\psi$ е отражение - променя ориентацията в равнината. Аналитичното представяне е: 
+
+$$
+\psi:
+\begin{pmatrix}
+x^\star
+\newline
+y^\star
+\end{pmatrix}=
+\begin{pmatrix}
+\cos\theta & -\varepsilon\sin\theta
+\newline
+\sin\theta & \varepsilon\cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+x
+\newline
+y
+\end{pmatrix}
++
+\begin{pmatrix}
+a
+\newline
+b
+\end{pmatrix}
+$$
+
+където $\varepsilon=\pm 1$.
+
+## Движения в равнината - идентитет, транслация, ротация
+
+*Идентитет* - $\mathrm{id}:\mathbb{E}\_2\to\mathbb{E}\_2$:
+
+$$
+\mathrm{id}:
+\begin{pmatrix}
+x^\star
+\newline
+y^\star
+\end{pmatrix}=E
+\begin{pmatrix}
+x
+\newline
+y
+\end{pmatrix}
+$$
+
+*Транслация с ненулев вектор* $\vec{p}(a,b)$ - $\tau_{\vec{p}}:\mathbb{E}\_2\to\mathbb{E}\_2$:
+
+$$
+\tau_{\vec{p}}:
+\begin{pmatrix}
+x^\star
+\newline
+y^\star
+\end{pmatrix}=E
+\begin{pmatrix}
+x
+\newline
+y
+\end{pmatrix}
++
+\begin{pmatrix}
+a
+\newline
+b
+\end{pmatrix}
+$$
+
+*Ротация с център* $S(s_1,s_2)$ *на ъгъл* $0\leq \theta\leq 2\pi$ - $\rho_S(\theta):\mathbb{E}\_2\to\mathbb{E}\_2$:
+
+$$
+\rho_S(\theta):
+\begin{pmatrix}
+x^\star
+\newline
+y^\star
+\end{pmatrix}=A_{\rho_S(\theta)}
+\begin{pmatrix}
+x
+\newline
+y
+\end{pmatrix}
++(E-A_{\rho_S(\theta)})
+\begin{pmatrix}
+s_1
+\newline
+s_2
+\end{pmatrix}
+,\ \text{където}\ A_{\rho_S(\theta)}=
+\begin{pmatrix}
+\cos\theta & -\sin\theta
+\newline
+\sin\theta & \cos\theta
+\end{pmatrix}
+$$
+
+$Теорема:$ Нека $\vec{p}\_i$, $i\in\{1,\dots,n\}$, е фамилия от вектори спрямо афинна координатна система в равнината. Да се докаже, че $\tau_{\vec{p}\_1}\circ\tau_{\vec{p}\_2}\circ\dots\circ\tau_{\vec{p}_n}=\tau\_{\vec{p}}$, където $\vec{p}=\vec{p_1}+\vec{p_2}+\dots+\vec{p_n}$.
+
+<details>
+    <summary>Доказателство</summary>
+Нека $\vec{p}_i(x_{p_i},y_{p_i})$, $i\in\{1,\dots,n\}$. Допускаме, че
+
+$$\tau_{\vec{p}\_1}\circ\tau_{\vec{p}\_2}\circ\dots\circ\tau_{\vec{p}\_n}:
+\begin{pmatrix}
+x^\star
+\newline
+y^\star
+\end{pmatrix}=E
+\begin{pmatrix} 
+x
+\newline
+y
+\end{pmatrix}+\sum_{i=1}^n
+\begin{pmatrix}
+x\_{p\_i}
+\newline
+y\_{p\_i}
+\end{pmatrix}
+$$ 
+
+</details>
+
+## Отражения в равнината - осева симетрия, плъзгащо отражение
+
+*Осева симетрия относно правата* $g:Ax+By+C=0$ - $\sigma_g:\mathbb{E}\_2\to\mathbb{E}\_2$:
+
+$$\sigma_g:
+\begin{pmatrix}
+x^\star \newline
+y^\star
+\end{pmatrix}=\dfrac{1}{A^2+B^2}
+\begin{pmatrix} B^2-A^2 & -2AB
+\newline
+-2AB & A^2-B^2
+\end{pmatrix}
+\begin{pmatrix}x
+\newline
+y
+\end{pmatrix}+\dfrac{1}{A^2+B^2}
+\begin{pmatrix} -2AC 
+\newline
+-2BC
+\end{pmatrix}$$
+
+*Плъзгащо отражение* - $\sigma_g\circ\tau_{\vec{p}}=\tau_{\vec{p}}\circ\sigma_g\Leftrightarrow g\parallel\vec{p}\neq\vec{0}$:
+
+$$\psi:
+\begin{pmatrix}
+x^\star \newline
+y^\star
+\end{pmatrix}=\dfrac{1}{A^2+B^2}
+\begin{pmatrix} B^2-A^2 & -2AB
+\newline
+-2AB & A^2-B^2
+\end{pmatrix}
+\begin{pmatrix}x
+\newline
+y
+\end{pmatrix}+\dfrac{1}{A^2+B^2}
+\begin{pmatrix} -2AC 
+\newline
+-2BC
+\end{pmatrix}\pm\dfrac{|\vec{p
+}|}{\sqrt{A^2+B^2}}
+\begin{pmatrix}
+-B
+\newline
+A
+\end{pmatrix}$$
 
