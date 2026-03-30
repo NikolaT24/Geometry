@@ -40,8 +40,9 @@
 ✨ Foundations of projective geometry  
 ✨ Power of homogeneous coordinates  
 ✨ Extended Euclidean spaces
-```math
-$\mathbb{E}_2^{\star}, \mathbb{E}_3^{\star}
+$$
+E_{2}^{\ast},\ E_{3}^{\ast}
+$$
 ✨ Linear transformations and invariants  
 ✨ Central projection and duality  
 
