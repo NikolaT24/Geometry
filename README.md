@@ -57,6 +57,3 @@ There is little to no clear and accessible information available online about th
 - ✨ Central projection and duality  
 
 ---
-<p align="center">
-  <b>👤 Author:</b> Nikola Topalov
-</p>
