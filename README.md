@@ -52,8 +52,13 @@ There is little to no clear and accessible information available online about th
 
 - ✨ Foundations of projective geometry  
 - ✨ Power of homogeneous coordinates  
-- ✨ Extended Euclidean spaces ($\mathbb{E}_2^\star$ and $\mathbb{E}_3^\star$)  
+- ✨ Extended Euclidean spaces 
 - ✨ Linear transformations and invariants  
 - ✨ Central projection and duality  
+
+## 📝 What is this cheat sheet?
+
+- A sheet that, if read, is going to save you from failing the subject
+- It guarantees you a grade of no less than 5
 
 ---
