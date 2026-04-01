@@ -86,7 +86,7 @@
 ## 🧭 Визуална интуиция
 
 <p align="center">
-  <img src="images/rails.png" width="500"/><br>
+  <img src="images/IMG_1074.jpeg" width="500"/><br>
   <em>Визуализация на общата безкрайна точка на успоредни помежду си прави</em>
 </p>
 
