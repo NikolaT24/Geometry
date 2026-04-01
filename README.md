@@ -2,7 +2,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Geometry%20-%20Part%20III&fontSize=48&fontAlignY=37&fontColor=ffffff&animation=fadeIn&desc=%2B%20Theory%20Exam%20Cheat%20Sheet&descAlignY=55&descSize=16" />
 </p>
 
-<div align="center">
+<div align="center"> 
 
 <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=22&duration=3000&color=6A11CB&center=true&vCenter=true&width=500&lines=Advanced+Geometry;Homogeneous+Coordinates;Transformations+%26+Invariants" />
 
