@@ -26,10 +26,10 @@
 
 ## Безкрайни елементи в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
 
-# Най-важните неща #
+### Най-важните неща ###
 
 - Всяка безкрайна точка (бележим ги с "U") има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)). Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка задава "направлението" на дадена права.
-- 
+- Безкрайна права ще наричаме множеството от всички безкрайни точки: ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7B%5Cforall%20U(x,y,0)%20%7C%20(x,y)%20%5Cneq%20(0,0)%5C%7D)
 
 ## Разширена евклидова равнина. Линейни трансформации на ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%7B%5Cstar%7D) ##
 ## Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) ##
