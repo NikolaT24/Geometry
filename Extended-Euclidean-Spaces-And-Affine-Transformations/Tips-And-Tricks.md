@@ -1,4 +1,4 @@
-## Хомогенни координати в равнината ##
+## Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
 ### Tips: ###
 В двумерната евклидова равнина въвеждаме релацията:
 - ![equation](https://latex.codecogs.com/svg.image?%5Cforall%20x,y%20%5Cin%20%5Cmathbb%7BE%7D_2%5E%7B%7D%2C%20x%20%5Csim%20y%20%5CLeftrightarrow%20%5Cexists%20%5Clambda%20%5Cin%20%5Cmathbb%7BR%7D%20%5Cbackslash%20%5C%7B0%5C%7D%20%3A%20x%20%3D%20%5Clambda%20y)
@@ -12,8 +12,8 @@
 
 ## Безкрайни елементи в равнината ##
 
-## Хомогенни координати в пространството ##
-## Безкрайни елементи в пространството ##
+## Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) ##
+## Безкрайни елементи в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) ##
 ## Разширено евклидово пространство ##
 ## Централно проектиране ##
 ## Афинни и ортогонални трансформации в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
