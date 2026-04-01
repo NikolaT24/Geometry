@@ -15,7 +15,8 @@
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
 </p>
-- Гледайте максимално да опростявате, ако ви се даде точка с координати, от които може да се изкара множител.
+
+- Ако видите точка от вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(\rho%20x,\rho%20y,\rho%20t)), опростете я до ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(%20x,%20y, %20t))
 
 ## Безкрайни елементи в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
 ## Разширена евклидова равнина. Линейни трансформации на ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%7B%5Cstar%7D) ##
