@@ -1,7 +1,8 @@
-## Homogeneous coordinates in the plane ##
-### Tips: ###
-- Understand that $(x,y,t)=(\rho x, \rho y, \rho t)$ where $\rho$ is a nonzero coefficient of proportionality.
-## Infinite elements in the plane ##
+### Хомогенни координати в равнината ###
+# Tips: #
+- Да сте наясно с това, че $(x,y,t)=(\rho x, \rho y, \rho t)$, където $\rho$ е ненулев коефициент на пропорционалност.
+## Безкрайни елементи в равнината ##
+
 ## Homogeneous coordinates in space ##
 ## Infinite elements in space ##
 ## Linear transformations ##
