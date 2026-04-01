@@ -23,6 +23,6 @@
 ## Разширено евклидово пространство ##
 ## Централно проектиране ##
 ## Афинни и ортогонални трансформации в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
-## Класификация на еднаквостите в 
+## Класификация на еднаквостите в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3)
 ## Афинни и ортогонални трансформации в пространството ##
 ## 🔹 Rotations using Quaternions ##
