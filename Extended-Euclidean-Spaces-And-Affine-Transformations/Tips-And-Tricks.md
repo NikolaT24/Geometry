@@ -34,6 +34,7 @@
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7BU(x,y,0)%20%7C%20(x,y)%20%5Cneq%20(0,0)%5C%7D" />
 </p>
+
 - В сила е твърдението: 
 
 <p align="center">
