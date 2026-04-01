@@ -30,10 +30,15 @@
 
 - Всяка безкрайна точка (бележим ги с "U") има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)). Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка задава "направлението" на дадена права.
 - Безкрайна права ще наричаме множеството от всички безкрайни точки:
+
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7BU(x,y,0)%20%7C%20(x,y)%20%5Cneq%20(0,0)%5C%7D" />
 </p>
 - В сила е твърдението: 
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_g%20%3D%20g%20%5Ccap%20%5Comega" />
+</p>
 
 # Разширена евклидова равнина. Линейни трансформации на ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%7B%5Cstar%7D) #
 # Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) #
