@@ -28,19 +28,27 @@
 
 ### Най-важните неща ###
 
-- Всяка безкрайна точка (бележим ги с "U") има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)). Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка задава "направлението" на дадена права.
+- Безкрайна точка на правата ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cell) наричаме множеството:
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_%7B%5Cell%7D%20%3A%3D%20%5C%7B%5Cforall%20%5Cell'%20%7C%20%5Cell'%20%5Cparallel%20%5Cell%5C%7D%20%3D%20%5C%7B%5Cforall%20%5Cell'%20%7C%20%5Cell'%20%5Cparallel%20%5Cell%20%5Cvee%20%5Cell'%20%5Cequiv%20%5Cell%5C%7D" />
+</p>
+
+Всяка безкрайна точка (бележим ги с "![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U)") има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)). Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка е клас на еквивалентност, породен от релацията “направление”.
+
 - Безкрайна права ще наричаме множеството от всички безкрайни точки:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7BU(x,y,0)%20%7C%20(x,y)%20%5Cneq%20(0,0)%5C%7D" />
 </p>
 
-- В сила е твърдението: 
+- В сила е Твърдение 1: 
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_g%20%3D%20g%20%5Ccap%20%5Comega" />
 </p>
 
+- В сила е Твърдение 2: 
+- 
 # Разширена евклидова равнина. Линейни трансформации на разширената евклидова равнина #
 # Хомогенни координати в пространството #
 # Безкрайни елементи в пространството #
