@@ -35,6 +35,10 @@
 
 Всяка безкрайна точка (бележим ги с "![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U)") има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)). Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка е клас на еквивалентност, породен от релацията “направление”.
 
+<p align="center">
+  <img src="images/IMG_1074.jpg" width="500"/>
+</p>
+
 - Безкрайна права ще наричаме множеството от всички безкрайни точки:
 
 <p align="center">
