@@ -1,5 +1,5 @@
 ## Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
-### Tips: ###
+
 В двумерната евклидова равнина въвеждаме релация на еквивалентност, която дефинира структурата на хомогенните координати:
 
 <p align="center">
@@ -16,7 +16,11 @@
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
 </p>
 
-- Ако видите точка от вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(\rho%20x,\rho%20y,\rho%20t)), пишете я ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(%20x,%20y,%20t)) за по-малко сметки.
+### Tip: ###
+
+---
+Ако видите точка от вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(\rho%20x,\rho%20y,\rho%20t)), пишете я ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(%20x,%20y,%20t)) за по-малко сметки.
+---
 
 ## Безкрайни елементи в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
 ## Разширена евклидова равнина. Линейни трансформации на ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%7B%5Cstar%7D) ##
