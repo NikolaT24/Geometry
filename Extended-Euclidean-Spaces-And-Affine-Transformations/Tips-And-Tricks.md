@@ -11,7 +11,7 @@
 </p>
 
 ## Безкрайни елементи в равнината ##
-
+## Разширено евклидово пространство. Линейни трансформации на ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%7B%5Cstar%7D) ##
 ## Хомогенни координати в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) ##
 ## Безкрайни елементи в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_3) ##
 ## Разширено евклидово пространство ##
