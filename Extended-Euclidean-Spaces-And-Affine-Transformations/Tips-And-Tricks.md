@@ -6,7 +6,9 @@
 - ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(x,y,t)%5Csim(\rho%20x,\rho%20y,\rho%20t),%20%5Crho%5Cneq0)
 
 Пример:
-- ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2))
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
+</p>
 ## Безкрайни елементи в равнината ##
 
 ## Homogeneous coordinates in space ##
