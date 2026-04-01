@@ -1,6 +1,6 @@
 ## Homogeneous coordinates in the plane ##
 # Tips: #
-- Understand that $(x,y,t)=(\rho x, \rho y, \rho t)$ for an arbitrary point $M(x,y) \in E\_2$
+- Understand that $(x,y,t)=(\rho x, \rho y, \rho t)$ where $\rho$ is a nonzero coefficient of proportionality.
 ## Infinite elements in the plane ##
 ## Homogeneous coordinates in space ##
 ## Infinite elements in space ##
