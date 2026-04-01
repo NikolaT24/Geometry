@@ -9,12 +9,14 @@
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
 </p>
+
 ## Безкрайни елементи в равнината ##
 
-## Homogeneous coordinates in space ##
-## Infinite elements in space ##
-## Linear transformations ##
-## 🔹Affine & Orthogonal Transformations ##
-- In the plane
-- In space
+## Хомогенни координати в пространството ##
+## Безкрайни елементи в пространството ##
+## Разширено евклидово пространство ##
+## Централно проектиране ##
+## Афинни и ортогонални трансформации в ![eq](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2) ##
+## Класификация на еднаквостите в 
+## Афинни и ортогонални трансформации в пространството ##
 ## 🔹 Rotations using Quaternions ##
