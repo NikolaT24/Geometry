@@ -86,10 +86,14 @@
 Общото уравнение на права в равнината, в хомогенни координати, е:
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20g:%20Ax%2BBy%2BCt%3D0" />
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20Ax%2BBy%2BCt%3D0%2C%20(A,B)%5Cneq(0,0)" />
 </p>
 
 и пишем:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20g%5BA,B,C%5D" />
+</p>
 
 ---
 
