@@ -81,13 +81,15 @@
 
 Две прави са обобщено успоредни тогава и само тогава, когато безкрайните им точки съвпадат.
 
-#### 📌 Твърдение 2
+#### 📌 Твърдение 3
 
 Общото уравнение на права в равнината, в хомогенни координати, е:
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20Ax%2BBy%2BCt%3D0" />
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20g:%20Ax%2BBy%2BCt%3D0" />
 </p>
+
+и пишем:
 
 ---
 
