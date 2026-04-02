@@ -11,8 +11,6 @@
   <img src="https://latex.codecogs.com/svg.image?%5Cforall%20x,y%20%5Cin%20%5Cmathbb%7BE%7D_2%2C%20x%20%5Csim%20y%20%5CLeftrightarrow%20%5Cexists%20%5Clambda%20%5Cin%20%5Cmathbb%7BR%7D%20%5Cbackslash%20%5C%7B0%5C%7D%20%3A%20x%20%3D%20%5Clambda%20y" />
 </p>
 
----
-
 ## 🔄 Хомогенни координати
 
 Нека относно АКС в равнината е дадена крайна точка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(X,Y)). Ясно е, че наредената двойка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(X,Y)) е еднозначно определена. Дефинираме хомогенни координати на точка като ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cforall(x,y,t)%2C%20t%5Cneq0), за която е в сила:
@@ -33,8 +31,6 @@
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
 </p>
 
----
-
 ## 💡 Tip
 
 > Ако видите точка от вида  
@@ -42,8 +38,6 @@
 > пишете я  
 > ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(%20x,%20y,%20t))  
 > за по-малко сметки.
-
----
 
 # 🌌 Безкрайни елементи в равнината
 
