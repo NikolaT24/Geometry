@@ -73,11 +73,9 @@
 
 #### 📌 Твърдение 1
 
-<p align="center">
+> <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_g%20%3D%20g%20%5Ccap%20%5Comega" />
 </p>
-
----
 
 #### 📌 Твърдение 2
 
