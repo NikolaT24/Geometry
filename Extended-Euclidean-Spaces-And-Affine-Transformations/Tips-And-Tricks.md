@@ -68,7 +68,7 @@
 Безкрайна права ще наричаме множеството от всички безкрайни точки:
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\Large%20U_\ell%20:=%20\left\{\forall%20\ell'%20\mid%20\ell'%20\overset{\circ}{\parallel}\ell\right\}%20=%20\left\{\forall%20\ell'%20\mid%20\ell'%20\parallel%20\ell%20\vee%20\ell'%20\equiv%20\ell\right\}" />
+  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7B%5Cforall%20U(x,y,0)%20%7C%20(x,y)%5Cneq(0,0)%5C%7D" />
 </p>
 
 ### 📘 Твърдения
