@@ -15,7 +15,7 @@
 
 ## 🔄 Хомогенни координати
 
-Нека относно АКС в равнината е дадена крайна точка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(X,Y)). Ясно е, че наредената двойка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(X,Y)) е еднозначно определена. Дефинираме хомогенни координати на точка като ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(X,Y)), за която е в сила:
+Нека относно АКС в равнината е дадена крайна точка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(X,Y)). Ясно е, че наредената двойка ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(X,Y)) е еднозначно определена. Дефинираме хомогенни координати на точка като ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cforall(x,y,t)%2C%20t%5Cneq0), за която е в сила:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cfrac%7Bx%7D%7Bt%7D%20%3D%20X%2C%20%5Cfrac%7By%7D%7Bt%7D%20%3D%20Y" />
