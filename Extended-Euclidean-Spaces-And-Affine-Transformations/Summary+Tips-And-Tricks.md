@@ -140,101 +140,84 @@
 # 12. Представяне на ротациите в пространството чрез кватерниони #
 # 13. Сферична линейна интерполация #
 
-Сферичната линейна интерполация (Spherical Linear Interpolation, SLERP) е метод за плавно преминаване между две точки върху сфера. Тя се използва широко в компютърната графика, анимацията и 3D ротациите, особено при работа с кватерниони.
+# Сферична линейна интерполация (SLERP)
+
+Сферичната линейна интерполация (Spherical Linear Interpolation, SLERP) е метод за плавно преминаване между две точки върху сфера. Използва се широко в компютърната графика и 3D ротации.
 
 ---
 
 ## Най-важното
 
-- Осигурява **равномерно движение по дъга** върху сфера
-- Избягва изкривявания, характерни за линейната интерполация (LERP)
-- Запазва **константна ъглова скорост**
-- Използва се при:
-  - анимации
-  - ротации в 3D пространство
-  - ориентация на обекти
+- Равномерно движение по дъга върху сфера
+- Константна ъглова скорост
+- Геодезичен (най-къс) път
+- Избягва артефакти от линейната интерполация
 
 ---
 
 ## Дефиниции
 
-**Сферична линейна интерполация (SLERP):**
+**SLERP формула:**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\mathrm{SLERP}(v_0,v_1,t)=\frac{\sin((1-t)\theta)}{\sin(\theta)}v_0+\frac{\sin(t\theta)}{\sin(\theta)}v_1"/>
+  <img src="https://latex.codecogs.com/svg.image?\mathrm{SLERP}(v_0,v_1,t)=\frac{\sin((1-t)\theta)}{\sin(\theta)}v_0+\frac{\sin(t\theta)}{\sin(\theta)}v_1"/>
 </p>
+
+**Ъгъл между векторите:**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\theta=\arccos(v_0\cdot%20v_1)"/>
+  <img src="https://latex.codecogs.com/svg.image?\theta=\arccos(v_0\cdot v_1)"/>
 </p>
-
-- \( v_0 \) и \( v_1 \) са нормализирани вектори  
-- \( t \in [0,1] \)  
-- \( \theta \) е ъгълът между тях  
 
 ---
 
 ## Твърдения
 
-1. **Запазване на нормата**
+**1. Запазване на нормата**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\|\mathrm{SLERP}(v_0,v_1,t)\|=1"/>
+  <img src="https://latex.codecogs.com/svg.image?\|\mathrm{SLERP}(v_0,v_1,t)\|=1"/>
 </p>
 
 ---
 
-2. **Постоянна ъглова скорост**
+**2. Постоянна ъглова скорост**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\theta(t)=t\theta"/>
+  <img src="https://latex.codecogs.com/svg.image?\theta(t)=t\theta"/>
 </p>
 
 ---
 
-3. **Най-къс път върху сфера**
-
-SLERP следва геодезична линия (дъга от голям кръг).
-
----
-
-4. **Приближение към линейна интерполация**
+**3. Приближение към LERP**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\lim_{\theta\to0}\mathrm{SLERP}\approx\mathrm{LERP}"/>
+  <img src="https://latex.codecogs.com/svg.image?\lim_{\theta\to0}\mathrm{SLERP}\approx\mathrm{LERP}"/>
 </p>
 
 ---
 
 ## Доказателства
 
-**1. За запазване на нормата**
+**Коефициенти:**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20\frac{\sin((1-t)\theta)}{\sin(\theta)},\quad\frac{\sin(t\theta)}{\sin(\theta)}"/>
+  <img src="https://latex.codecogs.com/svg.image?\frac{\sin((1-t)\theta)}{\sin(\theta)},\quad\frac{\sin(t\theta)}{\sin(\theta)}"/>
 </p>
 
-Коефициентите гарантират, че резултатът остава върху единичната сфера.
+Тези коефициенти гарантират, че резултатът остава върху единичната сфера.
 
 ---
 
-**2. За постоянна ъглова скорост**
+**Линейна зависимост на ъгъла:**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.image?\dpi{110}\large%20t\theta"/>
+  <img src="https://latex.codecogs.com/svg.image?t\theta"/>
 </p>
-
-Промяната на ъгъла е линейна ⇒ движението е равномерно.
-
----
-
-**3. За най-къс път**
-
-Големите окръжности върху сфера са геодезични линии, които минимизират разстоянието.
 
 ---
 
 ## Заключение
 
-SLERP е геометрично коректен начин за интерполация в сферично пространство.  
-Докато LERP “реже” през сферата, SLERP се движи по повърхността ѝ като гладка орбитална траектория.
+SLERP е геометрично коректен метод за интерполация върху сфера.  
+Той следва естествената геометрия на пространството, вместо да "реже" през него.
