@@ -166,7 +166,7 @@
 **Ъгъл между векторите:**
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\theta=\arccos(v_0\cdot v_1)"/>
+  <img src="https://latex.codecogs.com/svg.image?%5Ctheta%20%3D%20%5Carccos%28v_0%20%5Ccdot%20v_1%29"/>
 </p>
 
 ---
