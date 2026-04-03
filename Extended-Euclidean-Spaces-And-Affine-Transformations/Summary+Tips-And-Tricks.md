@@ -142,26 +142,126 @@
 
 # Сферична линейна интерполация (SLERP)
 
+# Сферична линейна интерполация (SLERP)
+
+Сферичната линейна интерполация (SLERP) е геодезична интерполация върху единичната сфера \( S^n \), използвана за плавни преходи между ориентации и посоки.
+
+---
+
+## Най-важното
+
+- Интерполация по **най-късия път** върху сфера (геодезика)
+- **Константна ъглова скорост**
+- Запазване на **нормата**
+- Числено стабилна при работа с **кватерниони**
+- Фундаментална за **3D ротации и анимации**
+
+---
+
 ## Дефиниции
 
 ### Векторна форма
 
-**SLERP формула:**  
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cfrac%7B%5Csin((1-t)%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_0%2B%5Cfrac%7B%5Csin(t%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_1"/>
 </p>
 
-**Ъгъл между векторите:**  
 <span>
-  <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5Ccdot%20v_1)"/>
+  <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)"/>
+</span>
+
+където \( v_0, v_1 \in S^n \), \( t \in [0,1] \)
+
+---
+
+### Кватернионна форма
+
+<span>
+  <img src="https://latex.codecogs.com/svg.image?q_0,q_1%20%5Cin%20%5Cmathbb%7BH%7D%2C%20%5C%7Cq_0%5C%7C%3D%5C%7Cq_1%5C%7C%3D1"/>
+</span>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0(q_0%5E%7B-1%7Dq_1)%5Et"/>
+</p>
+
+Еквивалентно:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0%5Ccdot%5Cexp%28t%5Clog(q_0%5E%7B-1%7Dq_1)%29"/>
+</p>
+
+---
+
+## Най-важни твърдения
+
+### 1. Запазване на нормата
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5C%7C%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%5C%7C%3D1"/>
+</p>
+
+---
+
+### 2. Константна ъглова скорост
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Ctheta(t)%3Dt%5Ctheta"/>
+</p>
+
+---
+
+### 3. Геодезичност
+
+SLERP параметризира дъга от голям кръг върху сферата.
+
+---
+
+### 4. Инвариантност спрямо ротации
+
+<span>
+  <img src="https://latex.codecogs.com/svg.image?R%5Ccdot%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cmathrm%7BSLERP%7D(Rv_0,Rv_1,t)"/>
 </span>
 
 ---
 
-### Скалярно произведение (с транспониране)
+### 5. Кватернионна групова структура
 
 <span>
-  <img src="https://latex.codecogs.com/svg.image?v_0%5E%7B%5Ctop%7Dv_1"/>
+  <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B-1%7Dq_1"/>
 </span>
 
-(еквивалентно на \( v_0 \cdot v_1 \))
+е относителната ротация, а степента \( t \) интерполира в групата.
+
+---
+
+### 6. Кратък път (sign correction)
+
+<span>
+  <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B%5Ctop%7Dq_1%3C0%20%5CRightarrow%20q_1%20%5Cleftarrow%20-q_1"/>
+</span>
+
+гарантира минимална дъга.
+
+---
+
+### 7. Граничен случай
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?%5Clim_%7B%5Ctheta%5Cto0%7D%5Cmathrm%7BSLERP%7D%3D%5Cmathrm%7BLERP%7D"/>
+</p>
+
+---
+
+## Интуиция
+
+- Векторно: движение по **сфера**
+- Кватернионно: движение в **пространството на ротациите (SO(3))**
+- Алгебрично: линейност в **ъгловото пространство**
+- Геометрично: „дъга вместо хорда“
+
+---
+
+## Заключение
+
+SLERP е каноничният начин за интерполация на ротации.  
+Той съчетава геометрия, алгебра и числена стабилност в една формула, която следва естествената структура на пространството.
