@@ -170,7 +170,7 @@
   <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)"/>
 </span>
 
-където \( v_0, v_1 \in S^n \), \( t \in [0,1] \)
+където <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)"/> , <img src="https://latex.codecogs.com/svg.image?v_0%2Cv_1%20%5Cin%20S%5En%20%5Cwedge%20t%20%5Cin%20%5B0%2C1%5D"/>.
 
 ---
 
