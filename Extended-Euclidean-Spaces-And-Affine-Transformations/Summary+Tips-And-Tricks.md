@@ -142,109 +142,26 @@
 
 # Сферична линейна интерполация (SLERP)
 
-Сферичната линейна интерполация (Spherical Linear Interpolation, SLERP) е метод за плавен преход между ориентации или точки върху единична сфера. Тя е фундаментален инструмент в компютърната графика, роботиката и 3D ротациите.
-
----
-
-## Най-важното
-
-- Движение по **геодезична линия** (дъга от голям кръг)
-- **Константна ъглова скорост**
-- Без деформации, характерни за LERP
-- Естествена работа с **кватерниони**
-
----
-
 ## Дефиниции
 
 ### Векторна форма
 
+**SLERP формула:**  
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cfrac%7B%5Csin((1-t)%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_0%2B%5Cfrac%7B%5Csin(t%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_1"/>
 </p>
 
-<p align="center">
+**Ъгъл между векторите:**  
+<span>
   <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5Ccdot%20v_1)"/>
-</p>
+</span>
 
 ---
 
-### Кватернионна форма
+### Скалярно произведение (с транспониране)
 
-Нека \( q_0, q_1 \in \mathbb{H} \) са нормализирани кватерниони.
+<span>
+  <img src="https://latex.codecogs.com/svg.image?v_0%5E%7B%5Ctop%7Dv_1"/>
+</span>
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3D(q_0%20(q_0%5E%7B-1%7Dq_1)%5Et)"/>
-</p>
-
-Еквивалентно:
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0%5Ccdot%5Cexp%28t%5Clog(q_0%5E%7B-1%7Dq_1)%29"/>
-</p>
-
----
-
-## Твърдения
-
-### 1. Запазване на нормата
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5C%7C%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%5C%7C%3D1"/>
-</p>
-
----
-
-### 2. Постоянна ъглова скорост
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctheta(t)%3Dt%5Ctheta"/>
-</p>
-
----
-
-### 3. Геодезичен път
-
-SLERP следва най-късата дъга върху единичната сфера.
-
----
-
-### 4. Граничен случай (LERP)
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Clim_%7B%5Ctheta%5Cto0%7D%5Cmathrm%7BSLERP%7D%5Capprox%5Cmathrm%7BLERP%7D"/>
-</p>
-
----
-
-## Доказателства (интуитивни)
-
-### Коефициенти
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Csin((1-t)%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7D%2C%5Cquad%5Cfrac%7B%5Csin(t%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7D"/>
-</p>
-
-Те осигуряват, че резултатът остава върху сферата.
-
----
-
-### Линейност в ъгловото пространство
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?t%5Ctheta"/>
-</p>
-
----
-
-### Кватернионна интерпретация
-
-Кватернионите описват ротации чрез експоненциална карта.  
-SLERP реализира линейна интерполация в **логаритмичното пространство на ротациите**.
-
----
-
-## Заключение
-
-SLERP е естественият език на ротациите.  
-Ако LERP е хорда през сферата, SLERP е самата дъга, която знае как да остане вярна на формата на пространството.
+(еквивалентно на \( v_0 \cdot v_1 \))
