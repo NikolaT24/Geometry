@@ -165,7 +165,7 @@
 където 
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\theta=\arccos(v_0^\top v_1),\; v_0, v_1 \in S^n \wedge t \in [0,1]" />
+  <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)%2C%5C%3Bv_0%2Cv_1%5Cin%20S%5En%20%5Cwedge%20t%5Cin%20%5B0%2C1%5D" />
 </p>
 
 ---
