@@ -165,7 +165,7 @@
 където 
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\forall x,y \in \mathbb{E}_2,\; x \sim y \Leftrightarrow \exists \lambda \in \mathbb{R} \backslash \{0\} : x = \lambda y" />
+  <img src="https://latex.codecogs.com/svg.image?\forall x,y \in \mathbb{E}_2,\; x \sim y \Leftrightarrow \exists \lambda \in \mathbb{R} \setminus \{0\} : x = \lambda y,\; v_0, v_1 \in S^n,\; t \in [0,1]" />
 </p>
 
 ---
