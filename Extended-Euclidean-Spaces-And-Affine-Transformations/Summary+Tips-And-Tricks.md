@@ -238,7 +238,7 @@ SLERP параметризира дъга от голям кръг върху с
 ### 7. Граничен случай
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Clim_%7B%5Ctheta%5Cto0%7D%5Cmathrm%7BSLERP%7D%3D%5Cmathrm%7BLERP%7D"/>
+  <img src="https://latex.codecogs.com/svg.image?%5Clim_%7B%5Ctheta(v_0%2Cv_1)%5Cto0%7D%5Cmathrm%7BSLERP%7D(v_0%2Cv_1%2Ct)%3D%5Cfrac%7B(1-t)v_0%2Btv_1%7D%7B%5C%7C(1-t)v_0%2Btv_1%5C%7C%7D%3D%5Cmathrm{normalize}(%5Cmathrm{LERP}(v_0%2Cv_1%2Ct))" />
 </p>
 
 ---
