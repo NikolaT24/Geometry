@@ -211,15 +211,10 @@ SLERP параметризира дъга от голям кръг върху с
 ---
 
 ### 4. Инвариантност спрямо ротации
-Нека ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20v_0%2C%20v_1%20%5Cin%20S%5En) и ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)%20%3D%20%5Cmathrm%7BSLERP%7D(v_0%2C%20v_1%2C%20t)) е геодезичната дъга.  
-Тогава за всяка ротация ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20R%20%5Cin%20SO(n)) имаме, че ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)) е еквивариантна спрямо действието на групата.
+Нека ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20v_0%2C%20v_1%20%5Cin%20S%5En) и ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)%20%3D%20%5Cmathrm%7BSLERP%7D(v_0%2C%20v_1%2C%20t)) е геодезичната дъга. Тогава за всяка ротация ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20R%20%5Cin%20SO(n)) имаме, че ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)) е еквивариантна спрямо действието на групата.
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?R%5Cgamma(t)%3D%5Cmathrm%7BSLERP%7D(Rv_0%2CRv_1%2Ct)%2C%5Cquad%20%5Cforall%20t%5Cin%5B0%2C1%5D" />
-</p>
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?R%5Ccdot%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cmathrm%7BSLERP%7D(Rv_0,Rv_1,t)"/>
 </p>
 
 ---
