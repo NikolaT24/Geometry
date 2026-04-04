@@ -214,9 +214,9 @@ SLERP параметризира дъга от голям кръг върху с
 
 ### 4. Инвариантност спрямо ротации
 
-<span>
-  <img src="https://latex.codecogs.com/svg.image?R%5Ccdot%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cmathrm%7BSLERP%7D(Rv_0,Rv_1,t)"/>
-</span>
+<div style="text-align: center;">
+  <img src="https://latex.codecogs.com/svg.image?R%5Ccdot%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cmathrm%7BSLERP%7D(Rv_0,Rv_1,t)" />
+</div>
 
 ---
 
