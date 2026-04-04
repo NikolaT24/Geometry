@@ -164,9 +164,9 @@
 
 където 
 
-<div style="text-align: center;">
-  <img src="https://latex.codecogs.com/svg.image?\theta=\arccos(v_0^\top v_1),\quad v_0,v_1 \in S^n,\; t \in [0,1]" />
-</div>
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\forall x,y \in \mathbb{E}_2,\; x \sim y \Leftrightarrow \exists \lambda \in \mathbb{R} \backslash \{0\} : x = \lambda y" />
+</p>
 
 ---
 
