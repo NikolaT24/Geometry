@@ -162,7 +162,11 @@
   <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cfrac%7B%5Csin((1-t)%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_0%2B%5Cfrac%7B%5Csin(t%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_1"/>
 </p>
 
-където <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)"/> , <img src="https://latex.codecogs.com/svg.image?v_0%2Cv_1%20%5Cin%20S%5En%20%5Cwedge%20t%20%5Cin%20%5B0%2C1%5D"/>.
+където 
+
+<div style="text-align: center;">
+  <img src="https://latex.codecogs.com/svg.image?\theta=\arccos(v_0^\top v_1),\quad v_0,v_1 \in S^n,\; t \in [0,1]" />
+</div>
 
 ---
 
