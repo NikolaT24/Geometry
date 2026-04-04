@@ -224,7 +224,7 @@ SLERP параметризира дъга от голям кръг върху с
 
 <span>
   <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B-1%7Dq_1"/>
-</span> е относителната ротация, а степента <img src="https://latex.codecogs.com/svg.image?t" style="display:inline; vertical-align:middle;" /> интерполира в групата.
+</span> е относителната ротация, а степента ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20t) интерполира в групата.
 
 ---
 
