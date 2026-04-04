@@ -172,12 +172,16 @@
 
 ### Кватернионна форма
 
+За 
+
 <span>
   <img src="https://latex.codecogs.com/svg.image?q_0,q_1%20%5Cin%20%5Cmathbb%7BH%7D%2C%20%5C%7Cq_0%5C%7C%3D%5C%7Cq_1%5C%7C%3D1"/>
 </span>
 
+имаме
+
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0(q_0%5E%7B-1%7Dq_1)%5Et"/>
+  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0(q_0%5E%7B-1%7Dq_1)%5E%7B%5Ctop%7D" />
 </p>
 
 Еквивалентно:
