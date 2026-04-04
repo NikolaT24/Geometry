@@ -224,7 +224,7 @@ SLERP параметризира дъга от голям кръг върху с
 
 <span>
   <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B-1%7Dq_1"/>
-</span> е относителната ротация, а степента t интерполира в групата.
+</span> е относителната ротация, а степента <img src="https://latex.codecogs.com/svg.image?t" /> интерполира в групата.
 
 ---
 
@@ -232,9 +232,7 @@ SLERP параметризира дъга от голям кръг върху с
 
 <span>
   <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B%5Ctop%7Dq_1%3C0%20%5CRightarrow%20q_1%20%5Cleftarrow%20-q_1"/>
-</span>
-
-гарантира минимална дъга.
+</span> гарантира минимална дъга.
 
 ---
 
