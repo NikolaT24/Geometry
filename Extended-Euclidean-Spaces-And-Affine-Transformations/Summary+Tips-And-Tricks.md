@@ -186,6 +186,7 @@
 
 <p align="center">
   <img src="images/IMG_1390.jpeg" width="500"/><br>
+  
 ---
 
 ## Най-важни твърдения
