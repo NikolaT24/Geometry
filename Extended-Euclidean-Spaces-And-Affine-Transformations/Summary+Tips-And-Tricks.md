@@ -184,6 +184,8 @@
   <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0%5Ccdot%5Cexp%28t%5Clog(q_0%5E%7B-1%7Dq_1)%29"/>
 </p>
 
+<p align="center">
+  <img src="images/IMG_1390.jpeg" width="500"/><br>
 ---
 
 ## Най-важни твърдения
