@@ -132,13 +132,13 @@
 В нея въвеждаме за удобство координатните изображения:
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\mathcal{P}:\mathcal{P}\to\mathbb{R}^{3\times1},\;X(x,y,t)\mapsto\begin{pmatrix}x\\y\\t\end{pmatrix}" />
+  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{P}}:\mathcal{P}\to\mathbb{R}^{3\times1},\;X(x,y,t)\mapsto\begin{pmatrix}x\\y\\t\end{pmatrix}" />
 </p>
 
 и
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\mathcal{L}:\mathcal{L}\to\mathbb{R}^{1\times3},\;\ell[A_\ell,B_\ell,C_\ell]\mapsto[A_\ell\;B_\ell\;C_\ell]" />
+  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{L}}:\mathcal{L}\to\mathbb{R}^{1\times3},\;\ell\mapsto[A_\ell\;B_\ell\;C_\ell]" />
 </p>
 
 # 4. Хомогенни координати в пространството #
