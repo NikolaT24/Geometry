@@ -138,7 +138,7 @@
 и
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{L}}:\mathcal{L}\to\mathbb{R}^{1\times3},\;\ell\mapsto[A_\ell\;B_\ell\;C_\ell]" />
+  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{L}}:\mathcal{L}\to\mathbb{R}^{1\times3},\;\ell[A_\ell,B_\ell,C_\ell]\mapsto[A_\ell\;B_\ell\;C_\ell]" />
 </p>
 
 # 4. Хомогенни координати в пространството #
