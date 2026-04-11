@@ -30,7 +30,7 @@ Matrix4 calculateProjectionMatrix(const Vector4& C, const Vector4& pi) {
     float lambda = dot(pi, C);
 
     if (std::abs(lambda) < 1e-6f) {
-        throw std::invalid_argument("Грешка: Центърът на проекция лежи в проекционната равнина.");
+        throw std::invalid_argument("Грешка: Проекционният център лежи в проекционната равнина.");
     }
 
     Matrix4 M;
@@ -53,7 +53,7 @@ int main() {
     try {
         Matrix4 M = calculateProjectionMatrix(C, pi);
         
-        std::cout << "Matrix of Central Projection M:" << std::endl;
+        std::cout << "Матрицата M на централното проектиране:" << std::endl;
         M.print();
         
     } catch (const std::exception& e) {
