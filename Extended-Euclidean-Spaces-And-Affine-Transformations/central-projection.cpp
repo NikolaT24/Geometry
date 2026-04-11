@@ -30,7 +30,7 @@ Vector4 calculateProjection(const Vector4& C, const Vector4& pi, const Vector4& 
     float pi_dot_C = dot(pi, C);
 
     if (std::abs(pi_dot_C) < 1e-6f) {
-        throw std::invalid_argument("Грешка: Центърът на проекция лежи в проекционната равнина.");
+        throw std::invalid_argument("Грешка: Проекционният център лежи в проекционната равнина.");
     }
 
     return (pi_dot_P * C) - (pi_dot_C * P);
