@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+% First diagram
+\begingroup
+\shorthandoff{"}
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+& \mathbb{E}_2^* \arrow[dr, "\varphi"] & \\
+\omega \arrow[ur, hook] \arrow[rr, "\varphi|_{\omega}"'] & & \mathbb{E}_2^*
+\end{tikzcd}
+\]
+\endgroup
+
+% Second diagram
+\begingroup
+\shorthandoff{"}
+\[
+\begin{tikzcd}[row sep=3em, column sep=4em]
+\mathbb{E}_2 \arrow[r, hook] \arrow[dr, "\Phi_1"'] 
+& \mathbb{E}_2^\star \arrow[d, "\Phi"] 
+& \omega \arrow[l, hook'] \arrow[dl, "\Phi_2"] \\
+& \mathbb{P}^2(\mathbb{R}) &
+\end{tikzcd}
+\]
+\endgroup
+
+\end{document}
