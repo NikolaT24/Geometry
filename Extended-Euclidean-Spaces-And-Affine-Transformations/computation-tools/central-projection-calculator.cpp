@@ -1,62 +1,67 @@
 #include <iostream>
-#include <cmath>
-#include <stdexcept>
+#include <vector>
 #include <iomanip>
 
-struct Vector4 {
-    float x, y, z, t;
-
-    Vector4(float x = 0, float y = 0, float z = 0, float t = 0) : x(x), y(y), z(z), t(t) {}
-
-    Vector4 operator-(const Vector4& b) const {
-        return Vector4(x - b.x, y - b.y, z - b.z, t - b.t);
-    }
-
-    Vector4 operator*(float scalar) const {
-        return Vector4(scalar * x, scalar * y, scalar * z, scalar * t);
-    }
-};
-
-Vector4 operator*(float scalar, const Vector4& v) {
-    return v * scalar;
-}
-
-float dot(const Vector4& a, const Vector4& b) {
-    return a.x * b.x + a.y * b.y + a.z * b.z + a.t * b.t;
-}
-
-Vector4 calculateProjection(const Vector4& C, const Vector4& pi, const Vector4& P) {
-    float pi_dot_P = dot(pi, P);
-    float pi_dot_C = dot(pi, C);
-
-    if (std::abs(pi_dot_C) < 1e-6f) {
-        throw std::invalid_argument("Грешка: Проекционният център лежи в проекционната равнина.");
-    }
-
-    return (pi_dot_P * C) - (pi_dot_C * P);
-}
-
 int main() {
-    Vector4 C(0.0f, 0.0f, 10.0f, 1.0f);
-    Vector4 pi(0.0f, 0.0f, 1.0f, 0.0f);
-    Vector4 P(3.0f, 4.0f, 5.0f, 1.0f);
-
-    try {
-        Vector4 P_prime = calculateProjection(C, pi, P);
-        
-        std::cout << std::fixed << std::setprecision(2);
-        std::cout << "(" << P_prime.x << ", " << P_prime.y << ", " 
-                  << P_prime.z << ", " << P_prime.t << ")" << std::endl;
-
-        if (std::abs(P_prime.t) > 1e-6f) {
-            float invT = 1.0f / P_prime.t;
-            std::cout << "(" << P_prime.x * invT << ", " 
-                      << P_prime.y * invT << ", " 
-                      << P_prime.z * invT << ")" << std::endl;
-        }
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+    std::cout << "Enter the coordinates for the center of projection S (x y z t):" << std::endl;
+    std::vector<double> S(4);
+    for (int i = 0; i < 4; ++i) {
+        std::cin >> S[i];
     }
+
+    std::cout << "Enter the coefficients of the projection plane pi (A B C D):" << std::endl;
+    std::vector<double> pi(4);
+    for (int i = 0; i < 4; ++i) {
+        std::cin >> pi[i];
+    }
+
+    std::cout << "Enter the coordinates of the point to project X (x y z t):" << std::endl;
+    std::vector<double> X(4);
+    for (int i = 0; i < 4; ++i) {
+        std::cin >> X[i];
+    }
+    
+    double pi_S = 0.0;
+    for (int i = 0; i < 4; ++i) {
+        pi_S += pi[i] * S[i];
+    }
+
+    if (pi_S == 0.0) {
+        std::cerr << "Error: The center of projection S lies on the projection plane pi." << std::endl;
+        std::cerr << "Central projection is undefined in this case." << std::endl;
+        return 1;
+    }
+
+    std::vector<std::vector<double>> M(4, std::vector<double>(4, 0.0));
+    
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            // Start with the outer product: S_i * pi_j
+            double outer_product_element = S[i] * pi[j];
+            
+            // Subtract from the scaled identity matrix element
+            if (i == j) {
+                M[i][j] = pi_S - outer_product_element;
+            } else {
+                M[i][j] = 0.0 - outer_product_element;
+            }
+        }
+    }
+
+    std::vector<double> X_star(4, 0.0);
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            X_star[i] += M[i][j] * X[j];
+        }
+    }
+
+    std::cout << "\n--- Results ---\n";
+    std::cout << "Projected Point X* in homogeneous coordinates:\n";
+    std::cout << "[ ";
+    for (int i = 0; i < 4; ++i) {
+        std::cout << std::fixed << std::setprecision(4) << X_star[i] << (i < 3 ? ", " : " ");
+    }
+    std::cout << "]" << std::endl;
 
     return 0;
 }
