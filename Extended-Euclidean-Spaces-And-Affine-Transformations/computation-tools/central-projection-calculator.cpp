@@ -36,10 +36,8 @@ int main() {
     
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {
-            // Start with the outer product: S_i * pi_j
             double outer_product_element = S[i] * pi[j];
             
-            // Subtract from the scaled identity matrix element
             if (i == j) {
                 M[i][j] = pi_S - outer_product_element;
             } else {
