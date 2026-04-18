@@ -1,94 +1,62 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <iomanip>
-#include <stdexcept>
+#include <cmath>
 
-using Matrix = std::vector<std::vector<double>>;
+int main() {
+    int n;
+    std::cout << "Enter the dimension of the square matrix: ";
+    std::cin >> n;
 
-Matrix invertMatrix(const Matrix& A) {
-    int n = A.size();
+    std::vector<std::vector<double>> matrix(n, std::vector<double>(2 * n, 0.0));
+
     for (int i = 0; i < n; ++i) {
-        if (A[i].size() != n) {
-            throw std::invalid_argument("Matrix must be square.");
-        }
-    }
-
-    Matrix aug(n, std::vector<double>(2 * n, 0.0));
-    for (int i = 0; i < n; ++i) {
+        std::cout << "Row " << i + 1 << ": ";
         for (int j = 0; j < n; ++j) {
-            aug[i][j] = A[i][j];
+            std::cin >> matrix[i][j];
         }
-        aug[i][i + n] = 1.0;
+        matrix[i][i + n] = 1.0;
     }
 
     for (int i = 0; i < n; ++i) {
-        int pivot = i;
-        for (int j = i + 1; j < n; ++j) {
-            if (std::abs(aug[j][i]) > std::abs(aug[pivot][i])) {
-                pivot = j;
+        int max_row = i;
+        for (int k = i + 1; k < n; ++k) {
+            if (std::abs(matrix[k][i]) > std::abs(matrix[max_row][i])) {
+                max_row = k;
             }
         }
 
-        if (std::abs(aug[pivot][i]) < 1e-9) {
-            throw std::runtime_error("Матрицата е особена и следователно не е обратима.");
+        if (max_row != i) {
+            std::swap(matrix[i], matrix[max_row]);
         }
 
-        if (pivot != i) {
-            std::swap(aug[i], aug[pivot]);
+        if (std::abs(matrix[i][i]) < 1e-9) {
+            std::cerr << "\nError: The matrix is singular and cannot be inverted.\n";
+            return 1;
         }
 
-        double pivotVal = aug[i][i];
+        double pivot = matrix[i][i];
         for (int j = 0; j < 2 * n; ++j) {
-            aug[i][j] /= pivotVal;
+            matrix[i][j] /= pivot;
         }
 
-        for (int j = 0; j < n; ++j) {
-            if (i != j) {
-                double factor = aug[j][i];
-                for (int k = 0; k < 2 * n; ++k) {
-                    aug[j][k] -= factor * aug[i][k];
+        for (int k = 0; k < n; ++k) {
+            if (k != i) {
+                double factor = matrix[k][i];
+                for (int j = 0; j < 2 * n; ++j) {
+                    matrix[k][j] -= factor * matrix[i][j];
                 }
             }
         }
     }
 
-    Matrix inv(n, std::vector<double>(n));
+    std::cout << "\n--- Inverse Matrix ---\n";
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            inv[i][j] = aug[i][j + n];
-        }
-    }
-    return inv;
-}
-
-void printMatrix(const Matrix& M) {
-    for (const auto& row : M) {
         std::cout << "[ ";
-        for (double val : row) {
-            std::cout << std::setw(10) << std::fixed << std::setprecision(4) << val << " ";
+        for (int j = n; j < 2 * n; ++j) {
+            std::cout << std::setw(10) << std::fixed << std::setprecision(4) << matrix[i][j] << " ";
         }
         std::cout << "]\n";
-    }
-}
-
-int main() {
-    Matrix A = {
-        {4.0, 7.0, 2.0},
-        {2.0, 6.0, 1.0},
-        {3.0, 1.0, 8.0}
-    };
-
-    try {
-        std::cout << "Original Matrix:\n";
-        printMatrix(A);
-
-        Matrix invA = invertMatrix(A);
-
-        std::cout << "\nInverse Matrix:\n";
-        printMatrix(invA);
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << "\n";
     }
 
     return 0;
