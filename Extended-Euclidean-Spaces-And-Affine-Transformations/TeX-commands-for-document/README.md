@@ -1,4 +1,4 @@
-## README – Using `Chapter-3-Geometry.tex` in Overleaf
+## Using `Chapter-3-Geometry.tex` in Overleaf
 
 ### Overview
 This section explains how to take the `Chapter-3-Geometry.tex` file, upload it to Overleaf, compile it, and generate a PDF that you can download.
