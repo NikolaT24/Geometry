@@ -1,0 +1,1056 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{tkz-euclide}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{mathrsfs}
+\usepackage{expl3}
+\usepackage{xparse}
+
+\ExplSyntaxOn
+
+\tl_new:N \g__geom_title_tl
+\tl_new:N \g__geom_subtitle_tl
+\tl_new:N \g__geom_author_tl
+
+\cs_new_protected:Npn \__geom_set_metadata:nnn #1#2#3
+  {
+    \tl_gset:Nn \g__geom_title_tl    {#1}
+    \tl_gset:Nn \g__geom_subtitle_tl {#2}
+    \tl_gset:Nn \g__geom_author_tl   {#3}
+  }
+
+\cs_new:Npn \__geom_format_title:
+  { \Huge \textbf{\g__geom_title_tl} }
+
+\cs_new:Npn \__geom_format_subtitle:
+  { \Large \textbf{\g__geom_subtitle_tl} }
+
+\cs_new:Npn \__geom_format_author:
+  { \LARGE \textbf{\g__geom_author_tl} }
+
+\cs_new_protected:Npn \__geom_render_title:
+  {
+    \group_begin:
+    \centering
+    \vspace*{0pt}
+    \__geom_format_title: \\[0.5cm]
+    \__geom_format_subtitle: \\[1cm]
+    \__geom_format_author:
+    \par
+    \group_end:
+  }
+
+\NewDocumentCommand{\geomsetup}{mmm}
+  {
+    \__geom_set_metadata:nnn {#1}{#2}{#3}
+  }
+
+\NewDocumentCommand{\geomtitle}{}
+  {
+    \__geom_render_title:
+  }
+
+\ExplSyntaxOff
+
+\geomsetup
+  {Геометрия - III част}
+  {Спец. Софтуерно Инженерство}
+  {Никола Топалов}
+
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    a4paper
+}
+
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan
+}
+
+\newtcbox{\eqbox}{
+  nobeforeafter,
+  math upper,
+  tcbox raise base,
+  enhanced,
+  colframe=red,
+  colback=red!10,
+  boxrule=1pt,
+  arc=4pt,
+  left=2pt,
+  right=2pt,
+  top=2pt,
+  bottom=2pt
+}
+
+\renewcommand{\cftpartfont}{\bfseries\Large}
+\renewcommand{\cftpartpagefont}{\bfseries\Large}
+\renewcommand{\cftsecfont}{\Large}
+\renewcommand{\cftsecpagefont}{\Large}
+\renewcommand{\cftdotsep}{1}
+
+\makeatletter
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\makeatother
+
+\newcommand{\inc}{\mathrel{\raisebox{0.18ex}{\small$\mathsf{Z}$}}}
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+\renewcommand{\thepart}{\arabic{part}}
+\renewcommand{\thesection}{\thepart.\arabic{section}}
+
+\begin{document}
+
+\geomtitle
+
+\tableofcontents
+\pagebreak
+\LARGE{\part{Безкрайни елементи и хомогенни координати}}
+\Large{\section{ Хомогенни координати в равнината}}
+\Large{Точките, правите и равнините, изучавани до този момент, ще наричаме \textit{крайни}. Нека относно афинна координатна система в $\mathbb{E}_2$ е дадена точка с координати $M(X,Y)$, които ще наричаме нехомогенни. Ясно е, че наредената двойка $(X,Y)$ се определя еднозначно. Нека $x$ и $y$ са два вектора в $\mathbb{E}_2^\star$. Въвеждаме релацията $$x\sim y\Leftrightarrow\exists\lambda\in\mathbb{R}\backslash\{0\}:x=\lambda y$$
+Лесно се проверява, че ,,$\sim$'' е релация на еквивалентност.\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} $\forall(x,y,t)$, $t\neq 0$, за която е в сила $\dfrac{x}{t}=X$, $\dfrac{y}{t}=Y$, се нарича тройка хомогенни координати на крайната точка $M$.
+\\
+\\
+Например, точката $Q(2,3)$ в хомогенни координати е $Q(2,3,1)$, което е еквивалентно на $Q(4,6,2)\sim Q(-4,-6,-2)\sim Q(2\rho,3\rho,\rho)$, $\rho\neq 0$. Хомогенните координати на точка са с точност до ненулев коефициент на пропорционалност.
+\\ \Large{\section{ Безкрайни елементи в равнината. Разширена евклидова равнина}}
+\Large{\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Множеството $$U_\ell:= \lbrace \forall \ell' | \ell' \overset{\circ}{\parallel}\ell\rbrace= \lbrace \forall \ell'|\ell'\parallel \ell\vee \ell'\equiv \ell\rbrace $$ наричаме безкрайна точка на правата $\ell$. Безкрайната точка е клас на еквивалентност, породен от релацията ``направление''.}
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 1:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Две прави са обобщено успоредни тогава и само тогава, когато безкрайните им точки съвпадат.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека двете прави са $a$ и $b$ и $U_a$ и $U_b$ са съответно техните безкрайни точки.\\
+\
+$(\Rightarrow)$ Нека $a\overset{\circ}{\parallel}b$. Тогава $c\overset{\circ}{\parallel} a\Leftrightarrow c\overset{\circ}{\parallel} b$ и $$U_a=\lbrace \forall c | c \overset{\circ}{\parallel}a\rbrace\Leftrightarrow U_a=\lbrace \forall c | c \overset{\circ}{\parallel}b\rbrace=U_b$$ с което показахме, че $U_a\equiv U_b$.\\
+\\
+$(\Leftarrow)$ Нека $U_a\equiv U_b$. Тогава $\lbrace \forall c | c \overset{\circ}{\parallel}a\rbrace=\lbrace \forall c | c \overset{\circ}{\parallel}b\rbrace$. Нека $g\in\lbrace \forall c | c \overset{\circ}{\parallel}a\rbrace$. Тогава и $g\in\lbrace \forall c | c \overset{\circ}{\parallel}b\rbrace$, т.е. $g\overset{\circ}{\parallel}a\wedge g\overset{\circ}{\parallel} b$, откъдето $a\overset{\circ}{\parallel}b$. $\blacksquare$
+\vspace{0.5cm}
+\Large{Така всички прави от едно направление имат обща безкрайна точка. Ако е дадено множество от прави с направляващ вектор $\vec{g}(a,b)$, то общата им безкрайна точка е $U(a,b,0)$. За да видим защо, нека относно нехомогенни координати, спрямо АКС в $\mathbb{E}_2$, разгледаме правата $g$ по направление на вектора $\vec{g}(a,b)$ и минаваща през точката $M_0(X_0,Y_0)$. Нека $M(X,Y)$ е произволна точка от $g$. За скаларно параметричните уравнения на $g$ имаме, че $$g:\begin{cases}X=X_0+\lambda a\\ Y=Y_0+\lambda b\end{cases},\ \lambda\in\mathbb{R}$$ В хомогенни координати, $M(X,Y,1)\sim M\left(\frac{1}{\lambda}X,\frac{1}{\lambda}Y,\frac{1}{\lambda}\right)$ за $\lambda\neq 0$, тоест при $M\neq M_0$. Така за хомогенните координати $(x,y,t)$ на същата точка $M$ имаме $$x=\dfrac{X}{\lambda},\ y=\dfrac{Y}{\lambda},\ t=\dfrac{1}{\lambda}$$ откъдето $$x=\dfrac{X_0}{\lambda}+a,\ y=\dfrac{Y_0}{\lambda}+b,\ t=\dfrac{1}{\lambda}$$
+Нека оставим $\lambda\to\pm\infty$, при което точката $M$ ще се отдалечава от фиксираната точка $M_0$. Извършвайки граничния преход в горните уравнения получаваме, че $(x,y,t)=(a,b,0)$. Така всъщност излиза, че тройката $(0,0,0)$ не е тройка хомогенни координати на никоя точка, защото $\vec{a}(0,0)=\vec{0}$ не представлява направление на никоя права. Очевидно безкрайните точки нямат нехомогенни координати, предвид това, че са от вида $U(x,y,0)$.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{vanishing_point-ezgif.com-webp-to-png-converter.png}
+    \\
+    \centering\Large{\textit{Визуализация на общата безкрайна точка на успоредни помежду си прави}}
+\end{figure}}
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Разширена крайна права наричаме множеството $$g^\star:=g\cup U_g$$ По-нататък, $g^\star$ ще се означава просто и чрез $g$, като ще считаме, че $U_g\in g$.\\ \\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Разширена евклидова равнина наричаме множеството $$\mathbb{E}_2^\star:=\mathbb{E}_2\cup\omega,\ \text{където}\ \omega:=\{\forall U(x,y,0)|(x,y)\neq(0,0)\}$$
+\\
+Можем да направим извода, че в разширената евклидова равнина $\mathbb{E}_2^\star$ всеки две прави имат поне една обща точка, като неуспоредните помежду си прави имат обща крайна точка, а успоредните помежду си прави имат обща безкрайна точка.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Безкрайна права на $\mathbb{E}_2^\star$ наричаме множеството $\omega$.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{projective-geometry!perspective.jpg}
+    \\
+    \centering\Large{\textit{Визуализация на безкрайната права}}
+\end{figure}
+\\
+\textbf{Уравнение на права в равнината в хомогенни координати}
+\\
+\\
+Нека спрямо афинна координатна система, относно нехомогенни координати, е дадена правата $p:AX+BY+C=0$, $(A,B)\neq(0,0)$. Преминавайки в хомогенни координати получаваме, че $$p:A\dfrac{x}{t}+B\dfrac{y}{t}+C=0\Rightarrow p:Ax+By+Ct=0$$ и означаваме $p[A,B,C]$. Наредената тройка числа $[A,B,C]$ наричаме хомогенни координати на правата $p$. \\ \\
+Да отбележим, че $X\inc \ell\Leftrightarrow \begin{bmatrix} A_\ell & B_\ell & C_\ell\end{bmatrix}\begin{pmatrix} x\\y\\t\end{pmatrix}=0$.
+Нека сега са дадени две различни точки $X_1(x_1,y_1,t_1)$ и $X_2(x_2,y_2,t_2)$. Очевидно $$P_1\not\sim P_2\Leftrightarrow \mathrm{rank}\begin{pmatrix} x_1 & y_1 & t_1 \\ x_2 & y_2 & t_2\end{pmatrix}=2$$ Тогава $\exists!\ell\inc X_1,X_2$.\\
+\\
+Ако $X(x,y,t)$ е произволна точка от правата $g$, то условието за колинеарност на точките $X$, $X_1$ и $X_2$ е: $$g:\mathrm{det}\begin{pmatrix} x & y & t \\ x_1 & y_1 & t_1 \\ x_2 & y_2 & t_2\end{pmatrix}=0$$
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 2:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Параметрични уравнения на правата $\ell\equiv X_1X_2$, относно хомогенни координати, са $$\ell:X=\lambda X_1+\mu X_2, \ (\lambda,\mu)\neq(0,0)$$
+\end{tcolorbox}
+\textit{\textbf{Доказателство:}} Нека $M(X,Y)$ е произволна точка от $\ell$ и нека $M_0(X_0,Y_0)$. За скаларно параметричните уравнения на $g$ имаме, че $$g:\begin{cases}X=X_0+\eta a\\ Y=Y_0+ \eta b\end{cases},\ \eta\in\mathbb{R}$$ където $\vec{0}\neq\vec{g}(a,b)\parallel g$. В хомогенни координати, $M(X,Y,1)\sim M\left(\frac{1}{\eta}X,\frac{1}{\eta}Y,\frac{1}{\eta}\right)$ за $\eta\neq 0$, тоест при $M\not\sim M_0$. Така за хомогенните координати $(x,y,t)$ на същата точка $M$ имаме $$x=\dfrac{X}{\eta},\ y=\dfrac{Y}{\eta},\ t=\dfrac{1}{\eta}$$ откъдето $$x=\dfrac{X_0}{\eta}+a,\ y=\dfrac{Y_0}{\eta}+b,\ t=\dfrac{1}{\eta}$$ Така получаваме системата $$\begin{array}{|l}\eta x=X_0+\eta a \\ \eta y= Y_0+\eta b \\ \eta t=1\end{array}$$ Така краткият запис на уравнението на правата $g$ относно хомогенни координати е $$M=M_0+\lambda U_g$$ Две различни точки $P_1$ и $P_2$ от правата $g$ ще се получат
+при две различни стойности на параметъра $\eta$ (съответно $\eta_1$ и $\eta_2$) чрез $$P_1=M_0+\eta_1U_g\ \text{и}\ P_2=M_0+\eta_2 U_g$$ Заместваме и намираме $$U_g=\dfrac{1}{\eta_2-\eta_1}M_1-\dfrac{1}{\eta_2-\eta_1}M_2\ \text{и}\ M_0=-\dfrac{\eta_2}{\eta_2-\eta_1}P_1-\dfrac{\eta_1}{\eta_2-\eta_1}P_2$$
+Замествайки в $M=M_0+\eta U_g$ окончателно получаваме, че $$g:M=\lambda P_1+\mu P_2\quad \blacksquare$$
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 3:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Безкрайната права $\omega$ има общо урашнение $t=0$.
+\end{tcolorbox}
+\textit{\textbf{Доказателство:}} Нека $U_1(x_1,y_1,t_1)\in\omega$ и $U_2(x_2,y_2,t_2)\in\omega$ са две различни фиксирани точки и нека $X(x,y,t)\in\omega$ е произволна точка. Тогава $t_1=t_2=0$ и $$\omega:\begin{pmatrix}x & y & t \\ x_1 & y_1 & 0 \\ x_2 & y_2 & 0 \end{pmatrix}=0\Rightarrow \mathrm{det}\begin{pmatrix}x_1 & y_1 \\ x_2 & y_2\end{pmatrix}t=0$$
+Тъй като $U_1\not\sim U_2$, то $$\mathrm{rank}\begin{pmatrix}x_1 & y_1 & 0 \\ x_2 & y_2 & 0\end{pmatrix}=2\Rightarrow\mathrm{det}\begin{pmatrix}x_1 & y_1 \\ x_2 & y_2\end{pmatrix}\neq 0$$ Оттук окончателно $\omega:t=0$ (или $\omega[0,0,1]$). $\blacksquare$
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 4:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  За всяка права $g\in\mathbb{E}_2^\star$ и нейната безкрайна точка $U_g$ е изпълнено, че $$U_g=g\cap \omega$$
+\end{tcolorbox}
+\Large{\section{ Хомогенни координати в пространството}}
+\Large{Нека относно афинна координатна система в $\mathbb{E}_3$ е дадена точка с координати $M(X,Y,Z)$.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} $\forall(x,y,z,t)$, за която е в сила $\dfrac{x}{t}=X$, $\dfrac{y}{t}=Y$, $\dfrac{z}{t}=Z$, се нарича четворка хомогенни координати на точката $M(X,Y,Z)$.
+\\
+\\
+\textbf{Уравнение на равнина в хомогенни координати} \\
+\\
+Нека е дадена равнината $\alpha:AX+BY+CZ+D=0$ спрямо АКС в пространството. Преминавайки в хомогенни координати получаваме, че $$\alpha:A\dfrac{x}{t}+B\dfrac{y}{t}+C\dfrac{z}{t}+D=0\Rightarrow \alpha:Ax+By+Cz+Dt=0$$ Пишем $\alpha[A,B,C,D]$. Наредената четворка числа $[A,B,C,D]$ наричаме хомогенни координати на равнината $\alpha$. Да отбележим, че $X\inc\alpha\Leftrightarrow \alpha X=0$ Нека сега са дадени три неколинеарни точки $X_i(x_i,y_i,z_i,t_i)$, $i\in\{1,2,3\}$. Тогава е ясно, че $\exists ! \beta \inc P_i,\ i=1,2,3$. Ако точката $X(x,y,z,t)$ е произволна точка от $\beta$, то условието за компланарност на четирите точки е: $$\beta:\mathrm{det}\begin{pmatrix} x & y & z & t \\ x_1 & y_1 & z_1 & t_1 \\ x_2 & y_2 & z_2 & t_2 \\ x_3 & y_3 & z_3 & t_3 \end{pmatrix}=0$$} 
+\\
+\textbf{\textit{Уравнение на права в пространството в хомогенни координати:}}
+\\
+\\
+Нека $X$ е произволна точка от дадена права $\ell$ и нека $\ell\inc X_1,X_2$. Параметрични уравнения на правата $\ell$ са: $$\ell:\begin{cases} x=\lambda x_1+\mu x_2 \\ y=\lambda y_1+\mu y_2 \\ z=\lambda z_1+\mu z_2 \\ t=\lambda t_1+\mu t_2\end{cases}, \ (\lambda,\mu)\neq(0,0)$$
+Правата $\ell$ можем да зададем и по единствен начин като пресечница на две несъвпадащи равнини:  $$\ell=\alpha_1[A_1,B_1,C_1,D_1]\cap\alpha_2[A_2,B_2,C_2,D_2]$$ където $\alpha_1\not\sim\alpha_2$.\\}
+\Large{\section{ Безкрайни елементи в пространството. Разширено евклидово пространство}}
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Безкрайна права $u_\alpha$ на равнината $\alpha$ наричаме множеството от всички безкрайни точки, инцидентни с равнината $\alpha$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 5:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Две равнини са обобщено успоредни тогава и само тогава, когато безкрайните им прави съвпадат. 
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Да разгледаме равнините $\alpha[A_\alpha,B_\alpha,C_\alpha,D_\alpha]$, $\beta[A_\beta, B_\beta, C_\beta, D_\beta]$ и нека $u_{\alpha}$ и $u_{\beta}$ са съответно техните безкрайни прави. \\
+\\
+($\Rightarrow$) Нека $\alpha\overset{\circ}{\parallel}\beta$.\\
+\\
+\textit{Първи случай:} Нека $\alpha\parallel \beta$. Тогава имаме, че $A_\alpha=kA_\beta$, $B_\alpha=kB_\beta$ и $C_\alpha=kC_\beta$, $k\in\mathbb{R}\backslash\{0\}$. Оттук $\beta[A_\alpha,B_\alpha,C_\alpha,kD_\beta]$ и $$u_{\alpha}=\{\forall(x,y,z,0)\in\alpha\}=\{\forall(x,y,z,0)|A_\alpha x+B_\alpha y+C_\alpha z = 0\}=u_\beta$$ Значи $u_\alpha\equiv u_\beta$.
+\\
+\\
+\textit{Втори случай:} Нека $\alpha\equiv\beta$. Тогава $$u_\alpha=\{\forall(x,y,z,0)\in\alpha\}=\{\forall(x,y,z,0)\in\beta\}=u_\beta$$ и значи $u_\alpha\equiv u_\beta$.
+\\
+\\
+($\Leftarrow$) Нека $u_\alpha\equiv u_\beta$. Тогава $$\{\forall(x,y,z,0)\in\alpha|(x,y,z)\neq(0,0,0)\}=\{\forall(x,y,z,0)\in\beta|(x,y,z)\neq(0,0,0)\}$$ т.е. $$\begin{array}{|l}A_\alpha x+B_\alpha y+C_\alpha z=0 \\ A_\beta x+B_\beta y+C_\beta z=0\end{array},\ (x,y,z)\neq(0,0,0)$$ За да има системата нетривиално решение трябва $$\mathrm{rank}\begin{pmatrix} A_\alpha & B_\alpha & C_\alpha \\ A_\beta & B_\beta & C_\beta\end{pmatrix}=1$$ \\ 
+\textit{Първи случай:} Нека $D_\alpha\neq D_\beta$. Тогава, предвид това, че $A_\alpha=kA_\beta$, $B_\alpha=kB_\beta$ и $C_\alpha=kC_\beta$, $k\in\mathbb{R}\backslash\{0\}$, имаме $\alpha\parallel\beta$.
+\\
+\\
+\textit{Втори случай:} Нека $D_\alpha = D_\beta$. Аналогично на първия случай получаваме, че $\alpha\equiv\beta$.\\
+Така $\alpha\overset{\circ}{\parallel}\beta$. $\blacksquare$
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{beautiful-sunset-by-the-sea-free-photo-ezgif.com-webp-to-png-converter.png}
+    \\
+    \centering\Large{\textit{Визуализация на общата безкрайна права на успоредни помежду си равнини (в случая равнината на морето и равнината на небето)}}
+\end{figure}
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Разширена крайна равнина наричаме множеството $$\alpha^\star:=\alpha\cup u_{\alpha}$$
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Разширено евклидово пространство наричаме множеството $$\mathbb{E}_3^\star:=\mathbb{E}_3\cup\Omega,\ \text{където}\ \Omega:=\{\forall U(x,y,z,0)|(x,y,z)\neq(0,0,0)\}$$
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Безкрайна равнина на $\mathbb{E}_3^\star$ наричаме множеството $\Omega$.
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 6:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Безкрайната равнина $\Omega$ има общо урашнение $t=0$.
+\end{tcolorbox}
+\textit{\textbf{Доказателство:}} Нека $U_i(x_i,y_i,z_i,t_i)\in\Omega$, $i=\overline{1,3}$, са три различни фиксирани точки и нека $X(x,y,z,t)\in\Omega$ е произволна точка. Тогава $t_i=0$, $i=\overline{1,3}$, и $$\Omega:\begin{pmatrix}x & y & z & t \\ x_1 & y_1 &z_1 & 0 \\ x_2 & y_2 &z_2 & 0 \\ x_3 & y_3 &z_3 &0 \end{pmatrix}=0\Rightarrow \mathrm{det}\begin{pmatrix}x_1 & y_1 &z_1 \\ x_2 & y_2 & z_2 \\ x_3 & y_3 & z_3\end{pmatrix}t=0$$ Тъй като $U_1\not\sim U_2\not\sim U_3$, то $$\mathrm{rank}\begin{pmatrix}x_1 & y_1 & z_1 & 0 \\ x_2 & y_2 & z_2 & 0 \\ x_3 & y_3 & z_3 & 0\end{pmatrix}=3\Rightarrow\mathrm{det}\begin{pmatrix}x_1 & y_1 &z_1 \\ x_2 & y_2 & z_2 \\ x_3 & y_3 & z_3\end{pmatrix}\neq 0$$ Оттук окончателно $\Omega:t=0$ (или $\Omega[0,0,0,1]$).
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 7:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  За всяка равнина $\alpha\in\mathbb{E}_3$ и нейната безкрайна права $u_{\alpha}$ е изпълнено, че $$u_\alpha=\alpha\cap\Omega$$
+\end{tcolorbox}
+\Large{\section{ Линейни трансформации на $\mathbb{E}_2^\star$}}
+\textbf{\textit{*Забележка:}} \textbf{\textit{\textcolor{teal}{В $\mathbb E_2^\star$ няма метрика. Значи $\mathbb{E}_2^\star$ не е Евклидово пространство.}}}
+По-нататък, нека въведем две изображения за по-прост запис: $$[\cdot]_{\mathcal P}:\mathcal P\to\mathbb{R}^{3\times 1},\ X(x,y,t)\mapsto\begin{pmatrix}x \\y \\ t\end{pmatrix}\ \text{и}\ [\cdot]_{\mathcal L}:\mathcal L\to\mathbb{R}^{1\times 3},\ \ell[A_\ell,B_\ell,C_\ell]\mapsto [A_\ell\ B_\ell\ C_\ell]$$
+където $\mathcal P$ и $\mathcal L$ са съответно множеството от точки на $\mathbb{E}_2^\star$ и множеството от прави на $\mathbb{E}_2^\star$.
+\\
+\\ Нека матрицата $A_\varphi\in\mathcal{M}_3(\mathbb{R})$ задава линейна трансформация $\varphi$ на $\mathbb{E}_2^\star$. Тогава действието върху точките се осъществавя по следния начин: $$[X]_{\mathcal P}\mapsto \rho A_{\varphi}[X]_{\mathcal P},$$
+където $\rho\neq 0$. Този коефициент се появява, тъй като припомняме, че хомогенните координати са с точност до ненулев коефициент на пропорционалност. Наистина, за всеки две точки $X,Y\in\mathbb{E}_3^\star$ са удовлетворени са изискванията $$[X]_{\mathcal P}+[Y]_{\mathcal P}\xrightarrow{\varphi}\rho A_{\varphi}([X]_{\mathcal P}+[Y]_{\mathcal P})=\rho A_{\varphi}[X]_{\mathcal P}+\rho A_{\varphi}[Y]_{\mathcal P}=\varphi([X]_{\mathcal P})+\varphi([Y]_{\mathcal P})$$ и $$\alpha [X]_{\mathcal P}\xrightarrow{\varphi}\rho A_{\varphi}(\alpha [X]_{\mathcal P})=\alpha(\rho A_{\varphi}[X]_{\mathcal P})=\alpha\varphi([X]_{\mathcal P}).$$ Да отбележим, че ако $A_{\varphi}\in\mathrm{GL}(3,\mathbb{R})$, то трансформацията $\varphi$ е биективна, значи от една страна е инективна, т.е.: $$\forall X_1,X_2\in\mathbb{E}_2^\star, [X_1]_{\mathcal P}\not\sim [X_2]_{\mathcal P}\Rightarrow\varphi([X_1]_{\mathcal P})\not\sim\varphi([X_2]_{\mathcal P}),$$ а от друга страна е сюрективна, т.е.: $$\forall X^\star\in\mathbb{E}_2^\star\ \exists !X\in\mathbb{E}_2^\star:\varphi([X]_{\mathcal P})\sim [X^\star]_{\mathcal P}.$$ Нещо повече, действието на обратната линейна трансформация $\varphi^{-1}$ се получава, като от $A_{\varphi}[X]_{\mathcal P}=\rho [X^\star]_{\mathcal P}$ изразим прообраза на точката $X^\star$. Умножаваме и двете страни отляво с $A_{\varphi}^{-1}$, откъдето $A_{\varphi}^{-1}A_{\varphi}[X]_{\mathcal P}=\rho A_{\varphi}^{-1}[X^\star]_{\mathcal P}$. Така получаваме действието на обратната линейна трансформация: $$\eqbox{[X^\star]_{\mathcal P}\xrightarrow{\varphi^{-1}}\rho A_{\varphi}^{-1}[X^\star]_{\mathcal P},\ \rho\neq 0}$$
+Нека сега разгледаме как $\varphi$ действа на \textit{\textcolor{teal}{правите}}. Имаме, че $[X]_{\mathcal P}\mapsto \rho A_{\varphi}[X]_{\mathcal P},$
+където $\rho$ е ненулев коефициент на пропорционалност. Нека $\ell$ е права, такава че $\ell \inc X$ и нека $X\xrightarrow{\varphi}X^\star$. Тогава $[\ell]_{\mathcal L} [X]_{\mathcal P}=0$. Тъй като $\varphi$ запазва инцидентността (доказано в Твърдение 2 по-надолу), то и $$[\varphi(\ell)]_{\mathcal L}[X^\star]_{\mathcal P}=[\ell^\star]_{\mathcal L}[ X^\star]_{\mathcal P}=0.$$ Така получаваме, че $\rho[\ell^\star]_{\mathcal L}( A_{\varphi}[X]_{\mathcal{P}})=0$, $\rho\neq 0$. Еквивалентно на това матрично уравнение е $(\rho[\ell^\star]_{\mathcal L} A_{\varphi})[X]_{\mathcal P}=0$. Понеже $X$ е произволна точка от $\ell$, то $[\ell^\star]_{\mathcal L} A_{\varphi}=\sigma_0[\ell]_{\mathcal L}$, $\sigma_0\neq 0$. Умножаваме отдясно с ${A}_{\varphi}^{-1}$, при което $$[\ell^\star]_{\mathcal L} A_{\varphi}{A}_{\varphi}^{-1}=\sigma_0[\ell]_{\mathcal L}{A}_{\varphi}^{-1}\Rightarrow [\ell]_{\mathcal L} A_{\varphi}^{-1}=\sigma [\ell^\star]_{\mathcal L}, \sigma:=1/\sigma_0\neq 0$$
+Значи $$\eqbox{\textcolor{black}{[\ell]_{\mathcal L}\xrightarrow{\varphi}\sigma[\ell]_{\mathcal{L}} A_{\varphi}^{-1},\ \sigma\neq 0}}$$
+Нека отбележим, че от това, че $\sigma[\ell^\star]_{\mathcal L}=[\ell]_{\mathcal L} A_{\varphi}^{-1}$ следва $\sigma[\ell^\star]_{\mathcal L} A_{\varphi}=[\ell]_{\mathcal L} A_{\varphi}^{-1} A_{\varphi}$, т.е. $$\eqbox{[\ell^\star]_{\mathcal L}\xrightarrow{\varphi^{-1}}\sigma[\ell^\star]_{\mathcal L} A_{\varphi}}$$
+Нека $\varphi,\psi\in\mathrm{GL}(\mathbb{E}_2^\star)$ са с матрици съответно $A_\varphi\in\mathcal M_3(\mathbb{R})$ и $A_\psi\in\mathcal M_3(\mathbb{R})$. Тогава $\varphi\circ\psi\in\mathrm{GL}(\mathbb{E}_2^\star)$ и $[X]_{\mathcal{P}}\xrightarrow{\varphi\circ\psi}\rho (A_\varphi A_\psi)[X]_{\mathcal{P}}, \rho\neq 0$. За образът на правите под действие на композицията имаме $$[\ell]_{\mathcal{L}}\xrightarrow{\varphi\circ\psi}\sigma [\ell]_{\mathcal{L}}(A_\varphi A_\psi)^{-1}\sim[\ell]_{\mathcal{L}}(A_\psi^{-1} A_\varphi^{-1}), \sigma\neq 0.$$
+\textbf{\textit{(Принцип за дуалност в $\mathbb{E}_2^\star$ - \textcolor{purple}{за любознателните})}} Нека $\pi$ е разширена крайна равнина. Аксиоматично можем да я зададем
+чрез структурата
+\[
+\pi = (\mathcal P, \mathcal L, \mathcal I),
+\]
+където $\mathcal P$ е множество от точки в $\mathbb{E}_2^\star$,
+$\mathcal L$ е множество от прави в $\mathbb{E}_2^\star$ и
+$\mathcal I \subseteq \mathcal P \times \mathcal L$
+е релацията „инцидентност“. Структурата
+\[
+\pi^\star = (\mathcal L, \mathcal P, \mathcal I^{-1}),
+\]
+където $\mathcal I^{-1} \subseteq \mathcal L \times \mathcal P$
+е обратната релация на $\mathcal I$, също е разширена крайна равнина
+и я наричаме \emph{дуална равнина} на $\pi$.
+Тази равнинна дуалност можем да запишем и като изображение
+\[
+f^\star : (\mathcal P, \mathcal L, \mathcal I) \to (\mathcal L, \mathcal P, \mathcal I^{-1}),
+\]
+което запазва инцидентността.
+Тоест, $f^\star$ изпраща точки в прави и прави в точки по следния начин:
+за произволна точка $P \in \mathcal P$, инцидентна с права $l \in \mathcal L$,
+\[
+P \mathcal I \ell \iff f^\star(\ell)\,\mathcal I^{-1}\, f^\star(P).
+\]
+Нека сега $T$ е твърдение за точки и прави, формулирано за структурата
+$(\mathcal P, \mathcal L, \mathcal I)$.
+Ако в „текста“ на $T$ формално заменим всяко понятие
+с равнинно дуалното му, т.е. „точка“ с „права“ и обратно,
+и запазим инцидентността, то ще получим ново твърдение $\tilde T$,
+което се нарича \emph{равнинно дуално} на $T$. Например, ако $T$ е твърдението:
+„Две различни точки са инцидентни с точно една права.“,
+то неговото дуално твърдение $\tilde T$ ще бъде:
+„Две различни прави са инцидентни с точно една точка.“.
+\\
+\\
+\textbf{\textit{\textcolor{teal}{Равнинен принцип за дуалност:}}} Нека
+\[
+f^\star: (\mathcal P, \mathcal L, \mathcal I)
+\to (\mathcal L, \mathcal P, \mathcal I^{-1})
+\]
+е равнинна дуалност и нека $\pi \simeq f^\star(\pi)$.
+Равнинно дуалното твърдение $\tilde T$ на дадено $T$,
+валидно/невалидно в $\pi$, е валидно/невалидно твърдение в $\pi$. Тъй като $\mathbb{E}_2^\star \simeq f^\star(\mathbb{E}_2^\star)$,
+то твърденията $T$ и $\tilde T$
+са едновременно верни или неверни в $\mathbb{E}_2^\star$.\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 8:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Линейните трансформации на $\mathbb{E}_2^\star$ запазват инцидентността.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Ще докажем, че ако $X\inc \ell$, то и $\varphi(X)=X^\star\inc\ell^\star= \varphi(\ell).$ Ясно е вече, че $[\ell]_{\mathcal L} A_{\varphi}^{-1}=\sigma[\ell^\star]_{\mathcal {L}}$, $\sigma\neq 0$. Умножаваме и двете страни с $[X^\star]_{\mathcal P}$, при което $[\ell]_{\mathcal L} A_{\varphi}^{-1}[X^\star]_{\mathcal P}=\sigma[\ell]_{\mathcal L} [X^\star]_{\mathcal P}$. Отчитаме, че $[X^\star]_{\mathcal P}=\rho A_{\varphi}[X]_{\mathcal P}$, откъдето: $$\rho[\ell]_{\mathcal L} A_{\varphi}^{-1} A_{\varphi}[X]_{\mathcal P}=\sigma[\ell^\star]_{\mathcal L} [X^\star]_{\mathcal P}.$$ Така уравнението става еквивалентно на $\rho[\ell]_{\mathcal L}[X]_{\mathcal P}=\sigma\rho[\ell^\star]_{\mathcal L}[X^\star]_{\mathcal P}$. От $X\inc\ell$ получаваме $[\ell]_{\mathcal L} [X]_{\mathcal P}=0$, следователно $[\ell^\star]_{\mathcal L} [X^\star]_{\mathcal P}=0$, т.е. $X^\star\inc\ell^\star$. $\blacksquare$ 
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Неподвижна точка под действие на линейната трансформация $\varphi$ наричаме точката $X$, за която $\varphi([X]_{\mathcal P})\sim [X]_{\mathcal P}$. Точката $X$ наричаме още $\varphi-$инвариантна.\\
+\\
+\textbf{\textit{Следствие:}} Ако $\varphi([X]_{\mathcal P})\sim [X]_{\mathcal P}$, то значи $$A_{\varphi}[X]_{\mathcal P}=\rho [X]_{\mathcal P}\Rightarrow\eqbox{(A_{\varphi}-\rho E)[X]_{\mathcal P}=\begin{pmatrix} 0 & 0 & 0\end{pmatrix}^{T}}$$
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Неподвижна права под действие на линейната трансформация $\varphi$ наричаме правата $\ell$, за която $\varphi([\ell]_\mathcal{L})\sim[\ell]_{\mathcal L}$.
+\\
+\\
+\textbf{\textit{Следствие:}} Ако $\varphi([\ell]_{\mathcal L})\sim[\ell]_{\mathcal L}$, то значи $$ [\ell]_{\mathcal L} A_{\varphi}^{-1}=\sigma [\ell]_{\mathcal L}\Rightarrow\eqbox{[\ell]_{\mathcal{L}}(A_{\varphi}^{-1}-\sigma E)=\begin{bmatrix} 0 & 0 & 0\end{bmatrix},\ \sigma\neq 0}$$
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Правата $\ell$ наричаме поточково неподвижна (точков инвариант) под действие на $\varphi$, когато $\forall X\in \ell:\varphi([X]_{\mathcal P})\sim [X]_{\mathcal P}$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 9:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]   Нека $\varphi$ е линейна трансформация на $\mathbb{E}_2^\star$ с матрица $A_{\varphi}\in\mathcal{M}_3(\mathbb{R})$, такава че $\mathrm{rank}(A_\varphi)=2$. Тогава съществува права $\ell$, такава че за всяка точка $X\in\mathbb{E}_2^\star$ е в сила, че $\varphi(X)\inc \ell$.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $[X]_{\mathcal P}\xrightarrow{\varphi} [X^\star]_{\mathcal P}$. Разглеждаме системата $$[\ell]_{\mathcal L} A_\varphi = \begin{bmatrix}0 & 0 & 0\end{bmatrix}.$$ Тъй като $\mathrm{rank}(A_\varphi)=2$, то $\exists(A_\ell,B_\ell,C_\ell)\neq(0,0,0)$. По-нататък, нека разгледаме правата $\ell[A_\ell, B_\ell,C_\ell].$ Имаме, че $$[\ell]_{\mathcal L} A_{\varphi}[X]_{\mathcal P}= \begin{bmatrix}0 & 0 & 0\end{bmatrix}[X]_{\mathcal P}\Rightarrow [\ell]_{\mathcal L}\rho [X^\star]_{\mathcal P}=0,$$ където $\rho$ е ненулев коефициент на пропорционалност. Горното матрично уравнение е еквивалентно на $[\ell]_{\mathcal L} [X^\star]_{\mathcal P}=0$, откъдето излиза, че $X^\star\inc\ell$. $\blacksquare$
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Афинна трансформация на $\mathbb{E}_2^\star$ наричаме обратима линейна трансформация $\varphi:\mathbb{E}_2^\star\to\mathbb{E}_2^\star$, такава че $$\forall \ell_1,\ell_2\in\mathbb{E}_2^\star:\ell_1\parallel \ell_2\Rightarrow \varphi(\ell_1)\parallel \varphi(\ell_2)$$
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 10:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]   Нека $\varphi\in\mathrm{GL}(\mathbb{E}_2^\star)$. Трансформацията $\varphi$ е афинна тогава и само тогава, когато безкрайната права $\omega$ е $\varphi-$инвариантна.
+\end{tcolorbox}
+\textbf{}
+\\ \textbf{\textit{Доказателство:}} ($\Rightarrow$) Нека $\varphi$ е афинна трансформация. Тогава тя е обратима и $$\forall \ell_1,\ell_2\in\mathbb{E}_2^\star:\ell_1\parallel \ell_2\Rightarrow \varphi(l_1)\parallel \varphi(l_2)$$ От това, че $\varphi$ е обратима линейна трансформация имаме, че тя е биекция, т.е. $\varphi(\ell_1\cap \ell_2)=\varphi(\ell_1)\cap\varphi(\ell_2)$. Да отбележим, че тук е достатъчно да знаем, че $\varphi$ е инективна. Нека $U_\ell:=\ell_1\cap \ell_2$ и $U_{\varphi(\ell)}:=\varphi(\ell_1)\cap \varphi(\ell_2)$. Ще докажем, че $\varphi(U_{\ell})$ е безкрайна точка. Очевидно $U_{\varphi(\ell)}$ е безкрайна точка, предвид това, че $\varphi(\ell_1)\parallel \varphi(\ell_2)$. Имаме $$\varphi(\ell_1\cap \ell_2)=\varphi(U_\ell)=\varphi(\ell_1)\cap \varphi(\ell_2)=U_{\varphi(\ell)}$$ тоест $\varphi(U_\ell)=U_{\varphi(\ell)}$ и така $\varphi(U_\ell)$ е безкрайна точка. Следователно безкрайната права $\omega$ e $\varphi-$инвариантна.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{w2.png}
+    \centering
+\end{figure}
+\\
+($\Leftarrow$) Нека $\omega\xrightarrow{\varphi}\omega$ и нека матрицата $A_{\varphi}$ задава линейната трансформация $\varphi$. Тъй като $\varphi$ е обратима, то имаме, че $\exists A_{\varphi}^{-1}:=\{a_{ij}^\star\}_{i,j=1}^3$. Нещо повече, безкрайната права $\omega$ е неподвижна под действие на $\varphi$, значи $[\omega]_{\mathcal L} A_{\varphi}^{-1}=\sigma[\omega]_{\mathcal L}$, където $\sigma$ е ненулев коефициент на пропорционалност. Като следствие получаваме, че $a_{31}^\star=a_{32}^\star=0$ и $a_{33}^\star=\sigma\neq 0$.
+Ще покажем, че $\forall \ell_1,\ell_2\in\mathbb{E}_2^\star:\ell_1\parallel \ell_2$ имаме $\varphi(\ell_1)\parallel \varphi(\ell_2)$, откъдето ще следва, че $\varphi$ е афинна трансформация. Нека $$\ell_k[A_{\ell_k},B_{\ell_k},C_{\ell_k}]\xrightarrow{\varphi}\ell_k^\star[A_{\ell_k^\star},B_{\ell_k^\star},C_{\ell_k^\star}]$$ за $k=1,2$. Тогава $\exists \lambda\in\mathbb{R}\backslash\{0\}$, за което $A_{\ell_2}=\lambda A_{\ell_1}$ и $B_{\ell_2}=\lambda B_{\ell_1}$, следователно имаме, че е изпълнено: $$\begin{bmatrix} A_{\ell_1} & B_{\ell_1} & C_{\ell_1}\end{bmatrix}\begin{pmatrix}a_{11}^\star & a_{12}^\star & a_{13}^\star \\ a_{21}^\star & a_{22}^\star & a_{23}^\star \\ 0 & 0 & a_{33}^\star \end{pmatrix}=\sigma_1 \begin{bmatrix} A_{\ell_1^\star} & B_{\ell_1^\star} & C_{\ell_1^\star}\end{bmatrix} $$ от $\ell_1\xrightarrow{\varphi}  \ell_1^\star$ и $$\begin{bmatrix} \lambda A_{\ell_1} & \lambda B_{\ell_1} & C_{\ell_2}\end{bmatrix} \begin{pmatrix}a_{11}^\star & a_{12}^\star & a_{13}^\star \\ a_{21}^\star & a_{22}^\star & a_{23}^\star \\ 0 & 0 & a_{33}^\star \end{pmatrix}=\sigma_2 \begin{bmatrix} A_{\ell_2^\star} & B_{\ell_2^\star} & C_{\ell_2^\star}\end{bmatrix}$$ от $\ell_2\xrightarrow{\varphi}  \ell_2^\star$, където $\sigma_1,\sigma_2\in\mathbb{R}$ са ненулеви коефициенти на пропорционалност. Така получаваме системите: $$\begin{array}{|l}A_{\ell_1}a_{11}^\star +B_{\ell_1}a_{21}^\star=\sigma_1 A_{\ell_1^\star}\\ A_{\ell_1}a_{12}^\star +B_{\ell_1}a_{22}^\star=\sigma_1 B_{\ell_1^\star}\end{array} \text{и}\ \ \begin{array}{|l}\lambda A_{\ell_1}a_{11}^\star +\lambda B_{l_1}a_{21}^\star=\sigma_2 A_{l_2^\star}\\ \lambda A_{\ell_1}a_{12}^\star +\lambda B_{\ell_1}a_{22}^\star=\sigma_2 B_{\ell_2^\star}\end{array}$$
+Оттук получаваме, че $A_{\ell_1^\star}=\dfrac{\sigma_2}{\lambda \sigma_1}A_{\ell_2^\star}$ и $B_{\ell_1^\star}=\dfrac{\sigma_2}{\lambda \sigma_1}B_{\ell_2^\star}$, тоест $\ell_1^\star\parallel \ell_2^\star$, с което сме готови. $\blacksquare$
+\begingroup
+\shorthandoff{"}
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+& \mathbb{E}_2^* \arrow[dr, "\varphi"] & \\
+\omega \arrow[ur, hook] \arrow[rr, "\varphi|_{\omega}"'] & & \mathbb{E}_2^*
+\end{tikzcd}
+\]
+\endgroup
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 11 (за любознателните):}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Разширената Евклидова равнина $\mathbb{E}_2^\star$ е изоморфна на $\mathbb{P}^2(\mathbb{R})$, където $$\mathbb{P}^2(\mathbb{R}):=(\mathbb{R}^3\backslash\{0\})/\sim$$ е реалната проективна равнина. С други думи, $\mathbb{E}_2^\star\cong\mathbb{P}^2(\mathbb{R})$.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}
+По дефиниция имаме $\omega := \{ U(x,y,0) \mid (x,y) \neq (0,0) \}$, където всяка безкрайна точка е клас на еквивалентност на прави с едно и също направление. Точките на $\mathbb E_2^{\star}$ се делят на два вида: крайни точки и безкрайни точки от $\omega$. По дефиниция на хомогенните координати, всяка крайна точка $M(X,Y) \in \mathbb E_2$ има хомогенни координати $(x,y,t)$ с $t \neq 0$, за които е в сила
+\[
+\frac{x}{t} = X,\ \frac{y}{t} = Y.
+\]
+В частност $(X,Y,1)$ са хомогенни координати на $M$. Безкрайните точки нямат нехомогенни координати и са от вида $(x,y,0)$ с $(x,y) \neq (0,0)$. От друга страна, реалната проективна равнина
+\[
+\mathbb{P}^2(\mathbb{R}) := (\mathbb{R}^3 \setminus \{0\})/\sim
+\]
+е множеството от класове на еквивалентност на ненулеви тройки
+$(x,y,t)$, където
+\[
+(x,y,t) \sim (\lambda x, \lambda y, \lambda t),\
+\lambda \in \mathbb{R} \setminus \{0\}.
+\]
+Дефинираме изображение $
+\Phi : \mathbb E_2^{\star} \longrightarrow \mathbb{P}^2(\mathbb{R})
+$
+по следния начин:
+\begin{itemize}
+\item[1)] за крайна точка $M(X,Y) \in \mathbb E_2$ полагаме
+\[
+\Phi(M) := [(X,Y,1)] ;
+\]
+\item[2)] за безкрайна точка $U(x,y,0) \in \omega$ полагаме
+\[
+\Phi(U(x,y,0)) := [(x,y,0)] .
+\]
+\end{itemize}
+Изображението е коректно, тъй като хомогенните координати са определени
+с точност до ненулев коефициент на пропорционалност, а еквивалентните представители задават един и същ клас в $\mathbb{P}^2(\mathbb{R})$. Ще покажем, че $\Phi$ е биекция. Нека $\Phi(M(X_1,Y_1)) = \Phi(M(X_2,Y_2))$. Тогава $
+(X_1,Y_1,1) \sim (X_2,Y_2,1),
+$
+следователно съществува $\lambda \neq 0$ такова, че $
+(X_1,Y_1,1) = (\lambda X_2, \lambda Y_2, \lambda).
+$. От третата координата следва $\lambda = 1$, откъдето
+$X_1 = X_2$ и $Y_1 = Y_2$, т.е. $M(X_1,Y_1) = M(X_2,Y_2)$. Ако $\Phi(U(x_1,y_1,0)) = \Phi(U(x_2,y_2,0))$, то
+\[
+(x_1,y_1,0) \sim (x_2,y_2,0),
+\]
+което означава, че $(x_1,y_1)$ и $(x_2,y_2)$ са пропорционални и
+следователно задават едно и също направление, т.е.
+$U(x_1,y_1,0) = U(x_2,y_2,0)$. Крайна точка не може да има същия образ като безкрайна, понеже съответно $t \neq 0$ и $t = 0$. Следователно $\Phi$ е инекция. Нека сега $[(x,y,t)] \in \mathbb{P}^2(\mathbb{R})$. Ако $t \neq 0$, то
+\[
+(x,y,t) \sim \left(\frac{x}{t}, \frac{y}{t}, 1\right),
+\]
+следователно
+\[
+[(x,y,t)] = \Phi\!\left(M\!\left(\frac{x}{t},\frac{y}{t}\right)\right).
+\]
+Ако $t = 0$, то $(x,y) \neq (0,0)$ и
+\[
+[(x,y,0)] = \Phi(U(x,y,0)).
+\]
+Следователно $\Phi$ е сюрекция и така биекция. Накрая ще проверим, че $\Phi$ запазва инцидентността. Нека $\ell[A_\ell,B_\ell,C_\ell]\in \mathbb E_2^{\star}$.
+По дефиниция на инцидентността имаме
+\[
+X \inc \ell \Leftrightarrow [\ell]_L [X]_P = 0
+\Leftrightarrow A_\ell x + B_\ell y + C_\ell t = 0,
+\]
+където $(x,y,t)$ са хомогенните координати на $X$.
+Същото хомогенно линейно уравнение описва правите в
+$\mathbb{P}^2(\mathbb{R})$.
+Следователно
+\[
+X \inc \ell \Leftrightarrow \Phi(X) \inc \ell,
+\]
+т.е. $\Phi$ запазва инцидентността между точки и прави.
+Следователно $\Phi$ е изоморфизъм на инцидентните геометрии и
+$\mathbb E_2^{\star} \cong \mathbb{P}^2(\mathbb{R}). \ \blacksquare$
+\begingroup
+\shorthandoff{"}
+\[
+\begin{tikzcd}[row sep=3em, column sep=4em]
+\mathbb{E}_2 \arrow[r, hook] \arrow[dr, "\Phi_1"'] 
+& \mathbb{E}_2^\star \arrow[d, "\Phi"] 
+& \omega \arrow[l, hook'] \arrow[dl, "\Phi_2"] \\
+& \mathbb{P}^2(\mathbb{R}) &
+\end{tikzcd}
+\]
+\endgroup
+\Large{\section{ Линейни трансформации на $\mathbb{E}_3^\star$. Централно проектиране}}
+И в тази част ще въведем координатните изображения: \begin{align*}
+[\cdot]_{\mathcal P} : \mathcal P \to \mathbb{R}^{4\times 1},\quad 
+X(x,y,z,t) &\mapsto \begin{pmatrix} x \\ y \\ z \\ t \end{pmatrix} \\
+[\cdot]_{\mathscr P} : \mathscr P \to \mathbb{R}^{1\times 4},\quad 
+\pi[A_\pi,B_\pi,C_\pi,D_\pi] &\mapsto [A_\pi\ B_\pi\ C_\pi\ D_\pi]
+\end{align*}
+където $\mathcal P$ и $\mathscr P$ са съответно множеството от точки в $\mathbb{E}_3^\star$ и множеството от равнини в $\mathbb{E}_3^\star$.
+Нека матрицата $A_{\varphi}\in \mathcal{M}_4(\mathbb{R})$ задава линейна трансформация $\varphi$ в $\mathbb{E}_3^\star$ и $[X]_{\mathcal P}\xrightarrow{\varphi}[X^\star]_{\mathcal P}=[\varphi(X)]_{\mathcal P}$. Тогава $\varphi: A_{\varphi}[X]_{\mathcal P}=\rho [X^\star]_{\mathcal P}$, където $\rho$ е ненулев коефициент на пропорционалност. Да отбележим, че ако $A_{\varphi}\in\mathrm{GL}(4,\mathbb{R})$, то трансформацията $\varphi$ е биективна, значи от една страна е инективна, т.е.: $$\forall X_1,X_2\in\mathbb{E}_2^\star, [X_1]_{\mathcal P}\not\sim [X_2]_{\mathcal P}\Rightarrow\varphi([X_1]_{\mathcal P})\not\sim\varphi([X_2]_{\mathcal P}),$$ а от друга страна е сюрективна, т.е.: $$\forall X^\star\in\mathbb{E}_2^\star\ \exists !X\in\mathbb{E}_2^\star:\varphi([X]_{\mathcal P})\sim [X^\star]_{\mathcal P}.$$ Нещо повече, действието на обратната линейна трансформация $\varphi^{-1}$ се получава, като от $A_{\varphi}[X]_{\mathcal P}=\rho [X^\star]_{\mathcal P}$ изразим прообраза на точката $X^\star$. Умножаваме и двете страни отляво с $A_{\varphi}^{-1}$, откъдето $A_{\varphi}^{-1}A_{\varphi}[X]_{\mathcal P}=\rho A_{\varphi}^{-1}[X^\star]_{\mathcal P}$. Така получаваме действието на обратната линейна трансформация: $$\eqbox{[X^\star]_{\mathcal P}\xrightarrow{\varphi^{-1}}\rho A_{\varphi}^{-1}[X^\star]_{\mathcal P},\ \rho\neq 0}$$
+Нека сега разгледаме как $\varphi$ действа на \textit{\textcolor{teal}{равнините}}. Имаме, че $[X]_{\mathcal P}\mapsto \rho A_{\varphi}[X]_{\mathcal P},$
+където $\rho$ е ненулев коефициент на пропорционалност. Нека $\pi$ е равнина, такава че $\pi \inc X$ и нека $X\xrightarrow{\varphi}X^\star$. Тогава $[\pi]_{\mathscr P} [X]_{\mathcal P}=0$. Тъй като $\varphi$ запазва инцидентността (доказано в Твърдение 2 по-надолу), то и $[\varphi(\pi)]_{\mathscr P}[X^\star]_{\mathcal P}=[\pi^\star]_{\mathscr P}[ X^\star]_{\mathcal P}=0$. Така получаваме, че $\rho[\pi^\star]_{\mathscr P}( A_{\varphi}[X]_{\mathcal{P}})=0$, $\rho\neq 0$. Еквивалентно на това матрично уравнение е $(\rho[\pi^\star]_{\mathscr P} A_{\varphi})[X]_{\mathcal P}=0$. Понеже $X$ е произволна точка от $\pi$, то $[\pi^\star]_{\mathscr P} A_{\varphi}=\sigma_0[\pi]_{\mathscr P}$, $\sigma_0\neq 0$. Умножаваме отдясно с ${A}_{\varphi}^{-1}$, при което $$[\pi^\star]_{\mathscr P} A_{\varphi}{A}_{\varphi}^{-1}=\sigma_0[\pi]_{\mathscr P}{A}_{\varphi}^{-1}\Rightarrow [\pi]_{\mathscr P} A_{\varphi}^{-1}=\sigma [\pi^\star]_{\mathscr P}, \sigma:=1/\sigma_0\neq 0$$
+Значи $$\eqbox{\textcolor{black}{[\pi]_{\mathscr P}\xrightarrow{\varphi}\sigma[\pi]_{\mathscr{P}} A_{\varphi}^{-1},\ \sigma\neq 0}}$$
+Нека отбележим, че от това, че $\sigma[\pi^\star]_{\mathscr P}=[\pi]_{\mathscr P} A_{\varphi}^{-1}$ следва $\sigma[\pi^\star]_{\mathscr P} A_{\varphi}=[\pi]_{\mathscr P} A_{\varphi}^{-1} A_{\varphi}$, т.е. $$\eqbox{[\pi^\star]_{\mathscr P}\xrightarrow{\varphi^{-1}}\sigma[\pi^\star]_{\mathscr P} A_{\varphi}}$$
+Нека $\varphi,\psi\in\mathrm{GL}(\mathbb{E}_3^\star)$ са с матрици съответно $A_\varphi\in\mathcal M_4(\mathbb{R})$ и $A_\psi\in\mathcal M_4(\mathbb{R})$. Тогава $\varphi\circ\psi\in\mathrm{GL}(\mathbb{E}_3^\star)$ и $[X]_{\mathcal{P}}\xrightarrow{\varphi\circ\psi}\rho (A_\varphi A_\psi)[X]_{\mathcal{P}}, \rho\neq 0$. За образът на равнините под действие на композицията имаме $$[\pi]_{\mathscr{P}}\xrightarrow{\varphi\circ\psi}\sigma [\pi]_{\mathscr{P}}(A_\varphi A_\psi)^{-1}\sim[\pi]_{\mathscr{P}}(A_\psi^{-1} A_\varphi^{-1}), \sigma\neq 0$$
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 15:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Нека $\varphi$ е линейна трансформация на $\mathbb{E}_3^\star$, зададена чрез $C\in \mathcal{M}_3(\mathbb{R})$. Нека $\mathrm{rank}(C)=3$. Тогава съществува равнина $\alpha$, такава че за всяка точка $M\in\mathbb{E}_3^\star$ е в сила, че $\varphi(M)\in\alpha$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Разглеждаме системата $$\begin{bmatrix}A_\alpha & B_\alpha & C_\alpha & D_\alpha\end{bmatrix} C = \begin{bmatrix}0 & 0 & 0 & 0\end{bmatrix}$$ Тъй като $\mathrm{rank}(C)=3$, то $\exists(A_\alpha,B_\alpha,C_\alpha,D_\alpha)\neq(0,0,0,0)$. Разглеждаме равнината $\alpha:A_\alpha x+B_\alpha y+C_\alpha z+D_\alpha t=0$. Имаме, че $$\alpha A_{\varphi} X=[0\ 0\ 0\ 0]\Rightarrow\alpha\rho X^\star=0, $$ където $\rho$ е ненулев коефициент на пропорционалност.
+Горното матрично уравнение е еквивалентно на $A_\alpha x^\star+B_\alpha y^\star+C_\alpha z^\star+D_\alpha t^\star=0$, откъдето излиза, че $M^\star=\varphi(M)\in\alpha$, с което сме готови.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Централно (перспективно) проектиране на $\mathbb{E}_3^{\star}$ с проекционна равнина $\pi$ и проекционен център точката $S\not\in\pi$ наричаме изображението $$\Psi:\mathbb{E}_3^{\star}\backslash\lbrace S\rbrace \to \pi$$ (често обозначавано и като $\Psi_{\pi}^S$), зададено по правилото $$\forall M\in\mathbb{E}_3^\star\backslash \{S\}:\Psi(M)=MS\cap\pi$$
+Ако точката $S\equiv U$ е безкрайна, то $\Psi$ наричаме успоредно (в частност ортогонално) проектиране на $\mathbb{E}_3^{\star}$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 16:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Нека $\Psi:\mathbb{E}_3^\star\backslash\{S\}\to\pi$ е централно проектиране с проекционен център $S$ и проекционна равнина $\pi$. Тогава аналитичното представяне на $\Psi$ е: $$\Psi:\rho [X^\star]_{\mathcal P}=\left([\pi]_{\mathscr P} [S]_{\mathcal P}E-[S]_{\mathcal P}[\pi]_{\mathscr P}\right)[X]_{\mathcal P},\ \rho\neq0$$
+\end{tcolorbox}
+\textit{\textbf{Доказателство:}} От дефиницията за централно проектиране имаме, че произволна точка $X\xrightarrow{\Psi}XS\cap\pi:=X^\star$. Нека означим $XS=\ell$. За скаларните параметрични уравнения на правата $\ell$ имаме $\ell:[P]_{\mathcal P}=\lambda [X]_{\mathcal P}+\mu[Y]_{\mathcal P}$, където $P\inc \ell$ е произволна и $(\lambda,\mu)\neq(0,0)$. Тъй като $X^\star\inc \pi$, то $\pi X^\star=0$. Тогава $[X^\star]_{\mathcal P}=\lambda [X]_{\mathcal P}+\mu [S]_{\mathcal P}$ и, умножавайки от двете страни отляво с $[\pi]_{\mathscr P}$, получаваме, че $[\pi]_{\mathscr P} [X^\star]_{\mathcal P}=\lambda[\pi]_{\mathscr P} [X^\star]_{\mathcal P}+\mu[\pi]_{\mathscr P} [S]_{\mathcal P}=0$. Можем да изберем $\lambda=[\pi]_{\mathscr P} [S]_{\mathcal P}$ и $\mu=-[\pi]_{\mathscr P} [X]_{\mathcal P}$. Замествайки получаваме, че $$[X^\star]_{\mathcal P}=([\pi]_{\mathscr P}[S]_{\mathcal P})[X]_{\mathcal P}-([\pi]_{\mathscr P}[X]_{\mathcal P}) [S]_{\mathcal P}$$ Нататък, понеже $[\pi]_{\mathscr P}[S]_{\mathcal P}\neq 0$ (поради това, че проекционният център $S$ не е инцидентен с проекционната равнина $\pi$), то: $$[X^\star]_{\mathcal P}\sim[X^\star]_{\mathcal P}=([\pi]_{\mathscr P}[S]_{\mathcal P})[X]_{\mathcal P}-([\pi]_{\mathscr P}[X]_{\mathcal P}) [S]_{\mathcal P}\sim [X]_{\mathcal P}-\dfrac{[\pi]_{\mathscr P}[X]_{\mathcal P}}{[\pi]_{\mathscr P}[S]_{\mathcal P}}[S]_{\mathcal P}.$$
+Лесно се проверява, че $([\pi]_{\mathscr P} [X]_{\mathcal P})[S]_{\mathcal P}=([S]_{\mathcal P}[\pi]_{\mathscr P})[X]_{\mathcal P}$, откъдето $$\Psi:\rho [X^\star]_{\mathcal P}=\left(E-\dfrac{[S]_{\mathcal P}[\pi]_{\mathscr P}}{[\pi]_{\mathscr P} [S]_{\mathcal P}}\right)[X]_{\mathcal P}\sim \left([\pi]_{\mathscr P} [S]_{\mathcal P}E-[S]_{\mathcal P}[\pi]_{\mathscr P}\right)[X]_{\mathcal P},\ \rho\neq0\ \ \blacksquare$$
+\Large{\part{Афинни и ортогонални трансформации в равнината}} Нека спрямо афинна координатна система $K=O\vec{f}_1\vec{f}_2$ в $\mathbb{E}_2$, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}_2\to\mathbb{E}_2$ и нека е известно, че $\varphi:M(x,y)\to M^\star=\varphi(M)(x^\star, y^\star)$, и нека отново въведем координатно изображение: $$[\cdot]_{\mathcal P} : \mathcal P \to \mathbb{R}^{2\times 1},\quad 
+X(x,y) \mapsto \begin{pmatrix} x \\ y\end{pmatrix}$$
+където $\mathcal P$ е множеството от точки в $\mathbb{E}_2$.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Изображението $\varphi:\mathbb{E}_2\to\mathbb{E}_2$ наричаме афинно, ако запазва афинните комбинации на точки:
+$$[X]_{\mathcal P}=\sum_j \lambda_j [X_j]_{\mathcal P}\Rightarrow\varphi[X]_{\mathcal P}=\sum_j \lambda_j \varphi[X_j]_{\mathcal P},\ \text{където}\ \sum_j \lambda_j=1$$
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 17:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Изображението $\varphi$ е афинно тогава и само тогава, когато $$\varphi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=A_\varphi\begin{pmatrix} x \\ y\end{pmatrix}+\vec{b}_{\varphi}$$ където $A_\varphi\in \mathcal M_2(\mathbb{R})$ и $\vec{b}_{\varphi}=\begin{pmatrix} b_1& b_2\end{pmatrix}^\top$ е вектор стълб от свободни елементи.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} 
+($\Rightarrow$) Всяка точка $X(x,y)\in\mathbb{E}_2$ може да бъде изразена като линейна комбинация на точките $(1,0)$, $(0,1)$ и $(0,0)$. Имаме $$[X]_{\mathcal P}=x\begin{pmatrix}1 \\0\end{pmatrix}+y\begin{pmatrix}0\\1\end{pmatrix}+\lambda\begin{pmatrix}0\\ 0\end{pmatrix}$$
+като $x+y+\lambda=1$ (защото $\varphi$ е афинно изображение), т.е. $$[X]_{\mathcal P}=x\begin{pmatrix}1 \\0\end{pmatrix}+y\begin{pmatrix}0\\1\end{pmatrix}+(1-x-y)\begin{pmatrix}0\\ 0\end{pmatrix}$$ Нещо повече, $\varphi$ запазва афинните комбинации на точки, значи $$\varphi[X]_{\mathcal P}=x\varphi\begin{pmatrix}1 \\0\end{pmatrix}+y\varphi\begin{pmatrix}0\\1\end{pmatrix}+(1-x-y)\varphi\begin{pmatrix}0\\ 0\end{pmatrix}$$ Нека $$\varphi\begin{pmatrix}1 \\0\end{pmatrix}=\begin{pmatrix}a_{11}+b_1\\a_{21}+b_2\end{pmatrix},\ \varphi\begin{pmatrix}0 \\1\end{pmatrix}=\begin{pmatrix}a_{12}+b_1\\a_{22}+b_2\end{pmatrix}\ \text{и}\ \varphi\begin{pmatrix}0 \\0\end{pmatrix}=\begin{pmatrix}b_1\\b_2\end{pmatrix}$$ при което $$\varphi[X]_{\mathcal P}=x\begin{pmatrix}a_{11}+b_1\\a_{21}+b_2\end{pmatrix}+y\begin{pmatrix}a_{12}+b_1\\a_{22}+b_2\end{pmatrix}+(1-x-y)\begin{pmatrix}b_1\\b_2\end{pmatrix}$$ откъдето, след малко алгебрични манипулации, окончателно получаваме: $$\varphi[X]_{\mathcal P}=\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22}\end{pmatrix}[X]_{\mathcal P}+\begin{pmatrix}b_1\\b_2\end{pmatrix}$$ което трябваше да се докаже.
+\\
+($\Leftarrow$) Имаме \begin{align*}\varphi\left(\sum_j \lambda_j [X_j]_{\mathcal P}\right) &= A_\varphi \left(\sum_j \lambda_j [X_j]_{\mathcal P}\right)+\vec{b}_{\varphi}\\ & = \sum_j \lambda_j A_\varphi [X_j]_{\mathcal P}+ \sum_j \lambda_j \vec{b}_\varphi\\ &= \sum_j \lambda_j \left(A_\varphi[X_j]_{\mathcal P}+\vec{b}_\varphi\right)\\ &= \sum_j\lambda_j\varphi [X_j]_{\mathcal P}\quad \blacksquare\end{align*}
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Афинна трансформация (афинен изоморфизъм) $\varphi:\mathbb{E}_2\to\mathbb{E}_2$ наричаме биективно афинно изображение.
+\\
+\\
+От горната дефиниция веднага можем да заключим, че $\varphi$ е афинна трансформация тогава и само тогава, когато $\mathrm{det}(A_\varphi)\neq 0$ (т.е. когато матрицата $A_\varphi$ на $\varphi$ е обратима (неособена)).
+\\
+\\
+И все пак, нека матрицата $C=\{c_{ij}\}_{i,j=1}^3\in M_3(\mathbb{R})$ задава афинната трансформация $\varphi$
+\\
+\\
+\textbf{\textit{Примери:}}
+\\
+\\
+$\bullet$ $\varphi=\mathrm{id}$ - идентитет:
+$$\varphi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=E\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} 0 \\ 0\end{pmatrix}$$
+\\
+$\bullet$ $\varphi=\tau_{\vec{p}}$ - транслация с ненулев вектор $\vec{p}(a,b)$:
+\begin{center}
+\includegraphics[scale=0.55]{geogebra-export (82).png}
+\end{center}
+Аналитично представяне: $$\varphi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=E\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} a \\ b\end{pmatrix}$$
+$\bullet$ Хомотетия с център $O(0,0)$ и коефициент $c>0$:
+\begin{center}
+\includegraphics[scale=0.55]{geogebra-export (83).png}
+\end{center}
+Аналитично представяне:
+$$\varphi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=\begin{pmatrix}c & 0 \\ 0 & c\end{pmatrix}\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} 0 \\ 0\end{pmatrix}$$
+\\
+$\bullet$ Композиция на афинни трансформации в равнината: Нека $\varphi_1:\mathbb{E}_2\to\mathbb{E}_2$ и $\varphi_2:\mathbb{E}_2\to\mathbb{E}_2$ са афинни трансформации, зададени аналитично с $$\varphi_i:\begin{pmatrix} x^\star \\ y^\star\end{pmatrix}=A_{\varphi_i}\begin{pmatrix} x\\ y\end{pmatrix}+\vec{b}_{\varphi_i},\ i=1,2$$ Тогава $$\varphi_2\circ\varphi_1:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=A_{\varphi_2}A_{\varphi_1}\begin{pmatrix} x \\ y\end{pmatrix}+A_{\varphi_2}\vec{b}_{\varphi_1}+\vec{b}_{\varphi_2}$$
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 18 (За любознателните):}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Нека спрямо АКС в равнината е дадена фамилия от афинни трансформации $\varphi_i:\mathbb{E}_2\to\mathbb{E}_2$, $i=\overline{1,n}\wedge n\in\mathbb{N}\backslash\{1\}$, с матрици $A_{\varphi_i}$ и вектор стълбове $\vec{b}_{\varphi_i}$. Тогава $$\varphi_1\circ\dots\circ \varphi_n:\begin{pmatrix}x^\star \\ y^\star\end{pmatrix}=\prod_{i=1}^n A_{\varphi_i}\begin{pmatrix} x\\ y\end{pmatrix}+\sum_{i=2}^{n}\prod_{j=1}^{i-1} A_{\varphi_j}\vec{b}_{\varphi_i}+\vec{b}_{\varphi_1}
+$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Да си означим твърдението с $P(n)$. Проверяваме дали твърдението е вярно за $n = 2$. Имаме, че $$\varphi_1\circ\varphi_2:[X^\star]_{\mathcal P}=A_{\varphi_1}A_{\varphi_2}[X]_{\mathcal P}+A_{\varphi_1}\vec{b}_{\varphi_2}+\vec{b}_{\varphi_1}
+$$ което е вярно. Да допуснем, че твърдението е вярно за $n=k$. Ще покажем, че $P(k)\Rightarrow P(k+1)$. За $n=k+1$ имаме: \begin{align*}\varphi_1\circ\dots\circ \varphi_k\circ\varphi_{k+1}:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix} &=\prod_{i=1}^{k} A_{\varphi_i}\left[A_{\varphi_{k+1}}\begin{pmatrix} x \\ y\end{pmatrix}+\vec{b}_{\varphi_{k+1}}\right]+\sum_{i=2}^{k}\prod_{j=1}^{i-1}A_{\varphi_j}\vec{b}_{\varphi_i}+\vec{b}_{\varphi_1}\\ &= \prod_{i=1}^{k+1} A_{\varphi_i}\begin{pmatrix} x \\ y\end{pmatrix}+\prod_{i=1}^{k} A_{\varphi_i}\vec{b}_{\varphi_{k+1}}+\sum_{i=2}^{k}\prod_{j=1}^{i-1}A_{\varphi_j}\vec{b}_{\varphi_i}+\vec{b}_{\varphi_1} \\ &=\prod_{i=1}^{k+1}A_{\varphi_i}\begin{pmatrix} x\\ y\end{pmatrix}+\sum_{i=2}^{k+1}\prod_{j=1}^{i-1} A_{\varphi_j}\vec{b}_{\varphi_i}+\vec{b}_{\varphi_1}
+\end{align*}
+Това е еквивалентно на твърдението $P(k+1)$ и доказателството е завършено. $\blacksquare$
+\Large{\section{ Класификация на еднаквостите в $\mathbb{E}_2$.}}
+Нека $K=Oxy$ е ОКС в $\mathbb{E}_2$. Афинната трансформация $\psi:\mathbb{E}_2\to\mathbb{E}_2$ е еднаквост тогава и само тогава, когато матрицата ѝ $A_\psi\in \mathcal M_2(\mathbb{R})$ е ортогонална. Тогава $A_\psi A_\psi^{T}= A_\psi^{T}A_\psi=E\Rightarrow \mathrm{det}(A_\psi)=\pm 1$. Ако $\mathrm{det}(A_\psi)=1$, то $\psi$ е движение - запазва се ориентацията в равнината. Ако $\mathrm{det}(A_\psi)=-1$, то $\psi$ е отражение - променя ориентацията в равнината. Аналитичното представяне е: $$\psi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=\begin{pmatrix}\cos\theta & -\varepsilon\sin\theta \\ \sin\theta & \varepsilon\cos\theta\end{pmatrix}\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} a \\ b\end{pmatrix}$$
+където $\varepsilon=\pm 1$.
+\\
+\\
+\textbf{\textit{*Всяка подобност е композиция от хомотетия и еднаквост.}}
+\\
+\\
+\textbf{\textit{Движения в равнината - идентитет, транслация, ротация}}
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 19:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Аналитичното представяне на идентитет е $$\mathrm{id}:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=E\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} 0 \\ 0\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Имаме, че $\mathrm{id}(M)=M:\forall M\in\mathcal P$ и значи $$\begin{array}{|l} x^\star=x \\ y^\star=y\end{array}$$ Следователно $$\mathrm{id}:[X^\star]_{\mathcal P}=E[X]_{\mathcal P}+\begin{pmatrix} 0 & 0\end{pmatrix}^\top\quad \blacksquare$$
+Всички точки са $\mathrm{id}-$инвариантни и всички прави са поточково неподвижни под действие на $\mathrm{id}$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 20:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Аналитичното представяне на транслация с ненулев вектор $\vec{p}(a,b)$ е $$\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=E\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} a \\ b\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $\tau_{\vec{p}}:M(x,y)\to M^\star=\tau_{\vec{p}}(M)(x^\star,y^\star)$. Тогава $\overrightarrow{MM^\star}=\vec{p}$. От една страна $\overrightarrow{MM^\star}(x^\star-x,y^\star-y)$, а от друга страна $\overrightarrow{MM^\star}(a,b)$, откъдето $$\begin{array}{|l} x^\star=x+a \\ y^\star=y+b\end{array}$$ и окончателно за аналитичното представяне на $\tau_{\vec{p}}$ получаваме: $$\tau_{\vec{p}}:[X^\star]_{\mathcal P}=E[X]_{\mathcal P}+\begin{pmatrix} a & b\end{pmatrix}^\top\quad \blacksquare$$
+Неподвижни точки под действие на $\tau_{\vec{p}}$ няма, а неподвижните прави са всички прави, колинеарни с $\vec{p}$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 21:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Аналитично представяне на ротация с център $S(s_1,s_2)$ на ъгъл $\theta\in[0,2\pi]$ спрямо ОКС в $\mathbb{E}_2$ е $$\rho_S(\theta):\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=A_{\rho_S(\theta)}\begin{pmatrix} x \\ y\end{pmatrix}+(E-A_{\rho_S(\theta)})[S]_{\mathcal P}$$ където за компактност сме си означили $$A_{\rho_S(\theta)}=\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Матрицата на ротацията е $$A_{\rho_S(\theta)}:=\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$$
+Дотук имаме, че $$\rho_S(\theta):\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=A_{\rho_S(\theta)}\begin{pmatrix} x \\ y\end{pmatrix}+\begin{pmatrix} a \\ b\end{pmatrix}$$
+Тъй като центърът на ротация е неподвижен под нейното действие, то $$\begin{pmatrix} s_1 \\ s_2\end{pmatrix}=A_{\rho_S(\theta)}\begin{pmatrix} s_1 \\ s_2\end{pmatrix}+\begin{pmatrix} a \\ b\end{pmatrix}\Leftrightarrow \begin{pmatrix} a \\ b\end{pmatrix}=(E-A_{\rho_S(\theta)})\begin{pmatrix}s_1 \\ s_2\end{pmatrix}$$ с което сме готови. \begin{center}
+\includegraphics[scale=0.53]{geogebra-export (85).png}
+\end{center} Да отбележим, че единствената неподвижна точка под действие на ротацията е нейният център. Ако $\theta\neq \pi$, то неподвижни прави нямаме, в противен случай $\rho_S(\theta)$ е централна симетрия и тогава всяка права през точката $S$ е неподвижна.
+\\
+\\
+\textbf{\textit{Задача:}} Спрямо ОКС в $\mathbb E_2$ са дадени еднаквостите $\rho_S(\theta)$ и $\tau_{\vec{p}}$. Да се докаже, че ако $\rho_S(\theta)\circ\tau_{\vec{p}}=\tau_{\vec{p}}\circ\rho_S(\theta)$, то $\rho_S(\theta)=\mathrm{id}$ или $\tau_{\vec{p}}=\mathrm{id}$.
+\\
+\textbf{\textit{Доказателство:}} Нека $S(s_1,s_2)$ е центърът на ротация и $\vec{p}(p_1,p_2)$ е векторът на транслация. За аналитичното представяне на $\rho_S(\theta)\circ\tau_{\vec{p}}$ имаме $$\tau_{\vec{p}}\circ\rho_S(\theta):\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=E\left[A_{\rho_S(\theta)}\begin{pmatrix} x \\ y\end{pmatrix}+(E-A_{\rho_S(\theta)})\begin{pmatrix} s_1 \\ s_2\end{pmatrix}\right]+\begin{pmatrix} p_1 \\ p_2\end{pmatrix}$$ Аналогично $$\rho_S(\theta)\circ\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y\end{pmatrix}=A_{\rho_S(\theta)}\left[E\begin{pmatrix} x \\ y^{\star}\end{pmatrix}+\begin{pmatrix} p_1 \\ p_2\end{pmatrix}\right]+(E-A_{\rho_S(\theta)})\begin{pmatrix}s_1 \\ s_2\end{pmatrix}$$ От равенството по условие, след опростяване, получаваме $$(E-A_{\rho_S(\theta)})\begin{pmatrix} p_1 \\ p_2\end{pmatrix}=\begin{pmatrix} 0 \\ 0\end{pmatrix}$$ Предвид това, че $$A_{\rho_S(\theta)}:=\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$$ получаваме системата $$\begin{array}{|l} p_1(1-\cos\theta)+p_2\sin\theta=0 \\-p_1\sin\theta+p_2(1-\cos\theta)=0\end{array}$$ Ще разгледаме два случая. Ако $\theta\neq 0$, то тогава $p_1=p_2\dfrac{1-\cos\theta}{\sin\theta}$ и, замествайки в първото уравнение на системата, получаваме $p_2=0$, откъдето и $p_1=0$. Това означава, че $\vec{p}=\vec{0}$, тоест $\tau_{\vec{p}}=\mathrm{id}$. Ако $\theta = 0$, тогава системата е изпълнена за всяко $p_1$ и $p_2$, и $\rho_S(0)=\mathrm{id}$.
+\\
+\\
+\textbf{\textit{Отражения в равнината - осева симетрия, плъзгащо отражение}}
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 22:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Аналитичното представяне на осева симетрия относно ОКС в $\mathbb{E}_2$ относно правата $g:Ax+By+C=0,\ (A,B)\neq(0,0)$, е $$\sigma_g:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=\dfrac{1}{A^2+B^2}\begin{pmatrix} B^2-A^2 & -2AB \\ -2AB & A^2-B^2\end{pmatrix}\begin{pmatrix} x \\ y\end{pmatrix}+\dfrac{1}{A^2+B^2}\begin{pmatrix} -2AC \\ -2BC\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $\sigma_g:M^\star(x^\star,y^\star)\to M'=\sigma_g(M)(x',y')$. Получаваме, че $M^\star\in M'M^\star$ и $M'M^\star\parallel \vec{n}_g(A,B)$. Тогава за параметричните уравнения на правата $M'M^\star$ имаме: $$M'M^\star:\begin{cases} x=x^\star+\lambda A \\ y=y^\star+\lambda B\end{cases}, \ \lambda\in\mathbb{R}$$ Да си означим $M_0:=g\cap M'M^\star$. Получаваме $$M_0\left(x^\star -A\dfrac{Ax^\star+By^\star+C}{A^2+B^2},y^\star -B\dfrac{Ax^\star+By^\star+C}{A^2+B^2}\right)$$ Тъй като $M_0$ е среда на отсечката $M'M^\star$, то $$M'\left(x^\star-2A\dfrac{Ax^\star+By^\star+C}{A^2+B^2},y^\star -2B\dfrac{Ax^\star+By^\star+C}{A^2+B^2}\right)$$ Еквивалентен запис на горния е 
+$$\begin{array}{|l} x'=\dfrac{1}{A^2+B^2}\left[(B^2-A^2)x^\star-2ABy^\star-2AC\right] \\y'=\dfrac{1}{A^2+B^2}\left[-2ABx^\star+(A^2-B^2)y^\star-2BC\right]\end{array}$$
+И така получаваме това, което трябваше да се докаже. $\blacksquare$ \begin{center}
+\includegraphics[scale=0.53]{geogebra-export (87).png}
+\end{center} Неподвижните точки под действие на $\sigma_g$ са всички точки, лежащи на $g$, а неподвижните прави са всички прави, перпендикулярни на $g$, като единствената поточково неподвижна права е оста на симетрия $g$.
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 23:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Плъзгащо отражение: $\sigma_g\circ\tau_{\vec{p}}=\tau_{\vec{p}}\circ\sigma_g\Leftrightarrow g\parallel\vec{p}\neq\vec{0}$. Аналитично представяне спрямо ОКС в равнината: \large{$$\psi:\begin{pmatrix} x^\star \\ y^{\star}\end{pmatrix}=\dfrac{1}{A^2+B^2}\begin{pmatrix} B^2-A^2 & -2AB \\ -2AB & A^2-B^2\end{pmatrix}\begin{pmatrix} x \\ y\end{pmatrix}+\dfrac{1}{A^2+B^2}\begin{pmatrix} -2AC \\ -2BC\end{pmatrix}\pm\begin{pmatrix} \frac{-B|\vec{p
+}|}{\sqrt{A^2+B^2}} \\ \frac{A|\vec{p
+}|}{\sqrt{A^2+B^2}}\end{pmatrix}$$}
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} От $\vec{p}\parallel g$ имаме, че $\vec{p}(-\lambda B, \lambda A)$. Тогава $|\vec{p}|^2=\lambda^2B^2+\lambda^2 A^2$, откъдето $ \lambda=\pm\dfrac{|\vec{p}|}{\sqrt{A^2+B^2}}$ и $\vec{p}=\pm\dfrac{|\vec{p}|}{\sqrt{A^2+B^2}}(-B,A)$. Така получаваме исканото. $\blacksquare$ \\
+\\
+Изображението по-долу илюстрира действието на $\psi$: \begin{center}
+\includegraphics[scale=0.53]{geogebra-export (86).png}
+\end{center}
+Неподвижни точки под действие на плъзгащото отражение няма, а неподвижната права е единствена - $g$.
+\\
+\\
+При търсенето на неподвижни прави при неособена ортогонална трансформация, стандартният алгоритъм, чрез който търсим неподвижни точки в $\mathbb{E}_2$ показва, че няма поточково неподвижни прави под действие на трансформацията. Това обаче не означава задължително, че под действието на тази трансформация нямаме неподвижни прави. Ще си припомним твърдението, в което се казва, че всяка неособена линейна трансформация на $\mathbb{E}_2^\star$ има поне една неподвижна права. Нека за пример вземем неособената ортогонална трансформация $\psi:\mathbb{E}_2\to\mathbb{E}_2$, зададена аналитично по следния начин: $$\psi:\begin{pmatrix} x^\star \\ y^\star\end{pmatrix}=A_\psi\begin{pmatrix} x \\ y \end{pmatrix}+\vec{b}_\psi$$ където $\mathcal M_3(\mathbb{R})\ni A_{\psi}:=\{a_{ij}\}_{i,j=1}^3$ с $\mathrm{det}(A_\psi)=-1$, $\vec{b}_\psi:=\begin{pmatrix} b_1 & b_2\end{pmatrix}^T$ и $\mathrm{tr}(A_{\psi})=0$. Ще разгледаме аналогът на $\psi$ в $\mathbb{E}_2^\star$, т.е. разглеждаме линейната трансформация $\psi^\star:\mathbb{E}_2^\star\to\mathbb{E}_2^\star$, дефинирана посредством $$\psi^\star:\rho\begin{pmatrix}x^\star \\ y^\star \\ t^\star\end{pmatrix}=\begin{pmatrix} a_{11} & a_{12} & b_1 \\ a_{21} & a_{22} & b_2 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x \\ y \\ t\end{pmatrix}$$
+където $\rho$ е ненулев коефициент на пропорционалност и нека за удобство матрицата на $\psi^\star$ означим с $A_{\psi^\star}$. Трансформацията $\psi^\star$ е обратима, предвид това, че $\mathrm{det}(A_{\psi^\star})\neq 0$. Нещо повече, тя е афинна, тъй като $\omega\xrightarrow{\psi^\star}\omega$ и тъй като е биекция. Така $\exists A_{\psi^\star}^{-1}$, като 
+$$A_{\psi^\star}^{-1} = 
+\begin{pmatrix} 
+\frac{a_{22}}{\text{det}(A_{\psi^\star})} & \frac{-a_{12}}{\text{det}(A_{\psi^\star})} & \frac{a_{12}b_2 - a_{22}b_1}{\text{det}(A_{\psi^\star})} \\ 
+\frac{-a_{21}}{\text{det}(A_{\psi^\star})} & \frac{a_{11}}{\text{det}(A_{\psi^\star})} & \frac{a_{21}b_1 - a_{11}b_2}{\text{det}(A_{\psi^\star})} \\ 
+0 & 0 & 1\end{pmatrix}=\begin{pmatrix}-a_{22} & a_{12} & a_{22}b_1-a_{12}b_2 \\ 
+a_{21} & -a_{11} & a_{11}b_2-a_{21}b_1\\ 
+0 & 0 & 1\end{pmatrix}$$
+Образуваме характеристичния полином $$f_{A_{\psi^\star}^{-1}}(\lambda)=\mathrm{det}(A_{\psi^\star}^{-1}-\lambda E)=(1-\lambda)[\lambda^2+\lambda(a_{11}+a_{22})+a_{11}a_{22}-a_{12}a_{21}]$$ на матрицата $A_{\psi^\star}^{-1}$. Тъй като $a_{11}+a_{22}=0$ и $a_{11}a_{22}-a_{12}a_{21}=\mathrm{det}(A_\psi)=-1$, то $$f_{A_{\psi^\star}^{-1}}(\lambda)=-(1-\lambda)^2(\lambda+1)$$ откъдето за собствените стойности $\lambda_i$ на същата матрица получаваме: $$\lambda_{1,2}=1\ \text{и}\ \lambda_{3}=-1$$
+За $\lambda_{1,2}=1$ изкарваме, че неподвижна права е $\omega$. За $\lambda_3=-1$ решаваме матричното уравнение: $$\begin{bmatrix} A_g & B_g & C_g\end{bmatrix}(A_{\psi^\star}^{-1}+E)=\begin{bmatrix} 0 & 0 & 0\end{bmatrix}$$ Получаваме, че $(1-a_{22})A_g+a_{21}B=0$ и $a_{12}A_g+(-1-a_{11})B=0$, като също лесно можем да проверим, че $$\mathrm{det}\begin{pmatrix} 1-a_{22} & a_{21} \\ a_{12} & -1-a_{11}\end{pmatrix}=0$$ Това означава, че съществува нетривиална наредена двойка $(A_g,B_g)\in\mathbb{R}^2\backslash\{(0,0)\}$, удовлетворяваща системата линейни уравнения. В крайна сметка $A_g=\mu \dfrac{a_{21}}{a_{22}-1}$ и $B_g=\mu$, където $\mu\in\mathbb{R}\backslash\{0\}$. Намираме и $$C_g=-\dfrac{\mu}{2}\left(\dfrac{a_{21}}{a_{22}-1}(a_{22}b_1-a_{12}b_2)+a_{11}b_2-a_{21}b_1\right)$$ Така получаваме, че правата $$g\left[\dfrac{2a_{21}}{a_{22}-1},2,\dfrac{2а_{21}}{1-a_{22}}(a_{22}b_1-a_{12}b_2)+a_{21}b_1-a_{11}b_2\right]$$ е неподвижна под действие на $\psi^\star$. Преминавайки в нехомогенни координати, окончателно неподвижната права под действие на $\psi$ е $$\dfrac{2a_{21}}{a_{22}-1}x+2y+\dfrac{2_{21}}{a_{22}-1}(a_{12}b_2-a_{22}b_1)+a_{21}b_1-a_{11}b_2=0$$
+\part{Афинни и ортогонални трансформации в пространството}
+Нека спрямо АКС $K=O\vec{f}_1\vec{f}_2\vec{f}_3$ в $\mathbb{E}_3$, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}_3\to\mathbb{E}_3$, като $\varphi:M(x,y,z)\to M^\star=\varphi(M)(x^\star, y^\star,z^\star)$. \\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Изображението $\varphi:\mathbb{E}_3\to\mathbb{E}_3$ наричаме афинно, ако:
+$$\begin{pmatrix} x\\ y \\ z\end{pmatrix}=\sum_j \lambda_j \begin{pmatrix} x_j\\ y_j\\ z_j\end{pmatrix}\Rightarrow\varphi\begin{pmatrix} x\\ y\\ z\end{pmatrix}=\sum_j \lambda_j \varphi\begin{pmatrix} x_j\\ y_j\\ z_j\end{pmatrix},\ \text{където}\ \sum_j \lambda_j=1$$
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 24:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Изображението $\varphi:\mathbb{E}_3\to\mathbb{E}_3$ е афинно тогава и само тогава, когато $$\varphi:\begin{pmatrix} x^\star \\ y^\star \\ z^\star\end{pmatrix}=A_\varphi\begin{pmatrix} x\\ y \\ z\end{pmatrix}+\vec{b}_{\varphi}$$ където $A_\varphi\in \mathcal M_3(\mathbb{R})$ и $\vec{b}_{\varphi}=\begin{pmatrix} a & b & c\end{pmatrix}^\top$ е вектор стълб от свободни елементи.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Аналогично на \textbf{Твърдение 17}.
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 25:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Изображението $\varphi$ е афинна трансформация тогава и само тогава, когато $\mathrm{det}(A_\varphi)\neq 0$.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Тривиално.
+\section { Класификация на еднаквостите в $\mathbb{E}_3$}
+Нека е дадена ОКС $K=Oxyz$ в $\mathbb{E}_3$. Афинната трансформация $\psi:\mathbb{E}_3\to\mathbb{E}_3$ е еднаквост тогава и само тогава, когато матрицата ѝ $A_\psi\in \mathcal M_3(\mathbb{R})$ е ортогонална. Тогава $A_\psi A_\psi^{T}= A_\psi^{T}A_\psi=E\Rightarrow \mathrm{det}(A_\psi)=\pm 1$. Ако $\mathrm{det}(A_\psi)=1$, то $\psi$ е движение - запазва се ориентацията в пространството. Ако $\mathrm{det}(A_\psi)=-1$, то $\psi$ е отражение - променя ориентацията в пространството.
+\\
+\\
+\textbf{Движения в пространството - идентитет, транслация, ротация, винтово движение}
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 26:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Аналитичното представяне на идентитет $\mathrm{id}:\mathbb{E}_3\to\mathbb{E}_3$ е $$\mathrm{id}:\begin{pmatrix} x^\star \\ y^\star \\ z^\star \end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} 0 \\ 0\\ 0\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Имаме, че $\mathrm{id}(M)=M:\forall M\in\mathbb{E}_3$ и значи $$\begin{array}{|l} x^\star=x \\ y^\star=y \\ z^\star=z\end{array}$$ Следователно $$\mathrm{id}:\begin{pmatrix} x^\star \\ y^\star \\ z^\star \end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} 0 \\ 0\\ 0\end{pmatrix}\quad \blacksquare$$
+Всички точки, прави и равнини са неподвижни под действие на $\mathrm{id}$.
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 27:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Аналитичното представяне на транслация $\tau_{\vec{p}}:\mathbb{E}_3\to\mathbb{E}_3$ с ненулев вектор $\vec{p}(a,b,c)$ е $$\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b\\ c\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $\tau_{\vec{p}}:M(x,y,z)\to M^\star=\tau_{\vec{p}}(M)(x^\star,y^\star,z^\star)$. Тогава $\overrightarrow{MM^\star}=\vec{p}$. От една страна $\overrightarrow{MM^\star}(x^\star-x,y^\star-y,z^\star-z)$, а от друга страна $\overrightarrow{MM^\star}(a,b,c)$, откъдето $$\begin{array}{|l} x^\star=x+a \\ y^\star=y+b \\ z^\star = z + c\end{array}$$ и окончателно за аналитичното представяне на $\tau_{\vec{p}}$ получаваме: $$\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b\\ c\end{pmatrix}\quad \blacksquare$$
+Неподвижни точки под действие на $\tau_{\vec{p}}$ няма, неподвижните прави са всички прави, колинеарни с $\vec{p}$, а неподвижните равнини са всички равнини, компланарни с $\vec{p}$.
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 28:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]  Аналитичното представяне на ротация $\rho_{Oz^{\rightarrow}}(\theta):\mathbb{E}_3\to\mathbb{E}_3$ около оста $Oz^{\rightarrow}$ на ъгъл $\theta$ е $$\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}$$
+\end{tcolorbox}
+Неподвижни точки под действие на $\rho_g(\theta)$ са всички точки от оста $g$, неподвижната права е $g$, а неподвижните равнини са всички равнини, перпендикулярни на $g$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 29:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Винтовото движение $\tau_{\vec{p}}\circ\rho_{Oz^{\rightarrow}}(\theta):\mathbb{E}_3\to\mathbb{E}_3 $, където $\vec{p}\uparrow\uparrow Oz^{\rightarrow}$, има аналитично представяне: $$\tau_{\vec{p}}\circ\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} 0 \\ 0 \\ c\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Имаме, че $$\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} 0 \\ 0\\ c\end{pmatrix}\ \text{и}\ \rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}$$ откъдето $$\tau_{\vec{p}}\circ\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=E\left[\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}\right]+\begin{pmatrix} 0 \\ 0 \\ c\end{pmatrix}$$ откъдето окончателно $$\tau_{\vec{p}}\circ\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} 0 \\ 0 \\ c\end{pmatrix}\quad \blacksquare$$ Неподвижни точки под действие на $\tau_{\vec{p}}\circ\rho_{g}(\theta)$ няма, неподвижната права е $g$, а неподвижни равнини няма.
+\\
+\\
+\textbf{Отражения в пространството - симетрия, въртящо отражение, плъзгащо отражение}
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 30:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Аналитичното представяне на симетрия $\sigma_{Oxy}:\mathbb{E}_3\to\mathbb{E}_3$ относно равнината $Oxy$ е $$\sigma_{Oxy}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $M(x',y',z')$ е произволна точка в $\mathbb{E}_3$. Построяваме права $g$ по направлението на нормалния вектор $\vec{n}(0,0,1)$ на равнината $Oxy$ и минаваща през точката $M$. Лесно установяваме, че $g\cap Oxy=M_0(x',y',0)$. Тогава $\sigma_{Oxy}(M)=M^\star$, като $M_0$ е среда на $MM^\star$. Оттук $M^\star(x',y',-z')$ и $$\begin{array}{|l} x^\star = x' \\ y^\star=y' \\ z^\star=-z'\end{array}$$ Следователно $$\sigma_{Oxy}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}\quad \blacksquare$$ Неподвижни точки под действие на $\sigma_{\alpha}$ са всички точки от $\alpha$, неподвижните прави са всички прави, лежащи в $\alpha$, и всички прави, перпендикулярни на $\alpha$, а неподвижни равнини са всички равнини, перпендикулярни на $\alpha$.
+\\
+\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 31:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Въртящо отражение $\sigma_{Oxy}\circ\rho_{Oz^{\rightarrow}}(\theta):\mathbb{E}_3\to\mathbb{E}_3$ има аналитично представяне $$\sigma_{Oxy}\circ\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}$$
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Имаме, че $$\sigma_{Oxy}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}\ \text{и}\ \rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}$$ откъдето $$\sigma_{Oxy}\circ\rho_{Oz^{\rightarrow}}(\theta):\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\left[\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}\right]$$ Окончателно $$X\xrightarrow{\sigma_{Oxy}\circ\rho_{Oz^{\rightarrow}}(\theta)}A_{\rho_S(\theta)}\oplus(-1) X\quad \blacksquare$$ Неподвижната точка под действие на $\sigma_{\alpha}\circ\rho_g(\theta)$ е $g\cap\alpha$, неподвижната права е $g$, а неподвижната равнина е $\alpha$.
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 32:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Плъзгащо отражение $\sigma_{Oxy}\circ\tau_{\vec{p}}:\mathbb{E}_3\to\mathbb{E}_3$, където $\vec{p}(a,b,0)$, има аналитично представяне $$\sigma_{Oxy}\circ\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b \\ 0 \end{pmatrix}$$
+\end{tcolorbox}\textbf{\textit{Доказателство:}} Имаме, че $$\sigma_{Oxy}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}\ \text{и}\ \tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}=E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b\\ 0\end{pmatrix}$$ откъдето \begin{align*}\sigma_{Oxy}\circ\tau_{\vec{p}}:\begin{pmatrix} x^\star \\ y^\star\\ z^\star\end{pmatrix}&=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\left[E\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b\\ 0\end{pmatrix}\right] \\ &=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1\end{pmatrix}\begin{pmatrix} x\\ y\\ z\end{pmatrix}+\begin{pmatrix} a \\ b \\ 0 \end{pmatrix}\quad \blacksquare\end{align*} Неподвижни точки под действие на $\sigma_{\alpha}\circ\tau_{\vec{p}}$ няма, неподвижните прави са всички прави, лежащи в $\alpha$ и колинеарни с $\vec{p}$, а неподвижни равнини са всички равнини, перпендикулярни на $\alpha$ и компланарни с $\vec{p}$.
+\Large{
+\part{Представяне на ротациите в пространството чрез кватерниони.}
+Множеството $$\mathbb{H}:=\{s+ix+jy+kz|s,x,y,z\in\mathbb{R}\}$$ където $i^2=j^2=k^2=-1$, $ij=k$, $ji=-k$, $jk=-kj=i$ и $ki=-ik=j$, наричаме множеството на кватернионите. Можем да използваме следното означение за кватерниони: $$q=s+ix+jy+kz=(s,(x,y,z))=(s,\vec{v})$$ където $\vec{v}(x,y,z)\in\mathbb{E}_3$.
+\\
+\\
+\textbf{Свойства:} \\ $\bullet$ $(s_1,\overrightarrow{v_1})+(s_2,\overrightarrow{v_2})=(s_1+s_2,\overrightarrow{v_1}+\overrightarrow{v_2})$; \\
+$\bullet$ $(s_1,\overrightarrow{v_1})(s_2,\overrightarrow{v_2})=(s_1s_2-\overrightarrow{v_1}\cdot\overrightarrow{v_2}, s_1\overrightarrow{v_2}+s_2\overrightarrow{v_1}+\overrightarrow{v_1}\times\overrightarrow{v_2})$
+\\
+По-общо, $\displaystyle\sum _{i\in I}(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i\in I} s_i,\displaystyle\sum _{i\in I}\overrightarrow{v_i}\right)$, където $I$ е непразно индексно множество.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Спрегнат кватернион на $q=(s,\vec{v})$ наричаме $\overline{q}:=(s,-\vec{v})$.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}} Норма на кватернион $q$ наричаме $\Vert q\Vert:=\sqrt{q\overline{q}}$. Ако $\Vert q\Vert=1$, то $q$ наричаме единичен кватернион.
+\\
+\\
+Кватернионът $q=a+bi+cj+dk$ може да се представи и чрез матрицата $$A=\begin{pmatrix} a+bi & c+di \\ -c+di & a-bi\end{pmatrix}\in \mathcal M_2(\mathbb{C})$$
+Така $\mathfrak{Re}(q)=\dfrac{1}{2}\mathrm{tr}(A) $ и $\Vert q\Vert=\sqrt{\mathrm{det}(A)}$.\\
+\begin{tcolorbox}[
+    colback=blue!5,    % background color
+    colframe=blue!75!black, % frame color
+    title={\textbf{Твърдение 33:}}, % title text
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,           % rounded corners
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Ако $q$ е единичен кватернион, то $\exists \vec{e}:|\vec{e}|=1$ и $\exists \measuredangle\theta\in[0,\pi]$, такива че $q=(\cos\theta,\sin\theta \vec{e})$.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}} Нека $q=(s,\overrightarrow{v})$. Тъй като $\Vert q\Vert=1$, то $$q\overline{q}=(s^2+\overrightarrow{v}^2,\vec{0})=1$$ И така $q\overline{q}=s^2+\overrightarrow{v}^2=1$, откъдето $\exists\measuredangle\theta\in[0,\pi]:s=\cos\theta$, предвид това, че $-1\leq s\leq 1$. Така получаваме, че $\vec{v}^2=\sin^2\theta$, откъдето $\vec{v}=\sin\theta\dfrac{\vec{v}}{|\vec{v}|}$. Излезе, че $\exists \vec{e}=\dfrac{\vec{v}}{|\vec{v}|}:|\vec{e}|=1$, тъй като $\dfrac{\vec{v}}{|\vec{v}|}$ е нормиран вектор, с което сме готови. $\blacksquare$
+\\
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 34:}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+] Нека е дадена ротация $\rho_g(\theta):\mathbb{E}_3\to\mathbb{E}_3$ с ос правата $g\ni O$ на ъгъл $\theta$ спрямо ОКС $K=O\vec{e}_1\vec{e}_2\vec{e}_3\in S^{+}$. Тогава $$(0,\rho_g(\theta)(\overrightarrow{OP}))=q(0,\overrightarrow{OP})\overline{q}$$ където $q=\left(\cos\dfrac{\theta}{2},\sin\dfrac{\theta}{2}\vec{e}\right)$ и $\vec{e}\uparrow\uparrow g$ е нормиран вектор.
+\end{tcolorbox}
+\begin{center}
+\includegraphics[scale=0.95]{geogebra-export - 2024-05-04T212216.520.png}
+\end{center}
+\part{Сферична линейна интерполация}
+Сферичната линейна интерполация (SLERP) представлява геодезична интерполация върху единичната $n-$сфера \( S^n \), използвана за плавни преходи между ориентации и посоки. Тя намира широко приложение в компютърната графика, роботиката и анимацията.
+\\
+\\
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}}  
+Нека \( v_0, v_1 \in S^n \subset \mathbb{R}^{n+1} \) са единични вектори и \( t \in [0,1] \). Дефинираме:
+\[
+\mathrm{SLERP}(v_0, v_1, t) = \frac{\sin((1-t)\theta)}{\sin \theta} v_0 + \frac{\sin(t\theta)}{\sin \theta} v_1,
+\]
+където
+\[
+\theta = \arccos(v_0^\top v_1).
+\]
+\textbf{\textit{\textcolor{purple}{Дефиниция:}}}  
+Нека \( q_0, q_1 \in \mathbb{H} \), \( \|q_0\| = \|q_1\| = 1 \). Тогава:
+\[
+\mathrm{SLERP}(q_0, q_1, t) = q_0 (q_0^{-1} q_1)^t.
+\]
+Еквивалентно:
+\[
+\mathrm{SLERP}(q_0, q_1, t) = q_0 \exp\big(t \log(q_0^{-1} q_1)\big).
+\]
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 35: Запазване на нормата}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+За всички \( t \in [0,1] \) е изпълнено:
+\[
+\|\mathrm{SLERP}(v_0, v_1, t)\| = 1.
+\]
+\end{tcolorbox}
+
+\textbf{\textit{Доказателство:}}  
+От дефиницията:
+\[
+v(t) = \frac{\sin((1-t)\theta)}{\sin \theta} v_0 + \frac{\sin(t\theta)}{\sin \theta} v_1.
+\]
+Използвайки \( \|v_0\|=\|v_1\|=1 \) и \( v_0^\top v_1 = \cos\theta \), след пресмятане получаваме:
+\[
+\|v(t)\|^2 = 1.
+\]
+Следователно \( v(t) \in S^n \). $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 36: Константна ъглова скорост}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+Ъгълът между \( v_0 \) и \( \mathrm{SLERP}(v_0,v_1,t) \) е:
+\[
+\theta(t) = t\theta.
+\]
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Разглеждаме:
+\[
+v_0^\top v(t) = \cos(t\theta).
+\]
+Следователно ъгълът е \( t\theta \), което показва линейна зависимост от параметъра \( t \). $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 37: Геодезичност}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+SLERP параметризира дъга от голям кръг върху сферата.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Тъй като \( v(t) \) лежи в равнината, породена от \( v_0 \) и \( v_1 \), и остава с единична норма, то траекторията му е пресечната линия на тази равнина със сферата, което е голям кръг. $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 38: Инвариантност спрямо ротации}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+За всяка ротация \( R \in SO(n+1) \):
+\[
+R\,\mathrm{SLERP}(v_0,v_1,t) = \mathrm{SLERP}(Rv_0, Rv_1, t).
+\]
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Ротациите запазват скаларното произведение и нормата. Следователно ъгълът \( \theta \) е инвариантен и формулата за SLERP остава непроменена при действие на \( R \). $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 39: Кватернионна структура}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+Нека \( q_0, q_1 \in \mathbb{H} \), \( \|q_0\|=\|q_1\|=1 \). Тогава:
+\[
+\mathrm{SLERP}(q_0,q_1,t) = q_0 (q_0^{-1} q_1)^t.
+\]
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Елементът \( q_0^{-1}q_1 \) е единичен кватернион и представлява ротация. Степенуването \( (\cdot)^t \) интерполира в групата чрез експоненциалното изображение, което дава гладък път. $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 40: Най-къс път}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+Ако \( v_0^\top v_1 < 0 \), замяната \( v_1 \leftarrow -v_1 \) гарантира минимална дъга.
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Смяната на знака не променя геометричната ориентация, но намалява ъгъла \( \theta \) до интервала \( [0,\pi] \), осигурявайки най-кратката геодезична. $\blacksquare$
+\begin{tcolorbox}[
+    colback=blue!5,
+    colframe=blue!75!black,
+    title={\textbf{Твърдение 41: Граничен случай}},
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    arc=1mm,
+    top=2mm, bottom=2mm, left=3mm, right=3mm
+]
+При \( \theta \to 0 \):
+\[
+\mathrm{SLERP}(v_0,v_1,t) \to \frac{(1-t)v_0 + tv_1}{\|(1-t)v_0 + tv_1\|}.
+\]
+\end{tcolorbox}
+\textbf{\textit{Доказателство:}}  
+Използвайки реда на Тейлър за синус:
+\[
+\sin x \sim x,
+\]
+следва, че SLERP клони към нормализирана линейна интерполация. $\blacksquare$
+
+\end{document}
