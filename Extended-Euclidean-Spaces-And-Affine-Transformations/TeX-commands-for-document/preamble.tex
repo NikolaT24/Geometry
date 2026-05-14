@@ -105,7 +105,9 @@
     \tl_gset:Nn \g_geom_authors_tl {#4}
     \tl_gset:Nn \g_geom_footer_tl  {#5}
 }
-\NewDocumentCommand{\printgeomtitle}{}{ \tl_use:N \g_geom_title_tl }
+\NewDocumentCommand{\printgeomtitle}{}{
+\tl_use:N \g_geom_title_tl
+}
 \NewDocumentCommand{\printgeomvolume}{}{
 \tl_use:N \g_geom_volume_tl
 }
