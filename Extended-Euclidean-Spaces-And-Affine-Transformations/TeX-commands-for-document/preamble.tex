@@ -98,31 +98,30 @@
 \tl_new:N \g_geom_authors_t1
 \tl_new:N \g_geom_footer_tl
 
-\NewDocumentCommand{\geomsetup}{mmmmm}
-{
+\NewDocumentCommand{\geomsetup}{mmmmm}{
     \tl_gset:Nn \g_geom_title_tl   {#1}
     \tl_gset:Nn \g_geom_volume_tl  {#2}
     \tl_gset:Nn \g_geom_program_tl {#3}
     \tl_gset:Nn \g_geom_authors_tl {#4}
     \tl_gset:Nn \g_geom_footer_tl  {#5}
 }
-\NewDocumentCommand{\printgeomtitle}{} { \tl_use:N \g_geom_title_tl }
-\NewDocumentCommand{\printgeomvolume}{} {
+\NewDocumentCommand{\printgeomtitle}{}{ \tl_use:N \g_geom_title_tl }
+\NewDocumentCommand{\printgeomvolume}{}{
 \tl_use:N \g_geom_volume_tl
 }
-\NewDocumentCommand{\printgeomprogram}{} {
+\NewDocumentCommand{\printgeomprogram}{}{
 \tl_use:N \g_geom_program_tl
 }
-\NewDocumentCommand{\printgeomauthors}{} {
+\NewDocumentCommand{\printgeomauthors}{}{
 \tl_use:N \g_geom_authors_tl
 }
-\NewDocumentCommand{\printgeomfooter}{} {
+\NewDocumentCommand{\printgeomfooter}{}{
 \tl_use:N \g_geom_footer_tl
 }
 
 \ExplSyntaxOff
 
-\NewDocumentCommand{\geomtitle}{} {
+\NewDocumentCommand{\geomtitle}{}{
     \begin{titlepage}
     \thispagestyle{empty}
     \begin{tikzpicture}[remember picture,overlay]
