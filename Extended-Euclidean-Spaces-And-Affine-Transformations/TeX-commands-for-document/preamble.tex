@@ -15,11 +15,12 @@
 \usepackage{wrapfig}
 \usepackage{geometry}
 \usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
+\usetikzlibrary{calc,positioning}
 \usetikzlibrary{arrows.meta}
 \usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
 \usepackage{tkz-euclide}
+\usepackage{pict2e}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{hyperref}
@@ -33,8 +34,8 @@
     a4paper,
     left=1.2cm,
     right=1.2cm,
-    top=2.5cm,
-    bottom=2.5cm
+    top=2.8cm,
+    bottom=2.8cm
 }
 
 \definecolor{mainblue}{RGB}{18,34,68}
@@ -75,6 +76,35 @@
 \renewcommand{\thepart}{\arabic{part}}
 \renewcommand{\thesection}{\thepart.\arabic{section}}
 
+\makeatletter
+\newcommand{\bigcomp}{%
+  \DOTSB
+  \mathop{\vphantom{\sum}\mathpalette\bigcomp@\relax}%
+  \slimits@
+}
+\newcommand{\bigcomp@}[2]{%
+  \begingroup\m@th
+  \sbox\z@{$#1\sum$}%
+  \setlength{\unitlength}{0.9\dimexpr\ht\z@+\dp\z@}%
+  \vcenter{\hbox{%
+    \begin{picture}(1,1)
+    \bigcomp@linethickness{#1}
+    \put(0.5,0.5){\circle{1}}
+    \end{picture}%
+  }}%
+  \endgroup
+}
+\newcommand{\bigcomp@linethickness}[1]{%
+  \linethickness{%
+      \ifx#1\displaystyle 2\fontdimen8\textfont\else
+      \ifx#1\textstyle 1.65\fontdimen8\textfont\else
+      \ifx#1\scriptstyle 1.65\fontdimen8\scriptfont\else
+      1.65\fontdimen8\scriptscriptfont\fi\fi\fi 3
+  }%
+}
+
+\makeatother
+
 \newtcbox{\eqbox}{
   nobeforeafter,
   math upper,
@@ -91,39 +121,30 @@
 }
 
 \ExplSyntaxOn
-
 \tl_new:N \g_geom_title_tl
 \tl_new:N \g_geom_volume_tl
 \tl_new:N \g_geom_program_tl
-\tl_new:N \g_geom_authors_t1
+\tl_new:N \g_geom_authors_tl
 \tl_new:N \g_geom_footer_tl
 
-\NewDocumentCommand{\geomsetup}{mmmmm}{
+\NewDocumentCommand{\geomsetup}{mmmmm}
+{
     \tl_gset:Nn \g_geom_title_tl   {#1}
     \tl_gset:Nn \g_geom_volume_tl  {#2}
     \tl_gset:Nn \g_geom_program_tl {#3}
     \tl_gset:Nn \g_geom_authors_tl {#4}
     \tl_gset:Nn \g_geom_footer_tl  {#5}
 }
-\NewDocumentCommand{\printgeomtitle}{}{
-\tl_use:N \g_geom_title_tl
-}
-\NewDocumentCommand{\printgeomvolume}{}{
-\tl_use:N \g_geom_volume_tl
-}
-\NewDocumentCommand{\printgeomprogram}{}{
-\tl_use:N \g_geom_program_tl
-}
-\NewDocumentCommand{\printgeomauthors}{}{
-\tl_use:N \g_geom_authors_tl
-}
-\NewDocumentCommand{\printgeomfooter}{}{
-\tl_use:N \g_geom_footer_tl
-}
 
+\NewDocumentCommand{\printgeomtitle}{} { \tl_use:N \g_geom_title_tl }
+\NewDocumentCommand{\printgeomvolume}{} { \tl_use:N \g_geom_volume_tl }
+\NewDocumentCommand{\printgeomprogram}{} { \tl_use:N \g_geom_program_tl }
+\NewDocumentCommand{\printgeomauthors}{} { \tl_use:N \g_geom_authors_tl }
+\NewDocumentCommand{\printgeomfooter}{} { \tl_use:N \g_geom_footer_tl }
 \ExplSyntaxOff
 
-\NewDocumentCommand{\geomtitle}{}{
+\NewDocumentCommand{\geomtitle}{}
+{
     \begin{titlepage}
     \thispagestyle{empty}
     \begin{tikzpicture}[remember picture,overlay]
@@ -188,17 +209,13 @@
 
 \geomsetup {
     Геометрия
-}
-{
+}{
     III част
-}
-{
+}{
     Софтуерно инженерство
-}
-{
+}{
     ас. Никола Топалов
-}
-{
+}{
     Факултет по математика и информатика\\[0.2cm]
     2026 г. $\bullet$ София
 }
