@@ -56,9 +56,4 @@ There is little to no clear and accessible information available online about th
 - ✨ Linear transformations and invariants  
 - ✨ Central projection and duality  
 
-## 📝 What is this cheat sheet?
-
-- A sheet that can genuinely save you from failing the course
-- Designed to secure you a grade of at least 5
-
 ---
