@@ -125,14 +125,14 @@
 \tl_new:N \g_geom_title_tl
 \tl_new:N \g_geom_volume_tl
 \tl_new:N \g_geom_program_tl
-\tl_new:N \g_geom_authors_tl
+\tl_new:N \g_geom_author_tl
 \tl_new:N \g_geom_footer_tl
 
 \NewDocumentCommand{\geomsetup}{mmmmm}{
     \tl_gset:Nn \g_geom_title_tl   {#1}
     \tl_gset:Nn \g_geom_volume_tl  {#2}
     \tl_gset:Nn \g_geom_program_tl {#3}
-    \tl_gset:Nn \g_geom_authors_tl {#4}
+    \tl_gset:Nn \g_geom_author_tl {#4}
     \tl_gset:Nn \g_geom_footer_tl  {#5}
 }
 
@@ -146,7 +146,7 @@
   \tl_use:N \g_geom_program_tl
 }
 \NewDocumentCommand{\printgeomauthors}{}{
-  \tl_use:N \g_geom_authors_tl
+  \tl_use:N \g_geom_author_tl
 }
 \NewDocumentCommand{\printgeomfooter}{}{
   \tl_use:N \g_geom_footer_tl
