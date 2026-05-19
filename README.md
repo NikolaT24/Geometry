@@ -22,7 +22,7 @@
 ---
 
 💡 **Advanced geometry, homogeneous coordinates, and transformations**  
-📘 Academic material structured and beautifully typeset with LaTeX  
+📘 Academic material in bulgarian structured and beautifully typeset with LaTeX  
 
 </div>
 
