@@ -152,16 +152,15 @@
 }
 \ExplSyntaxOff
 
-\NewDocumentCommand{\geomtitle}{}
-{
+\NewDocumentCommand{\geomtitle}{}{
     \begin{titlepage}
     \thispagestyle{empty}
     \begin{tikzpicture}[remember picture,overlay]
         \fill[mainblue] (current page.north west) rectangle ([xshift=6.5cm]current page.south west);
         \begin{scope}[shift={(current page.north west)}]
             \clip (0,0) rectangle (6.5,-30);
-            \foreach \i in {-1,0,...,5} {
-                \foreach \j in {-1,0,...,22} {
+            \foreach \i in {-1,0,...,5}{
+                \foreach \j in {-1,0,...,22}{
                     \draw[white, opacity=0.06, line width=0.8pt] 
                         (\i*1.5 + \j*0.75, -\j*1.3) 
                         +(30:0.8) -- +(90:0.8) -- +(150:0.8) -- +(210:0.8) -- +(270:0.8) -- +(330:0.8) -- cycle;
@@ -178,11 +177,11 @@
             \draw[mainblue, opacity=0.08, line width=1.5pt] (0,0) circle (5.5);
             \draw[accent, opacity=0.08, line width=1.5pt] (0,0) circle (3.889);
             \draw[mainblue, opacity=0.08, line width=1pt, dashed] (0,0) circle (2);
-            \foreach \a in {0,45,...,315} {
+            \foreach \a in {0,45,...,315}{
                 \draw[mainblue, opacity=0.08, line width=1pt] (0,0) -- (\a:5.5);
             }
         \end{scope}
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-5cm]current page.north west) {
+        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-5cm]current page.north west){
             \begin{minipage}{11cm}
                 \raggedright
                 {\fontsize{55}{65}\selectfont\bfseries\color{mainblue}\printgeomtitle}\\[0.3em]
@@ -192,21 +191,21 @@
         \draw[accent, line width=2.5pt, line cap=round] 
             ([xshift=8cm, yshift=-9.5cm]current page.north west) -- 
             ([xshift=11.5cm, yshift=-9.5cm]current page.north west);
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-11cm]current page.north west) {
+        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-11cm]current page.north west){
             \begin{minipage}{11cm}
                 \raggedright
                 {\large\color{softgray}\MakeUppercase{Специалност}}\\[0.4em]
                 {\LARGE\bfseries\color{mainblue}\printgeomprogram}
             \end{minipage}
         };
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-15cm]current page.north west) {
+        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-15cm]current page.north west){
             \begin{minipage}{11cm}
                 \raggedright
                 {\large\color{softgray}\MakeUppercase{Учебни материали}}\\[0.4em]
                 {\Large\bfseries\color{mainblue}\printgeomauthors}
             \end{minipage}
         };
-        \node[anchor=south west, font=\sffamily] at ([xshift=8cm, yshift=2.5cm]current page.south west) {
+        \node[anchor=south west, font=\sffamily] at ([xshift=8cm, yshift=2.5cm]current page.south west){
             \begin{minipage}{11cm}
                 \raggedright
                 {\large\color{softgray}\printgeomfooter}
@@ -216,7 +215,7 @@
     \end{titlepage}
 }
 
-\geomsetup {
+\geomsetup{
     Геометрия
 }{
     III част
