@@ -15,12 +15,6 @@ int main() {
         std::cin >> pi[i];
     }
 
-    std::cout << "Enter the coordinates of the point to project X (x y z t):" << std::endl;
-    std::vector<double> X(4);
-    for (int i = 0; i < 4; ++i) {
-        std::cin >> X[i];
-    }
-    
     double pi_S = 0.0;
     for (int i = 0; i < 4; ++i) {
         pi_S += pi[i] * S[i];
@@ -28,7 +22,7 @@ int main() {
 
     if (pi_S == 0.0) {
         std::cerr << "Error: The center of projection S lies on the projection plane pi." << std::endl;
-        std::cerr << "Central projection is undefined in this case." << std::endl;
+        std::cerr << "The central projection matrix is undefined in this case." << std::endl;
         return 1;
     }
 
@@ -46,20 +40,14 @@ int main() {
         }
     }
 
-    std::vector<double> X_star(4, 0.0);
+    std::cout << "\n--- Matrix of Central Projection ---\n";
     for (int i = 0; i < 4; ++i) {
+        std::cout << "[ ";
         for (int j = 0; j < 4; ++j) {
-            X_star[i] += M[i][j] * X[j];
+            std::cout << std::setw(10) << std::fixed << std::setprecision(4) << M[i][j] << " ";
         }
+        std::cout << "]\n";
     }
-
-    std::cout << "\n--- Results ---\n";
-    std::cout << "Projected Point X* in homogeneous coordinates:\n";
-    std::cout << "[ ";
-    for (int i = 0; i < 4; ++i) {
-        std::cout << std::fixed << std::setprecision(4) << X_star[i] << (i < 3 ? ", " : " ");
-    }
-    std::cout << "]" << std::endl;
 
     return 0;
 }
