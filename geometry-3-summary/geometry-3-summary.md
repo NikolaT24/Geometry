@@ -23,9 +23,9 @@ $$
 
 ### 🧪 Пример:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20M(1,2,1)%5Csim%20M(-1,-2,-1)%5Csim%20M(2,4,2)" />
-</p>
+$$
+M(1,2,1) \sim M(-1,-2,-1) \sim M(2,4,6)
+$$
 
 ## 💡 Tip
 
