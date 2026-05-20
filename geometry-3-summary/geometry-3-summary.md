@@ -195,7 +195,7 @@ t^\star
 \varphi:\sigma[A^\star\ B^\star\ C^\star]=[A\ B\ C]A_{\varphi}^{-1},
 \quad
 \sigma \neq 0\quad \text{и}\quad
-\varphi^{-1}:\varphi:\sigma_0[A\ B\ C]=[A^\star\ B^\star\ C^\star]A_{\varphi},
+\varphi^{-1}:\sigma_0[A\ B\ C]=[A^\star\ B^\star\ C^\star]A_{\varphi},
 \quad
 \sigma_0 \neq 0
 ```
