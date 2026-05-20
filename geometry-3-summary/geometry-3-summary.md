@@ -177,14 +177,14 @@ t
 \end{matrix}
 \right)
 =
-A_{\varphi}
+A_{\varphi}^{-1}
 \left(
 \begin{matrix}
 x^\star \\
 y^\star \\
 t^\star
 \end{matrix}
-\right) A_{\varphi}^{-1},
+\right),
 \quad
 \rho_0 \neq 0
 ```
