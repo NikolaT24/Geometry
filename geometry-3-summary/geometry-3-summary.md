@@ -17,9 +17,9 @@ $$
 
 Тогава за хомогенните координати на произволна точка можем да запишем:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20(x,y,t)%5Csim(\rho%20x,\rho%20y,\rho%20t),%20%5Crho%5Cneq0" />
-</p>
+$$
+(x,y,t) \sim (\rho x,\rho y,\rho t),\ \rho\neq 0
+$$
 
 ### 🧪 Пример:
 
