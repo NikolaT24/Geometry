@@ -81,11 +81,11 @@ $$
 
 #### 📌 Твърдение 4
 
-Общото уравнение на безкрайната права ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega) е:
+Общото уравнение на безкрайната права $\omega$ е:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%3At%3D0%5CRightarrow%5Comega%5B0,0,1%5D" />
-</p>
+$$
+\omega:t=0 \Rightarrow \omega[0,0,1]
+$$
 
 ---
 
