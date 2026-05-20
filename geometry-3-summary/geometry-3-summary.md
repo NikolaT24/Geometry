@@ -6,10 +6,9 @@
 
 Точките, правите и равнините, изучавани до този момент, ще наричаме крайни.  
 В двумерната евклидова равнина въвеждаме релация **"~"** (която лесно се установява, че е релация на еквивалентност), която дефинира структурата на хомогенните координати:
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cforall%20x,y%20%5Cin%20%5Cmathbb%7BE%7D_2%2C%20x%20%5Csim%20y%20%5CLeftrightarrow%20%5Cexists%20%5Clambda%20%5Cin%20%5Cmathbb%7BR%7D%20%5Cbackslash%20%5C%7B0%5C%7D%20%3A%20x%20%3D%20%5Clambda%20y" />
-</p>
+$$
+x \sim y \Leftrightarrow \exists \lambda \in \mathbb{R} \backslash \{ 0 \} : x = \lambda y
+$$
 
 ## 🔄 Какво представляват хомогенните координати в равнината?
 
