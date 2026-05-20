@@ -61,9 +61,9 @@ $$
 
 #### 📌 Твърдение 1
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_g%20%3D%20g%20%5Ccap%20%5Comega" />
-</p>
+$$
+U_\ell=\ell\cap\omega
+$$
 
 #### 📌 Твърдение 2
 
@@ -73,15 +73,11 @@ $$
 
 Общото уравнение на права в равнината, в хомогенни координати, е:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20Ax%2BBy%2BCt%3D0%2C%20(A,B)%5Cneq(0,0)" />
-</p>
+$$
+\ell:Ax+By+Ct=0,\ (A,B,C)\neq (0,0,0)
+$$
 
-и пишем:
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20g%5BA,B,C%5D" />
-</p>
+и пишем $\ell[A,B,C]$.
 
 #### 📌 Твърдение 4
 
