@@ -54,7 +54,7 @@ $$
 Безкрайна права ще наричаме множеството от всички безкрайни точки:
 
 $$
-\omega=\lbrace (x,y,t)\in\mathbb{R}^3 | (x,y)\neq(0,0)\ \& t=0 \rbrace
+\omega = \lbrace (x,y,t) \in \mathbb{R}^3 \mid (x,y) \neq (0,0) \ \&\ t = 0 \rbrace
 $$
 
 ### 📘 Твърдения
