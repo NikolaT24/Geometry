@@ -203,7 +203,7 @@ t^\star
 Линейната трансформация $\varphi \in \mathrm{GL}(𝔼_2^\star)$ ще наричаме **афинна**, ако 
 
 $$
-\forall \ell_1,\ell_2:\ell_1\parallel \ell_2\Rightarrow \varphi(\ell_1)\parallel\varphi(\ell_2)
+\forall \ell_1,\ell_2\in 𝔼_2^\star:\ell_1\parallel \ell_2\Rightarrow \varphi(\ell_1)\parallel\varphi(\ell_2)
 $$
 
 #### 📌 Твърдение 5
