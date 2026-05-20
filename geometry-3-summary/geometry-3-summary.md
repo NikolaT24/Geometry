@@ -39,11 +39,11 @@ $$
 
 ### 🌌 Безкрайна точка
 
-Безкрайна точка на правата ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cell) наричаме множеството:
+Безкрайна точка на правата $\ell$ наричаме множеството:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20U_%7B%5Cell%7D%20%3A%3D%20%5C%7B%5Cforall%20%5Cell'%20%7C%20%5Cell'%20%5Coverset%7B%5Ccirc%7D%7B%5Cparallel%7D%20%5Cell%5C%7D%20%3D%20%5C%7B%5Cforall%20%5Cell'%20%7C%20%5Cell'%20%5Cparallel%20%5Cell%20%5Cvee%20%5Cell'%20%5Cequiv%20%5Cell%5C%7D" />
-</p>
+$$
+U_{\ell}=\lbrace \ell'|\ell'\parallel\ell \vee \ell'\sim\ell \rbrace
+$$
 
 Всяка безкрайна точка (бележим ги с ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U)) има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)).
 
