@@ -236,7 +236,14 @@ $$
 Аналитичното представяне на централно проектиране с проекционен център $S(x_S,y_S,z_S,t_S)$ и проекционна равнина $\pi[A_\pi,B_\pi,C_\pi,D_\pi]$ е:
 
 ```math
-\begin{bmatrix}
+\rho
+\begin{pmatrix}
+x^\star \\
+y^\star \\
+z^\star \\
+t^\star
+\end{pmatrix}
+\left[\begin{bmatrix}
 A_\pi & B_\pi & C_\pi & D_\pi
 \end{bmatrix}
 \begin{pmatrix}
@@ -255,7 +262,14 @@ t_S
 \end{pmatrix}
 \begin{bmatrix}
 A_\pi & B_\pi & C_\pi & D_\pi
-\end{bmatrix}
+\end{bmatrix}\right]
+\begin{pmatrix}
+x \\
+y \\
+z \\
+t
+\end{pmatrix}
+,\quad \rho\neq 0
 ```
 
 #### 📌 Твърдение 4
