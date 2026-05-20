@@ -236,7 +236,6 @@ $$
 Аналитичното представяне на централно проектиране с проекционен център $S(x_S,y_S,z_S,t_S)$ и проекционна равнина $\pi[A_\pi,B_\pi,C_\pi,D_\pi]$ е:
 
 ```math
-\left(
 \begin{bmatrix}
 A_\pi & B_\pi & C_\pi & D_\pi
 \end{bmatrix}
@@ -246,7 +245,7 @@ y_S \\
 z_S \\
 t_S
 \end{pmatrix}
-\right)E
+E
 -
 \begin{pmatrix}
 x_S \\
