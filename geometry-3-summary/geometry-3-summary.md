@@ -288,7 +288,7 @@ $$
 Общото уравнение на безкрайната равнина $\Omega$ е:
 
 $$
-\Omega:t=0 \Rightarrow \omega[0,0,0,1]
+\Omega:t=0 \Rightarrow \Omega[0,0,0,1]
 $$
 
 ---
