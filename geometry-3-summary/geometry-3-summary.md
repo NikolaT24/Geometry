@@ -120,7 +120,21 @@ $$
 В разширената евклидова равнина няма метрика, значи тя не е евклидово пространство. Нека $\varphi$ задава линейна трансформация на $𝔼_2^\star$ в хомогенни координати и нека $X(x,y,t)\xrightarrow{\varphi} X^\star(x^star,y^star,t^\star)$. Тогава 
 
 $$
-\rho\begin{pmatrix} x^\star \\ y^star \\ t^\star\end{pmatrix}=A_{\varphi}\begin{pmatrix} x \\ y \\ t\end{pmatrix},\ \rho\neq 0
+\rho
+\begin{pmatrix}
+x^\star \\
+y^\star \\
+t^\star
+\end{pmatrix}
+=
+A_{\varphi}
+\begin{pmatrix}
+x \\
+y \\
+t
+\end{pmatrix},
+\quad
+\rho \neq 0
 $$
 
 # 4. Хомогенни координати в пространството #
