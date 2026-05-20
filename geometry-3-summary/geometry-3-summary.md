@@ -167,7 +167,7 @@ t
 \end{matrix}
 \right),
 \quad
-\rho \neq 0\ \text{и}\
+\rho \neq 0\quad \text{и}\quad
 \varphi^{-1}:\rho_0
 \left(
 \begin{matrix}
