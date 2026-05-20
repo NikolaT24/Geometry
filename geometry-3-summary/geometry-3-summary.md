@@ -53,9 +53,9 @@ $$
 
 Безкрайна права ще наричаме множеството от всички безкрайни точки:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Comega%20%3A%3D%20%5C%7B%5Cforall%20U(x,y,0)%20%7C%20(x,y)%5Cneq(0,0)%5C%7D" />
-</p>
+$$
+\omega=\lbrace (x,y,t)\in\mathbb{R}^3 | (x,y)\neq(0,0)\ \& t=0 \rbrace
+$$
 
 ### 📘 Твърдения
 
