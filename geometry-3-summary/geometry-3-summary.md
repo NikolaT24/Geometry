@@ -30,9 +30,9 @@ $$
 ## 💡 Tip
 
 > Ако видите точка от вида  
-> ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(\rho%20x,\rho%20y,\rho%20t))  
+> $(\rho x, \rho y, \rho z)
 > пишете я  
-> ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20(%20x,%20y,%20t))  
+> $(x,y,t)$ 
 > за по-малко сметки.
 
 # 2. Безкрайни елементи в равнината
