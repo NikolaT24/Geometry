@@ -119,23 +119,27 @@ $$
 
 В разширената евклидова равнина няма метрика, значи тя не е евклидово пространство. Нека $\varphi$ задава линейна трансформация на $𝔼_2^\star$ в хомогенни координати и нека $X(x,y,t)\xrightarrow{\varphi} X^\star(x^star,y^star,t^\star)$. Тогава 
 
-$$
+```math
 \rho
-\begin{pmatrix}
+\left(
+\begin{matrix}
 x^\star \\
 y^\star \\
 t^\star
-\end{pmatrix}
+\end{matrix}
+\right)
 =
 A_{\varphi}
-\begin{pmatrix}
+\left(
+\begin{matrix}
 x \\
 y \\
 t
-\end{pmatrix},
+\end{matrix}
+\right),
 \quad
 \rho \neq 0
-$$
+```
 
 # 4. Хомогенни координати в пространството #
 # 5. Безкрайни елементи в пространството #
