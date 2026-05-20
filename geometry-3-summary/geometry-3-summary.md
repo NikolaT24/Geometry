@@ -144,6 +144,68 @@ t
 
 Ако $\varphi \in \mathrm{GL}(𝔼_2^\star)$, т.е. $\varphi$ е обратима линейна трансформация на $𝔼_2^\star$, тогава $\varphi$ е биекция.
 
+### Как действа $\varphi$ на правите и точките в разширената евклидова равнина? ###
+
+> На точките:
+
+```math
+\varphi:\rho
+\left(
+\begin{matrix}
+x^\star \\
+y^\star \\
+t^\star
+\end{matrix}
+\right)
+=
+A_{\varphi}
+\left(
+\begin{matrix}
+x \\
+y \\
+t
+\end{matrix}
+\right),
+\quad
+\rho \neq 0\ \text{и}\
+\varphi^{-1}:\rho_0
+\left(
+\begin{matrix}
+x \\
+y \\
+t
+\end{matrix}
+\right)
+=
+A_{\varphi}
+\left(
+\begin{matrix}
+x^\star \\
+y^\star \\
+t^\star
+\end{matrix}
+\right) A_{\varphi}^{-1},
+\quad
+\rho_0 \neq 0
+```
+
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+
+
+
 # 4. Хомогенни координати в пространството #
 # 5. Безкрайни елементи в пространството #
 # 6. Разширено евклидово пространство #
