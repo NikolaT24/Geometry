@@ -45,7 +45,7 @@ $$
 U_{\ell}=\lbrace \ell'|\ell'\parallel\ell \vee \ell'\sim\ell \rbrace
 $$
 
-Всяка безкрайна точка (бележим ги с ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U)) има вида ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20U(a,b,0)).
+Всяка безкрайна точка (бележим ги с $U$)) има вида $U(a,b,0)$, където $(a,b)\neq (0,0)$.
 
 Очевидно безкрайната точка няма нехомогенни координати. Безкрайната точка е клас на еквивалентност, породен от релацията “направление”.
 
