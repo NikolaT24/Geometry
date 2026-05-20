@@ -113,21 +113,11 @@ $$
 
 Дефинираме разширената евклидова равнина като множеството:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cmathbb%7BE%7D_2%5E%5Cstar%20%3A%3D%20%5Cmathbb%7BE%7D_2%20%5Ccup%20%5Comega" />
-</p>
+$$
+\mathbb{E}_2^\star:=\mathbb{E}\cup\omega
+$$
 
 В разширената евклидова равнина няма метрика, значи тя не е евклидово пространство. В нея въвеждаме за удобство координатните изображения:
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{P}}:\mathcal{P}\to\mathbb{R}^{3\times1},\;X(x,y,t)\mapsto\begin{pmatrix}x\\y\\t\end{pmatrix}" />
-</p>
-
-и
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?[\cdot]_{\mathcal{L}}:\mathcal{L}\to\mathbb{R}^{1\times3},\;\ell[A_\ell,B_\ell,C_\ell]\mapsto[A_\ell\;B_\ell\;C_\ell]" />
-</p>
 
 # 4. Хомогенни координати в пространството #
 # 5. Безкрайни елементи в пространството #
