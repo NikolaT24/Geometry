@@ -490,30 +490,24 @@ t
 
 ```math
 \varphi:
-\left(
 \begin{pmatrix}
 x^\star \\
 y^\star
 \end{pmatrix}
-\right)
 =
 \begin{pmatrix}
 \frac{a_{11}}{a_{33}} & \frac{a_{12}}{a_{33}} \\
 \frac{a_{21}}{a_{33}} & \frac{a_{22}}{a_{33}}
 \end{pmatrix}
-\left(
 \begin{pmatrix}
 x \\
 y
 \end{pmatrix}
-\right)
 +
-\left(
 \begin{pmatrix}
 \frac{a_{13}}{a_{33}} \\
 \frac{a_{23}}{a_{33}}
 \end{pmatrix}
-\right)
 ```
 
 # 9. Класификация на еднаквостите в равнината #
