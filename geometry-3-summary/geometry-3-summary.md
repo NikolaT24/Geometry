@@ -548,9 +548,7 @@ y
 
 ### Кватернионна форма
 
-Нека <span>
-  <img src="https://latex.codecogs.com/svg.image?q_0,q_1%20%5Cin%20%5Cmathbb%7BH%7D%2C%20%5C%7Cq_0%5C%7C%3D%5C%7Cq_1%5C%7C%3D1"/>
-</span>. Тогава:
+Нека Нека $q_0, q_1 \in ℍ, \|q_0\| = \|q_1\| = 1$. Тогава:
 
 ```math
 \text{SLERP}(q_0, q_1, t) = q_0(q_0^{-1}q_1)^t
