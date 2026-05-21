@@ -571,17 +571,17 @@ y
 
 ### 1. Запазване на нормата
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5C%7C%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%5C%7C%3D1"/>
-</p>
+```math
+\|\text{SLERP}(v_0, v_1, t)\| = 1
+```
 
 ---
 
 ### 2. Константна ъглова скорост
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctheta(t)%3Dt%5Ctheta"/>
-</p>
+```math
+\theta(t) = t\theta
+```
 
 ---
 
@@ -592,7 +592,8 @@ SLERP параметризира дъга от голям кръг върху с
 ---
 
 ### 4. Инвариантност спрямо ротации
-Нека ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20v_0%2C%20v_1%20%5Cin%20S%5En) и ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)%20%3D%20%5Cmathrm%7BSLERP%7D(v_0%2C%20v_1%2C%20t)) е геодезичната дъга. Тогава за всяка ротация ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20R%20%5Cin%20SO(n)) имаме, че ![equation](https://latex.codecogs.com/svg.image?%5Ctextstyle%20%5Cgamma(t)) е еквивариантна спрямо действието на групата.
+
+Нека $v_0, v_1 \in S^n$ и $\gamma(t) = \text{SLERP}(v_0, v_1, t)$ е геодезичната дъга. Тогава за всяка ротация $R \in SO(n)$ имаме, че $\gamma(t)$ е еквивариантна спрямо действието на групата.
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?R%5Cgamma(t)%3D%5Cmathrm%7BSLERP%7D(Rv_0%2CRv_1%2Ct)%2C%5Cquad%20%5Cforall%20t%5Cin%5B0%2C1%5D" />
@@ -602,25 +603,21 @@ SLERP параметризира дъга от голям кръг върху с
 
 ### 5. Кватернионна групова структура
 
-<span>
-  <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B-1%7Dq_1"/>
-</span> е относителната ротация, а степента t интерполира в групата.
+$q_0^{-1}q_1$ е относителната ротация, а степента t интерполира в групата.
 
 ---
 
 ### 6. Кратък път (sign correction)
 
-<span>
-  <img src="https://latex.codecogs.com/svg.image?q_0%5E%7B%5Ctop%7Dq_1%3C0%20%5CRightarrow%20q_1%20%5Cleftarrow%20-q_1"/>
-</span> гарантира минимална дъга.
+$q_0^\top q_1 < 0 \Rightarrow q_1 \leftarrow -q_1$ гарантира минимална дъга.
 
 ---
 
 ### 7. Граничен случай
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Clim_%7B%5Ctheta(v_0%2Cv_1)%5Cto0%7D%5Cmathrm%7BSLERP%7D(v_0%2Cv_1%2Ct)%3D%5Cfrac%7B(1-t)v_0%2Btv_1%7D%7B%5C%7C(1-t)v_0%2Btv_1%5C%7C%7D%3D%5Cmathrm{normalize}(%5Cmathrm{LERP}(v_0%2Cv_1%2Ct))" />
-</p>
+```math
+\lim_{\theta(v_0, v_1) \to 0} \text{SLERP}(v_0, v_1, t) = \frac{(1 - t)v_0 + tv_1}{\|(1 - t)v_0 + tv_1\|} = \text{normalize}(\text{LERP}(v_0, v_1, t))
+```
 
 ---
 
