@@ -494,6 +494,7 @@ t
 \begin{pmatrix}
 x^\star \\
 y^\star
+\end{pmatrix}
 \right)
 =
 \begin{pmatrix}
@@ -504,6 +505,7 @@ y^\star
 \begin{pmatrix}
 x \\
 y
+\end{pmatrix}
 \right)
 +
 \left(
