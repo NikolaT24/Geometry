@@ -224,17 +224,21 @@ $$
 
 ```math
 (A_\varphi-\rho E)
+\left(
 \begin{matrix}
 x \\
 y \\
 t
 \end{matrix}
+\righr)
 =
+\left(
 \begin{matrix}
 0 \\
 0 \\
 0
 \end{matrix}
+\righr
 ,\quad \rho\neq 0
 ```
 > **🧩 Неподвижни прави**
