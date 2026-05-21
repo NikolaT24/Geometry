@@ -510,6 +510,7 @@ y
 \begin{pmatrix}
 \frac{a_{13}}{a_{33}} \\
 \frac{a_{23}}{a_{33}}
+\end{pmatrix}
 \right)
 ```
 
