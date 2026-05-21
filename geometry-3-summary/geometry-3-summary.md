@@ -230,7 +230,7 @@ x \\
 y \\
 t
 \end{matrix}
-\righr)
+\right)
 =
 \left(
 \begin{matrix}
@@ -238,7 +238,7 @@ t
 0 \\
 0
 \end{matrix}
-\righr
+\right)
 ,\quad \rho\neq 0
 ```
 > **🧩 Неподвижни прави**
