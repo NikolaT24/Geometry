@@ -534,15 +534,15 @@ y
 
 ### Векторна форма
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(v_0,v_1,t)%3D%5Cfrac%7B%5Csin((1-t)%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_0%2B%5Cfrac%7B%5Csin(t%5Ctheta)%7D%7B%5Csin(%5Ctheta)%7Dv_1"/>
-</p>
+```math
+\text{SLERP}(v_0, v_1, t) = \frac{\sin((1 - t)\theta)}{\sin(\theta)}v_0 + \frac{\sin(t\theta)}{\sin(\theta)}v_1
+```
 
 където 
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Ctheta%3D%5Carccos(v_0%5E%7B%5Ctop%7Dv_1)%2C%5C%3Bv_0%2Cv_1%5Cin%20S%5En%20%5Cwedge%20t%5Cin%20%5B0%2C1%5D" />
-</p>
+```math
+\theta = \arccos(v_0^\top v_1), \; v_0, v_1 \in S^n \land t \in [0, 1]
+```
 
 ---
 
@@ -552,13 +552,15 @@ y
   <img src="https://latex.codecogs.com/svg.image?q_0,q_1%20%5Cin%20%5Cmathbb%7BH%7D%2C%20%5C%7Cq_0%5C%7C%3D%5C%7Cq_1%5C%7C%3D1"/>
 </span>. Тогава:
 
-<p align="center"> <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0(q_0%5E%7B-1%7Dq_1)%5Et"/> </p>
+```math
+\text{SLERP}(q_0, q_1, t) = q_0(q_0^{-1}q_1)^t
+```
 
 Еквивалентно:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?%5Cmathrm%7BSLERP%7D(q_0,q_1,t)%3Dq_0%5Ccdot%5Cexp%28t%5Clog(q_0%5E%7B-1%7Dq_1)%29"/>
-</p>
+```math
+\text{SLERP}(q_0, q_1, t) = q_0 \cdot \exp(t\log(q_0^{-1}q_1))
+```
 
 <p align="center">
   <img src="images/IMG_1390.jpeg" width="500"/><br>
