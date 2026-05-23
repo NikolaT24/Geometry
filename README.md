@@ -15,8 +15,7 @@
 </div>
 
 # 📐 Geometry – Part III
-
-### 🧠 Software Engineering Specialization  
+  
 ### ✍️ Nikola Topalov  
 
 ---
