@@ -4,7 +4,7 @@
 
 <div align="center">
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=22&duration=2500&pause=800&color=6A11CB&center=true&vCenter=true&width=600&lines=Advanced+Geometry;Homogeneous+Coordinates;Transformations+%26+Invariants;Tips+And+Tricks;Geometry+Problems+And+Solutions" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=22&duration=2500&pause=800&color=6A11CB&center=true&vCenter=true&width=600&lines=Хомогенни+Координати+и+Безкрайни+Елементи;Разширени+Евклидови+Пространства;Линейни+%26+Афинни+Трансформации;Tips+And+Tricks;Постановки+и+Решения" />
 
   <br><br>
 
