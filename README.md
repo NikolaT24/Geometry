@@ -9,8 +9,8 @@
   <br><br>
 
   <img src="https://img.shields.io/badge/LaTeX-Advanced-blue?style=for-the-badge&logo=latex">
-  <img src="https://img.shields.io/badge/Math-Projective%20Geometry-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Level-University-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Математика-Увод%20в%20Проективната%20Геометрия-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Ниво-Университетско-orange?style=for-the-badge">
 
 </div>
 
