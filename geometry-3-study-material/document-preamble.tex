@@ -1,12 +1,10 @@
-% Feel free to use this preamble and the design elements within however you like.
-
 \documentclass[12pt]{article}
 
 \usepackage{cmap}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[bulgarian]{babel}
-
+\usepackage{tempora}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -16,22 +14,22 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage{geometry}
+\usepackage{pict2e}
 \usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc,
+                positioning,
+                arrows.meta
+                }
 \usepackage{tikz-cd}
 \usepackage{tikz-3dplot}
 \usepackage{tkz-euclide}
-\usepackage{pict2e}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[most]{tcolorbox}
-\usepackage{hyperref}
 \usepackage{tocloft}
 \usepackage{titlesec}
 \usepackage{expl3}
 \usepackage{xparse}
-\usepackage{tempora}
+\usepackage{hyperref}
 
 \geometry{
     a4paper,
@@ -45,6 +43,8 @@
 \definecolor{accent}{RGB}{38,132,170}
 \definecolor{softgray}{RGB}{95,95,95}
 \definecolor{lightaccent}{RGB}{218,236,243}
+\definecolor{paneldeep}{RGB}{6,16,36}
+\definecolor{shadowblue}{RGB}{225,231,239}
 
 \hypersetup{
     colorlinks=true,
@@ -57,14 +57,28 @@
 \newcommand{\Leftimplies}{\mathrel{\Leftarrow}}
 \newcommand{\inc}{\mathrel{\raisebox{0.18ex}{\small$\mathsf{Z}$}}}
 
-\titleformat{\part}[hang]{\Huge\bfseries\color{mainblue!75}}{\thepart}{1em}{}
-\titleformat{\section}{\Large\color{accent}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\color{accent}}{\thesubsection}{1em}{}
+\titleformat{\part}[hang]
+    {\Huge\bfseries\color{mainblue!75}}
+    {\thepart}
+    {1em}
+    {}
 
-\renewcommand{\cftpartfont}{\Large\color{mainblue!75}\hypersetup{linkcolor=mainblue!75}}
-\renewcommand{\cftpartpagefont}{\Large\color{mainblue!75}\hypersetup{linkcolor=mainblue!75}}
-\renewcommand{\cftsecfont}{\large\color{accent}\hypersetup{linkcolor=accent}}
-\renewcommand{\cftsecpagefont}{\large\color{accent}\hypersetup{linkcolor=accent}}
+\titleformat{\section}
+    {\Large\bfseries\color{accent}}
+    {\thesection}
+    {1em}
+    {}
+
+\titleformat{\subsection}
+    {\large\bfseries\color{accent}}
+    {\thesubsection}
+    {1em}
+    {}
+
+\renewcommand{\cftpartfont}{\Large\color{mainblue!75}}
+\renewcommand{\cftpartpagefont}{\Large\color{mainblue!75}}
+\renewcommand{\cftsecfont}{\large\color{accent}}
+\renewcommand{\cftsecpagefont}{\large\color{accent}}
 \renewcommand{\cftdotsep}{1}
 
 \cftsetindents{part}{0em}{1.5em}
@@ -86,26 +100,31 @@
   \slimits@
 }
 \newcommand{\bigcomp@}[2]{%
-  \begingroup\m@th
+  \begingroup
+  \m@th
   \sbox\z@{$#1\sum$}%
   \setlength{\unitlength}{0.9\dimexpr\ht\z@+\dp\z@}%
-  \vcenter{\hbox{%
-    \begin{picture}(1,1)
-    \bigcomp@linethickness{#1}
-    \put(0.5,0.5){\circle{1}}
-    \end{picture}%
-  }}%
+  \vcenter{%
+    \hbox{%
+      \begin{picture}(1,1)
+        \bigcomp@linethickness{#1}
+        \put(0.5,0.5){\circle{1}}
+      \end{picture}%
+    }%
+  }%
   \endgroup
 }
 \newcommand{\bigcomp@linethickness}[1]{%
-  \linethickness{%
-      \ifx#1\displaystyle 2\fontdimen8\textfont\else
-      \ifx#1\textstyle 1.65\fontdimen8\textfont\else
-      \ifx#1\scriptstyle 1.65\fontdimen8\scriptfont\else
-      1.65\fontdimen8\scriptscriptfont\fi\fi\fi 3
-  }%
+  \ifx#1\displaystyle
+    \linethickness{0.09em}%
+  \else\ifx#1\textstyle
+    \linethickness{0.075em}%
+  \else\ifx#1\scriptstyle
+    \linethickness{0.06em}%
+  \else
+    \linethickness{0.05em}%
+  \fi\fi\fi
 }
-
 \makeatother
 
 \newtcbox{\eqbox}{
@@ -124,109 +143,258 @@
 }
 
 \ExplSyntaxOn
+
 \tl_new:N \g_geom_title_tl
 \tl_new:N \g_geom_volume_tl
 \tl_new:N \g_geom_program_tl
 \tl_new:N \g_geom_author_tl
 \tl_new:N \g_geom_footer_tl
 
+\tl_gset:Nn \g_geom_title_tl {
+    Геометрия
+   }
+\tl_gset:Nn \g_geom_volume_tl {III част
+   }
+\tl_gset:Nn \g_geom_program_tl {
+    Софтуерно\\[0.2cm]инженерство
+  }
+\tl_gset:Nn \g_geom_author_tl {
+    ас. Никола Топалов
+  }
+\tl_gset:Nn \g_geom_footer_tl{
+    Факултет\ по\ математика\ и\ информатика\\[0.2cm]
+    2026 г. $\bullet$ София
+  }
+
+\keys_define:nn {
+    geom / cover
+  }{
+    title .tl_gset:N = \g_geom_title_tl,
+    volume .tl_gset:N = \g_geom_volume_tl,
+    program .tl_gset:N = \g_geom_program_tl,
+    author .tl_gset:N = \g_geom_author_tl,
+    footer .tl_gset:N = \g_geom_footer_tl
+   }
+
+\NewDocumentCommand{\geomset}{m}{
+    \keys_set:nn{
+    geom / cover
+    } { #1 }
+  }
+
 \NewDocumentCommand{\geomsetup}{mmmmm}{
-    \tl_gset:Nn \g_geom_title_tl   {#1}
-    \tl_gset:Nn \g_geom_volume_tl  {#2}
-    \tl_gset:Nn \g_geom_program_tl {#3}
-    \tl_gset:Nn \g_geom_author_tl  {#4}
-    \tl_gset:Nn \g_geom_footer_tl  {#5}
-}
+    \tl_gset:Nn \g_geom_title_tl { #1 }
+    \tl_gset:Nn \g_geom_volume_tl { #2 }
+    \tl_gset:Nn \g_geom_program_tl { #3 }
+    \tl_gset:Nn \g_geom_author_tl { #4 }
+    \tl_gset:Nn \g_geom_footer_tl { #5 }
+  }
 
 \NewDocumentCommand{\printgeomtitle}{}{
-    \tl_use:N \g_geom_title_tl
+\tl_use:N \g_geom_title_tl
 }
-\NewDocumentCommand{\printgeomvolume}{}{
-    \tl_use:N \g_geom_volume_tl
+\NewDocumentCommand{\printgeomvolume}{}{ 
+\tl_use:N \g_geom_volume_tl
 }
 \NewDocumentCommand{\printgeomprogram}{}{
-    \tl_use:N \g_geom_program_tl
+\tl_use:N \g_geom_program_tl
 }
 \NewDocumentCommand{\printgeomauthor}{}{
-    \tl_use:N \g_geom_author_tl
+\tl_use:N \g_geom_author_tl
 }
 \NewDocumentCommand{\printgeomfooter}{}{
-    \tl_use:N \g_geom_footer_tl
+\tl_use:N \g_geom_footer_tl
 }
+
 \ExplSyntaxOff
 
 \NewDocumentCommand{\geomtitle}{}{
     \begin{titlepage}
+    
     \thispagestyle{empty}
-    \begin{tikzpicture}[remember picture,overlay]
-        \fill[mainblue] (current page.north west) rectangle ([xshift=6.5cm]current page.south west);
-        \begin{scope}[shift={(current page.north west)}]
-            \clip (0,0) rectangle (6.5,-30);
-            \foreach \i in {-1,0,...,5}{
-                \foreach \j in {-1,0,...,22}{
-                    \draw[white, opacity=0.06, line width=0.8pt] 
-                        (\i*1.5 + \j*0.75, -\j*1.3) 
-                        +(30:0.8) -- +(90:0.8) -- +(150:0.8) -- +(210:0.8) -- +(270:0.8) -- +(330:0.8) -- cycle;
-                }
+
+    \begin{tikzpicture}[remember picture, overlay]
+
+        \fill[white]
+            (current page.north west) rectangle (current page.south east);
+
+        \fill[mainblue]
+            ([xshift=-7.2cm]current page.north east) rectangle (current page.south east);
+
+        \fill[accent]
+            ([xshift=-7.2cm]current page.north east) --
+            ([xshift=-4.8cm]current page.north east) --
+            ([xshift=-7.2cm,yshift=-5.8cm]current page.north east) --
+            cycle;
+
+        \fill[paneldeep]
+            ([xshift=-3.15cm]current page.north east) --
+            (current page.north east) --
+            (current page.south east) --
+            ([xshift=-6.1cm]current page.south east) --
+            cycle;
+
+        \fill[lightaccent]
+            ([xshift=-7.2cm]current page.south east) --
+            ([xshift=-4.35cm]current page.south east) --
+            ([xshift=-7.2cm,yshift=4.35cm]current page.south east) --
+            cycle;
+
+        \begin{scope}
+        
+            \clip
+                ([xshift=-7.2cm]current page.north east)
+                rectangle
+                (current page.south east);
+
+            \fill[white, opacity=0.055]
+                ([xshift=-6.35cm,yshift=-2.0cm]current page.north east) --
+                ([xshift=-1.05cm,yshift=-5.3cm]current page.north east) --
+                ([xshift=-4.7cm,yshift=-9.9cm]current page.north east) --
+                cycle;
+
+            \fill[white, opacity=0.07]
+                ([xshift=-6.2cm,yshift=-14.5cm]current page.north east) --
+                ([xshift=-0.75cm,yshift=-11.0cm]current page.north east) --
+                ([xshift=-1.6cm,yshift=-20.6cm]current page.north east) --
+                cycle;
+
+            \fill[accent!20!white, opacity=0.25]
+                ([xshift=-7.2cm,yshift=-8.7cm]current page.north east) --
+                ([xshift=-3.2cm,yshift=-12.2cm]current page.north east) --
+                ([xshift=-7.2cm,yshift=-16.4cm]current page.north east) --
+                cycle;
+
+            \draw[white, opacity=0.22, line width=0.7pt]
+                ([xshift=-6.4cm,yshift=-2.1cm]current page.north east) --
+                ([xshift=-1.05cm,yshift=-5.3cm]current page.north east) --
+                ([xshift=-4.7cm,yshift=-9.9cm]current page.north east) --
+                ([xshift=-6.4cm,yshift=-2.1cm]current page.north east);
+
+            \draw[white, opacity=0.18, line width=0.7pt]
+                ([xshift=-6.4cm,yshift=-2.1cm]current page.north east) --
+                ([xshift=-2.15cm,yshift=-15.7cm]current page.north east);
+
+            \draw[white, opacity=0.18, line width=0.7pt]
+                ([xshift=-1.05cm,yshift=-5.3cm]current page.north east) --
+                ([xshift=-6.55cm,yshift=-23.3cm]current page.north east);
+
+            \draw[white, opacity=0.2, line width=0.7pt]
+                ([xshift=-6.2cm,yshift=-14.5cm]current page.north east) --
+                ([xshift=-0.75cm,yshift=-11.0cm]current page.north east) --
+                ([xshift=-1.6cm,yshift=-20.6cm]current page.north east) --
+                ([xshift=-6.2cm,yshift=-14.5cm]current page.north east);
+
+            \foreach \y in {-4.2,-7.0,-9.8,-12.6,-15.4,-18.2,-21.0,-23.8}{
+                \draw[white, opacity=0.28, line width=0.55pt]
+                    ([xshift=-1.95cm,yshift=\y cm]current page.north east) --
+                    ([xshift=-0.95cm,yshift=\y cm]current page.north east);
             }
-        \end{scope}
-        \fill[accent] (current page.south west) -- ++(6.5,0) -- ++(0,6.5) -- cycle;
-        \fill[lightaccent] (current page.south west) -- ++(4,0) -- ++(0,4) -- cycle;
-        \begin{scope}[shift={([xshift=14cm,yshift=-15cm]current page.north west)}]
-            \draw[accent, opacity=0.08, line width=1.5pt] (-5.5,-5.5) rectangle (5.5,5.5);
-            \draw[mainblue, opacity=0.08, line width=1.5pt] (0,5.5) -- (5.5,0) -- (0,-5.5) -- (-5.5,0) -- cycle;
-            \draw[mainblue, opacity=0.08, line width=1.5pt] (-5.5,-5.5) -- (5.5,5.5);
-            \draw[mainblue, opacity=0.08, line width=1.5pt] (-5.5,5.5) -- (5.5,-5.5);
-            \draw[mainblue, opacity=0.08, line width=1.5pt] (0,0) circle (5.5);
-            \draw[accent, opacity=0.08, line width=1.5pt] (0,0) circle (3.889);
-            \draw[mainblue, opacity=0.08, line width=1pt, dashed] (0,0) circle (2);
-            \foreach \a in {0,45,...,315}{
-                \draw[mainblue, opacity=0.08, line width=1pt] (0,0) -- (\a:5.5);
+
+            \foreach \y in {-5.6,-11.2,-16.8,-22.4}{
+                \draw[lightaccent, opacity=0.55, line width=1pt]
+                    ([xshift=-6.35cm,yshift=\y cm]current page.north east) --
+                    ([xshift=-4.95cm,yshift=\y cm]current page.north east);
             }
+            
         \end{scope}
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-5cm]current page.north west){
-            \begin{minipage}{11cm}
+
+        \draw[accent, line width=1.4pt]
+            ([xshift=-7.2cm]current page.north east) --
+            ([xshift=-7.2cm]current page.south east);
+
+        \draw[mainblue!12, line width=0.8pt]
+            ([xshift=-7.38cm]current page.north east) --
+            ([xshift=-7.38cm]current page.south east);
+
+        \draw[mainblue!16, line width=0.8pt]
+            ([xshift=1.15cm,yshift=-1.15cm]current page.north west)
+            rectangle
+            ([xshift=-8.05cm,yshift=1.15cm]current page.south east);
+
+        \draw[accent, line width=2pt, line cap=round]
+            ([xshift=1.15cm,yshift=-1.15cm]current page.north west) --
+            ([xshift=5.25cm,yshift=-1.15cm]current page.north west);
+
+        \draw[accent, line width=2pt, line cap=round]
+            ([xshift=1.15cm,yshift=1.15cm]current page.south west) --
+            ([xshift=5.25cm,yshift=1.15cm]current page.south west);
+
+        \draw[mainblue!8, line width=0.9pt]
+            ([xshift=1.7cm,yshift=-4.4cm]current page.north west) --
+            ([xshift=10.8cm,yshift=-4.4cm]current page.north west);
+
+        \draw[mainblue!8, line width=0.9pt]
+            ([xshift=1.7cm,yshift=-18.55cm]current page.north west) --
+            ([xshift=10.8cm,yshift=-18.55cm]current page.north west);
+
+        \draw[accent!24, line width=0.8pt]
+            ([xshift=2.1cm,yshift=-20.4cm]current page.north west) --
+            ([xshift=9.4cm,yshift=-20.4cm]current page.north west);
+
+        \fill[shadowblue!55]
+            ([xshift=1.85cm,yshift=-5.05cm]current page.north west)
+            rectangle
+            ([xshift=11.2cm,yshift=-17.85cm]current page.north west);
+
+        \fill[white]
+            ([xshift=1.68cm,yshift=-4.88cm]current page.north west)
+            rectangle
+            ([xshift=11.03cm,yshift=-17.68cm]current page.north west);
+
+        \draw[mainblue!13, line width=0.8pt]
+            ([xshift=1.68cm,yshift=-4.88cm]current page.north west)
+            rectangle
+            ([xshift=11.03cm,yshift=-17.68cm]current page.north west);
+
+        \draw[accent, line width=1.6pt]
+            ([xshift=1.68cm,yshift=-4.88cm]current page.north west) --
+            ([xshift=11.03cm,yshift=-4.88cm]current page.north west);
+
+        \node[anchor=north west, font=\sffamily]
+            at ([xshift=2.35cm,yshift=-6.15cm]current page.north west){
+            \begin{minipage}{8.25cm}
                 \raggedright
-                {\fontsize{55}{65}\selectfont\bfseries\color{mainblue}\printgeomtitle}\\[0.3em]
+                {\fontsize{54}{60}\selectfont\bfseries\color{mainblue}\printgeomtitle}\\[0.28cm]
                 {\fontsize{24}{30}\selectfont\bfseries\color{accent}\printgeomvolume}
             \end{minipage}
         };
-        \draw[accent, line width=2.5pt, line cap=round] 
-            ([xshift=8cm, yshift=-9.5cm]current page.north west) -- 
-            ([xshift=11.5cm, yshift=-9.5cm]current page.north west);
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-11cm]current page.north west){
-            \begin{minipage}{11cm}
+
+        \draw[accent, line width=2.4pt, line cap=round]
+            ([xshift=2.38cm,yshift=-10.45cm]current page.north west) --
+            ([xshift=5.95cm,yshift=-10.45cm]current page.north west);
+
+        \draw[mainblue!14, line width=0.85pt, line cap=round]
+            ([xshift=6.2cm,yshift=-10.45cm]current page.north west) --
+            ([xshift=10.28cm,yshift=-10.45cm]current page.north west);
+
+        \node[anchor=north west, font=\sffamily]
+            at ([xshift=2.38cm,yshift=-11.82cm]current page.north west){
+            \begin{minipage}{8.25cm}
                 \raggedright
-                {\large\color{softgray}\MakeUppercase{Специалност}}\\[0.4em]
+                {\large\color{softgray}\MakeUppercase{Специалност}}\\[0.38cm]
                 {\LARGE\bfseries\color{mainblue}\printgeomprogram}
             \end{minipage}
         };
-        \node[anchor=north west, font=\sffamily] at ([xshift=8cm, yshift=-15cm]current page.north west){
-            \begin{minipage}{11cm}
+
+        \node[anchor=north west, font=\sffamily]
+            at ([xshift=2.38cm,yshift=-15.15cm]current page.north west){
+            \begin{minipage}{8.25cm}
                 \raggedright
-                {\large\color{softgray}\MakeUppercase{Учебни материали}}\\[0.4em]
-                {\Large\bfseries\color{mainblue}\printgeomauthors}
+                {\large\color{softgray}\MakeUppercase{Учебни материали}}\\[0.38cm]
+                {\Large\bfseries\color{mainblue}\printgeomauthor}
             \end{minipage}
         };
-        \node[anchor=south west, font=\sffamily] at ([xshift=8cm, yshift=2.5cm]current page.south west){
-            \begin{minipage}{11cm}
+
+        \node[anchor=south west, font=\sffamily]
+            at ([xshift=2.05cm,yshift=2.15cm]current page.south west){
+            \begin{minipage}{9.2cm}
                 \raggedright
                 {\large\color{softgray}\printgeomfooter}
             \end{minipage}
         };
-    \end{tikzpicture}
-    \end{titlepage}
-}
 
-\geomsetup{
-    Геометрия
-}{
-    III част
-}{
-    Софтуерно инженерство
-}{
-    ас. Никола Топалов
-}{
-    Факултет по математика и информатика\\[0.2cm]
-    2026 г. $\bullet$ София
+    \end{tikzpicture}
+
+    \end{titlepage}
 }
