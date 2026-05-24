@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Геометрия%20-%20III%20Част&fontSize=48&fontAlignY=37&fontColor=ffffff&animation=fadeIn&desc=%20Теория%20и%Практика$20%&descAlignY=55&descSize=16" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Геометрия%20-%20III%20Част&fontSize=48&fontAlignY=37&fontColor=ffffff&animation=fadeIn&desc=Теория%20и%20Практика&descAlignY=55&descSize=16" />
 </p>
-
 <div align="center">
 
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=22&duration=2500&pause=800&color=6A11CB&center=true&vCenter=true&width=600&lines=Хомогенни+Координати+и+Безкрайни+Елементи;Разширени+Евклидови+Пространства;Линейни+%26+Афинни+Трансформации;Tips+And+Tricks;Постановки+и+Решения" />
