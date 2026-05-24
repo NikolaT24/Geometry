@@ -7,7 +7,7 @@
 
   <br><br>
 
-  <img src="https://img.shields.io/badge/LaTeX-Advanced-blue?style=for-the-badge&logo=latex">
+  <img src="https://img.shields.io/badge/LaTeX-%D0%97%D0%B0%20%D0%9D%D0%B0%D0%BF%D1%80%D0%B5%D0%B4%D0%BD%D0%B0%D0%BB%D0%B8-blue?style=for-the-badge&logo=latex">  
   <img src="https://img.shields.io/badge/Математика-Увод%20в%20Проективната%20Геометрия-purple?style=for-the-badge">
   <img src="https://img.shields.io/badge/Ниво-Университетско-orange?style=for-the-badge">
 
