@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Геометрия%20-%20III%20Част&fontSize=48&fontAlignY=37&fontColor=ffffff&animation=fadeIn&desc=%20Теория%20%&descAlignY=55&descSize=16" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Геометрия%20-%20III%20Част&fontSize=48&fontAlignY=37&fontColor=ffffff&animation=fadeIn&desc=%20Теория%20и%Практика$20%&descAlignY=55&descSize=16" />
 </p>
 
 <div align="center">
