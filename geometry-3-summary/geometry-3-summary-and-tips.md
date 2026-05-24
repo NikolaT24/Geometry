@@ -504,7 +504,7 @@ $$
 Нека $\Psi_{\pi}^S$ е централно проектиране на $𝔼_3^\star$ с проекционен център $S$ и проекционна равнина $\pi$, и нека $\alpha\not\sim \Omega$ е равнина спрямо координатна система в $𝔼_3^\star$. Тогава
 
 $$
-\Psi_{\pi}^S(\alpha)=u_{\pi}(=\pi\cap\Omega) \Leftrightarrow \alpha\parallel \pi\ \text{и}\ S\in\alpha
+\Psi_{\pi}^S(\alpha)=u_{\pi} \Leftrightarrow \alpha\parallel \pi\ \text{и}\ S\in\alpha
 $$
 
 # 8. Афинни и ортогонални трансформации в равнината #
