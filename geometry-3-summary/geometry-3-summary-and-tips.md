@@ -463,18 +463,18 @@ $$
 
 #### 📌 Твърдение 6
 
-Нека $\Psi_{\pi}^U$ е централно проектиране на $𝔼_3^\star$ с проекционен център $\alpha$ и проекционна равнина $\pi$, и нека $\alpha\not\sim \Omega$ е равнина спрямо координатна система в $𝔼_3^\star$. Тогава 
+Нека $\Psi_{\pi}^S$ е централно проектиране на $𝔼_3^\star$ с проекционен център $S$ и проекционна равнина $\pi$, и нека $\alpha\not\sim \Omega$ е равнина спрямо координатна система в $𝔼_3^\star$. Тогава 
 
 $$
-\Psi_{\pi}^U(\alpha)=\alpha\cap\pi \Leftrightarrow \alpha\sim\pi\ \text{или}\ S\in\alpha
+\Psi_{\pi}^S(\alpha)=\alpha\cap\pi \Leftrightarrow \alpha\sim\pi\ \text{или}\ S\in\alpha
 $$
 
 #### 📌 Твърдение 7
 
-Нека $\Psi_{\pi}^U$ е централно проектиране на $𝔼_3^\star$ с проекционен център $\alpha$ и проекционна равнина $\pi$, и нека $\alpha\not\sim \Omega$ е равнина спрямо координатна система в $𝔼_3^\star$. Тогава
+Нека $\Psi_{\pi}^S$ е централно проектиране на $𝔼_3^\star$ с проекционен център $S$ и проекционна равнина $\pi$, и нека $\alpha\not\sim \Omega$ е равнина спрямо координатна система в $𝔼_3^\star$. Тогава
 
 $$
-\Psi_{\pi}^U(\alpha)=u_{\pi}(=\pi\cap\Omega) \Leftrightarrow \alpha\parallel \pi\ \text{и}\ S\in\alpha
+\Psi_{\pi}^S(\alpha)=u_{\pi}(=\pi\cap\Omega) \Leftrightarrow \alpha\parallel \pi\ \text{и}\ S\in\alpha
 $$
 
 # 8. Афинни и ортогонални трансформации в равнината #
