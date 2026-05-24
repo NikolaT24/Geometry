@@ -20,16 +20,14 @@
 
 ---
 
-💡 **Advanced geometry, homogeneous coordinates, and transformations**  
-📘 Academic material in bulgarian structured and beautifully typeset with LaTeX  
-
+📘 Академични материали на български език, структурирани и оформени на LaTeX.
 </div>
 
 ---
-## 🎯 Purpose
+## 🎯 Цел
 
 Липсва достъпна онлайн информация по тези теми. Поради тази липса реших да създам този ресурс, за да помогна на студентите да разберат материала по-добре. Целта е да се предоставят ясни обяснения, структурирани записки и полезни примери, които да направят ученето по-лесно и по-достъпно.
-## 📚 Table of Contents
+## 📚 Съдържание
 
 - 🔹 **Безкрайни елементи и хомогенни координати**
   - Хомогенни координати в равнината 
@@ -50,12 +48,11 @@
 
 ---
 
-## 🧩 What’s inside
+## 🧩 Как това repository ще ви помогне?
 
-- ✨ Foundations of projective geometry  
-- ✨ Power of homogeneous coordinates  
-- ✨ Extended Euclidean spaces 
-- ✨ Linear transformations and invariants  
-- ✨ Central projection and duality  
+|$𝔼_2$| $𝔼_2^\star$|
+|:-----|:------:|
+| A    | B      |
+| 10   | 20     |
 
 ---
