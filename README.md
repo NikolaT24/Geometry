@@ -28,8 +28,7 @@
 ---
 ## 🎯 Purpose
 
-There is little to no clear and accessible information available online about these topics. Because of this gap, I decided to create this resource to help students better understand the material. The goal is to provide clear explanations, structured notes, and useful examples that make learning easier and more approachable.
-
+Липсва достъпна онлайн информация по тези теми. Поради тази липса реших да създам този ресурс, за да помогна на студентите да разберат материала по-добре. Целта е да се предоставят ясни обяснения, структурирани записки и полезни примери, които да направят ученето по-лесно и по-достъпно.
 ## 📚 Table of Contents
 
 - 🔹 **Infinite Elements & Homogeneous Coordinates**
