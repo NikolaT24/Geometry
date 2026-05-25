@@ -223,6 +223,10 @@ $$
 \forall \ell_1,\ell_2\in 𝔼_2^\star:\ell_1\parallel \ell_2\Rightarrow \varphi(\ell_1)\parallel\varphi(\ell_2)
 $$
 
+#### 💡 Tip
+
+> Ако се иска от вас да докажете, че дадена линейна трансформация $\varphi:𝔼_2^\star\to 𝔼_2^\star$ е афинна, то трябва да докажете, че $\det (A_\varphi)\neq 0$ и че безкрайната права $\omega$ е $\varphi-$инвариантна. Последното доказваме, взимайки произволна безкрайна точка $U(a,b,0)$ и показвайки, че $\varphi(U)\in\omega:\forall (a,b)\in ℝ^2\backslash \lbrace 0,0 \rbrace
+
 ### 📘 Твърдения и дефиниции
 
 #### 📌 Твърдение 1
