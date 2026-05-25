@@ -5,7 +5,7 @@
 <details>
 <summary>📌 Решение:</summary>
 
-Ако приемем, че P_i(x_i, y_i, z_i, t_i), i = 1, 2, 3, то тогава равнината $\alpha$, определена от тези точки, има общо уравнение:
+Ако приемем, че $P_i(x_i, y_i, z_i, t_i)$, $i = 1, 2, 3$, то тогава равнината $\alpha$, определена от тези точки, има общо уравнение:
 
 <img src="https://latex.codecogs.com/svg.image?%5Cleft%7C%5Cbegin%7Barray%7D%7Bcccc%7Dx%26y%26z%26t%5C%5Cx_1%26y_1%26z_1%26t_1%5C%5Cx_2%26y_2%26z_2%26t_2%5C%5Cx_3%26y_3%26z_3%26t_3%5Cend%7Barray%7D%5Cright%7C%3D0" alt="determinant equation">
 
