@@ -77,10 +77,6 @@ t
 <summary>📌 Решение:</summary>
 За неподвижните точки образуваме $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3$. За $\lambda_{1,2,3}=1$ имаме $(A_\varphi-E)[X]_{\mathcal P}=\mathcal O$, откъдето $-2t=0$ и $3t=0$. Така получаваме, че всяка безкрайна точка е неподвижна под действие на $\varphi$, тоест безкрайната права $\omega$ е поточково неподвижна.
 
-За неподвижните прави образуваме $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\lambda E)=(1-\sigma)^3$. За $\sigma_{1,2,3}$ имаме $\lbrack A\ B\ C\rbrack(A_{\varphi^{-1}}-E)=\lbrack 0\ 0\ 0\rbrack$, откъдето $2A-3B=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=3\Rightarrow B=2$. Значи $C\neq 0$ и тъй като нямаме никаква информация за него, изкарваме множество от неподвижни прави: 
-
-$$
-\lbrace (x,y,t)\in ℝ^3\setminus \lbrace 0,0,0\rbrace \mid 3x+2y+Ct=0,\ C\in ℝ \setminus \lbrace 0\rbrace \rbrace
-$$
+За неподвижните прави образуваме $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\lambda E)=(1-\sigma)^3$. За $\sigma_{1,2,3}$ имаме $\lbrack A\ B\ C\rbrack(A_{\varphi^{-1}}-E)=\lbrack 0\ 0\ 0\rbrack$, откъдето $2A-3B=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=3\Rightarrow B=2$. Значи $C\neq 0$ и тъй като нямаме никаква информация за него, изкарваме множество от неподвижни прави: $\lbrace (x,y,t)\in ℝ^3\setminus \lbrace 0,0,0\rbrace \mid 3x+2y+Ct=0,\ C\in ℝ \setminus \lbrace 0\rbrace \rbrace$
 
 </details>
