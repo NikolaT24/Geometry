@@ -9,12 +9,12 @@
 
 ```math
 \det
-\begin{pmatrix}
+\begin{vmatrix}
 x & y & z & t \\
 x_1 & y_1 & z_1 & t_1 \\
 x_2 & y_2 & z_2 & t_2 \\
 x_3 & y_3 & z_3 & t_3
-\end{pmatrix}
+\end{vmatrix}
 = 0
 ```
 
