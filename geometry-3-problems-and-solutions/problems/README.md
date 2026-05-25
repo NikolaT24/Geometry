@@ -7,22 +7,16 @@
 
 Ако приемем, че $P_i(x_i,y_i,z_i,t_i)$, $i=\overline{1,3}$, то тогава равнината $\alpha$, определена от тези точки, има общо уравнение:
 
-<pre>
-| x   y   z   t  |
-| x₁  y₁  z₁  t₁ |
-| x₂  y₂  z₂  t₂ | = 0
-| x₃  y₃  z₃  t₃ |
-</pre>
-
-```math
-\det
-\begin{matrix}
+$$
+\left|
+\begin{array}{cccc}
 x & y & z & t \\
 x_1 & y_1 & z_1 & t_1 \\
 x_2 & y_2 & z_2 & t_2 \\
 x_3 & y_3 & z_3 & t_3
-\end{matrix}
+\end{array}
+\right|
 = 0
-```
+$$
 
 </details>
