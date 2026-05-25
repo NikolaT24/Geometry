@@ -72,3 +72,28 @@ t
 \end{pmatrix}
 ,\quad \rho\neq 0
 ```
+
+<details>
+<summary>📌 Решение:</summary>
+За неподвижните точки образуваме $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3$. За $\lambda_{1,2,3}=1$ имаме 
+  
+  ```math
+  (A_\varphi-\lambda E)
+  \begin{pmatrix}
+  x
+  \\
+  y
+  \\
+  t
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  0
+  \\
+  0
+  \\
+  0
+  \end{pmatrix}
+  ```
+  
+</details>
