@@ -134,7 +134,7 @@ x \\
 y \\
 t
 \end{pmatrix}
-,\quad \rho\neq 0\ \text{и}\ (a,b,c)\neq (0,0,0), c\in ℝ
+,\quad \rho\neq 0\ \text{и}\ (a,b)\neq(0,0),\ (a,b,c)\neq (0,0,0)
 ```
 
 <details>
