@@ -88,23 +88,18 @@ t
 
 За неподвижните точки образуваме: 
 
-```math
-f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3
-```
+
+$f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3$
 
 За $\lambda_{1,2,3}=1$ имаме $(A_\varphi-E)\lbrack X\rbrack_{\mathcal P}=\mathcal O$, откъдето $at=0$ и $bt=0$. От второто уравнение, разделяйки на $b\neq 0$, получаваме, че всяка безкрайна точка е неподвижна под действие на $\varphi$, тоест безкрайната права $\omega$ е поточково неподвижна.
 
 За неподвижните прави образуваме:
 
-<p align="center">
 $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=(1-\sigma)^3$.
-</p>
 
 За $\sigma_{1,2,3}=1$ имаме $\lbrack A\ B\ C\rbrack(A_{\varphi^{-1}}-E)=\lbrack 0\ 0\ 0\rbrack$, откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
   
-<p align="center">
 $\lbrace (x,y,t)\in ℝ^3\setminus \lbrace (0,0,0) \rbrace \mid bx-ay+Ct=0,\ C\in ℝ \rbrace$
-</p>
 
 Допълнение:
 
