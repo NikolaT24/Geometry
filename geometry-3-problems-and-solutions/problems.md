@@ -209,13 +209,11 @@ $P\left(-abq-(a+b-c)p,cq+p,(c-a)(c-b)\right)$
 
 За неподвижните прави образуваме:
 
-$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a}\right)\left(\sigma-\frac{1}{b}\right)\left(\sigma-\frac{1}{c}\right)$.
+$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a}\right)\left(\sigma-\frac{1}{b}\right)\left(\sigma-\frac{1}{c}\right)$
 
 За $\sigma_1=\frac{1}{a}$ получаваме правата:
 
-<p align="center">
 $\ell_1\lbrack a-c, a^2-ac, p+aq\rbrack$
-</p>
 
 За $\sigma_2=\frac{1}{b}$ получаваме правата:
 
