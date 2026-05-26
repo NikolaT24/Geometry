@@ -154,7 +154,7 @@ $\det(A_\varphi)=-(a^2+b^2)^3\neq 0$,
 $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a^2-b^2)^2(\lambda+a^2+b^2)$.
 </p>
 
-За $\lambda_{1,2}=a^2+b^2$ имаме $\lbrack A_\varphi-(a^2+b^2)E\rbrack \lbrack X\rbrack_{\mathcal P}=\mathcal O$, откъдето всяка точка от правата $g:ax+by+ct=0$ е неподвижна, т.е. $g$ е поточково неподвижна права. За $\lambda_{3}=-a^2-b^2$ получаваме, че безкрайната точка $U(a,b,0)$ е неподвижна.
+За $\lambda_{1,2}=a^2+b^2$ имаме $\lbrack A_\varphi-(a^2+b^2)E\rbrack \lbrack X\rbrack_{\mathcal P}=\mathcal O$, откъдето излиза, че всяка точка от правата $g:ax+by+ct=0$ е неподвижна, т.е. $g$ е поточково неподвижна права. За $\lambda_{3}=-a^2-b^2$ получаваме, че безкрайната точка $U(a,b,0)$ е неподвижна.
 
 За неподвижните прави образуваме:
 
