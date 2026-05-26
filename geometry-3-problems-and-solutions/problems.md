@@ -88,9 +88,9 @@ t
 
 За неподвижните точки образуваме: 
 
-<p align="center">
-$f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3$.
-</p>
+```math
+f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3
+```
 
 За $\lambda_{1,2,3}=1$ имаме $(A_\varphi-E)\lbrack X\rbrack_{\mathcal P}=\mathcal O$, откъдето $at=0$ и $bt=0$. От второто уравнение, разделяйки на $b\neq 0$, получаваме, че всяка безкрайна точка е неподвижна под действие на $\varphi$, тоест безкрайната права $\omega$ е поточково неподвижна.
 
