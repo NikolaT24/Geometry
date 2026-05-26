@@ -141,21 +141,29 @@ t
 
 Без ограничение на общността ще считаме, че $b\neq 0$. Тогава очевидно
 
-$\det(A_\varphi)=-(a^2+b^2)^3\neq 0$,
+$\det(A_\varphi)=-(a^2+b^2)^3\neq 0$
 
 значи $\varphi\in\text{GL}(𝔼_2^\star)$ (т.е. трансформацията е неособена). Също така, $(a,b)\neq(0,0)\Rightarrow (a,b,c)\neq (0,0,0)$.
 
 За неподвижните точки образуваме:
 
-$f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a^2-b^2)^2(\lambda+a^2+b^2)$.
+$f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a^2-b^2)^2(\lambda+a^2+b^2)$
 
-За $\lambda_{1,2}=a^2+b^2$ имаме $\lbrack A_\varphi-(a^2+b^2)E\rbrack \lbrack X\rbrack_{\mathcal P}=\mathcal O$, откъдето излиза, че всяка точка от правата $g:ax+by+ct=0$ е неподвижна, т.е. $g$ е поточково неподвижна права. За $\lambda_{3}=-a^2-b^2$ получаваме, че безкрайната точка $U(a,b,0)$ е неподвижна.
+За $\lambda_{1,2}=a^2+b^2$ имаме 
+
+$\lbrack A_\varphi-(a^2+b^2)E\rbrack \lbrack X\rbrack_{\mathcal P}=\mathcal O$
+
+откъдето излиза, че всяка точка от правата $g:ax+by+ct=0$ е неподвижна, т.е. $g$ е поточково неподвижна права. За $\lambda_{3}=-a^2-b^2$ получаваме, че безкрайната точка $U(a,b,0)$ е неподвижна.
 
 За неподвижните прави образуваме:
 
-$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a^2+b^2}\right)^2\left(\sigma+\frac{1}{a^2+b^2}\right)$.
+$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a^2+b^2}\right)^2\left(\sigma+\frac{1}{a^2+b^2}\right)$
 
-За $\sigma_{1,2}=\frac{1}{a^2+b^2}$ имаме $\lbrack A\ B\ C\rbrack\left( A_{\varphi^{-1}}-\frac{1}{a^2+b^2}E\right)=\lbrack 0\ 0\ 0\rbrack$, откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
+За $\sigma_{1,2}=\frac{1}{a^2+b^2}$ имаме 
+
+$\lbrack A\ B\ C\rbrack\left( A_{\varphi^{-1}}-\frac{1}{a^2+b^2}E\right)=\lbrack 0\ 0\ 0\rbrack$
+
+откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
 
 $\lbrace (x,y,t)\in ℝ^3\setminus \lbrace (0,0,0) \rbrace \mid bx-ay+Ct=0,\ C\in ℝ \rbrace$.
 
