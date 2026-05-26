@@ -212,4 +212,10 @@ $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a)(\lambda-b)(\lambd
 $P\left(-abq-(a+b-c)p,cq+p,(c-a)(c-b)\right)$
 </p>
 
+За неподвижните прави образуваме:
+
+<p align="center">
+$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a}\right)\left(\sigma-\frac{1}{b}\right)\left(\sigma-\frac{1}{c}\right)$.
+</p>
+
 </details>
