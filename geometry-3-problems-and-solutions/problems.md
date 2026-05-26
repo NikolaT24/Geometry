@@ -95,9 +95,13 @@ $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=(1-\lambda)^3$
 
 За неподвижните прави образуваме:
 
-$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=(1-\sigma)^3$.
+$f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=(1-\sigma)^3$
 
-За $\sigma_{1,2,3}=1$ имаме $\lbrack A\ B\ C\rbrack(A_{\varphi^{-1}}-E)=\lbrack 0\ 0\ 0\rbrack$, откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
+За $\sigma_{1,2,3}=1$ имаме 
+
+$\lbrack A\ B\ C\rbrack(A_{\varphi^{-1}}-E)=\lbrack 0\ 0\ 0\rbrack$
+
+откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
   
 $\lbrace (x,y,t)\in ℝ^3\setminus \lbrace (0,0,0) \rbrace \mid bx-ay+Ct=0,\ C\in ℝ \rbrace$
 
