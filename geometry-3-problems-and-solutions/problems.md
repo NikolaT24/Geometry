@@ -134,7 +134,7 @@ x \\
 y \\
 t
 \end{pmatrix}
-,\quad \rho\neq 0\ \text{и}\ (a,b)\neq(0,0),\ (a,b,c)\neq (0,0,0)
+,\quad \rho\neq 0\ \text{и}\ (a,b)\neq(0,0)
 ```
 
 <details>
@@ -146,7 +146,7 @@ t
 $\det(A_\varphi)=-(a^2+b^2)^3\neq 0$,
 </p>
 
-значи $\varphi\in\text{GL}(𝔼_2^\star)$ (т.е. трансформацията е неособена).
+значи $\varphi\in\text{GL}(𝔼_2^\star)$ (т.е. трансформацията е неособена). Също така, $(a,b)\neq(0,0)\Rightarrow (a,b,c)\neq (0,0,0).
 
 За неподвижните точки образуваме:
 
