@@ -161,7 +161,7 @@ $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}
 
 За $\sigma_{1,2}=\frac{1}{a^2+b^2}$ имаме 
 
-$\lbrack A\ B\ C\rbrack\left( A_{\varphi^{-1}}-\frac{1}{a^2+b^2}E\right)=\lbrack 0\ 0\ 0\rbrack$
+$\lbrack A\ B\ C\rbrack\left( A_{\varphi}^{-1}-\frac{1}{a^2+b^2}E\right)=\lbrack 0\ 0\ 0\rbrack$
 
 откъдето $aA+bB=0$, $(A,B,C)\neq(0,0,0)$. Нека $A=b\neq 0\Rightarrow B=-a$. Тъй като нямаме никаква информация за $C$, освен че е реално число, изкарваме множество от неподвижни прави: 
 
@@ -201,21 +201,15 @@ t
 
 За неподвижните точки образуваме: 
 
-<p align="center">
 $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a)(\lambda-b)(\lambda-c)$.
-</p>
 
 За $\lambda_1=a$ получаваме точката $U_1(b,-1,0)$. За $\lambda_2$ получаваме точката $U_2(a,-1,0)$, а за $\lambda=c$ получаваме точката
 
-<p align="center">
 $P\left(-abq-(a+b-c)p,cq+p,(c-a)(c-b)\right)$
-</p>
 
 За неподвижните прави образуваме:
 
-<p align="center">
 $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}{a}\right)\left(\sigma-\frac{1}{b}\right)\left(\sigma-\frac{1}{c}\right)$.
-</p>
 
 За $\sigma_1=\frac{1}{a}$ получаваме правата:
 
@@ -225,9 +219,7 @@ $\ell_1\lbrack a-c, a^2-ac, p+aq\rbrack$
 
 За $\sigma_2=\frac{1}{b}$ получаваме правата:
 
-<p align="center">
 $\ell_2\lbrack b-c, b^2-bc, p+bq\rbrack$
-</p>
 
 За $\sigma_3=\frac{1}{c}$ получаваме, че безкрайната права $\omega$ е неподвижна.
 
