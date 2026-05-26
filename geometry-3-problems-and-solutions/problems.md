@@ -170,3 +170,29 @@ $\lbrace (x,y,t)\in ℝ^3\setminus \lbrace (0,0,0) \rbrace \mid bx-ay+Ct=0,\ C\i
 
 За $\sigma_{3}=-\frac{1}{a^2+b^2}$ изкарваме правата $ax+by+ct=0$, което се очакваше.
 </details>
+
+### Задача 3 (три различни характеристични корена)
+
+Да се намерят неподвижните точки и неподвижните прави под действие на линейната трансформация:
+
+```math
+\varphi:
+\rho
+\begin{pmatrix}
+x^\star \\
+y^\star \\
+t^\star
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & -ab & p \\
+1 & a+b & q \\
+0 & 0 & r
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+t
+\end{pmatrix}
+,\quad \rho\neq 0\ \text{и}\ (a,b)\neq(0,0),\ p,q\in ℝ\ r\neq 0
+```
