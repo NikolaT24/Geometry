@@ -230,6 +230,6 @@ $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}
 \ell_2\lbrack b-c, b^2-bc, p+bq\rbrack
 </p>
 
-За $\sigma_3=\frac{1}{ц}$ получаваме, че безкрайната права $\omega$ е неподвижна.
+За $\sigma_3=\frac{1}{c}$ получаваме, че безкрайната права $\omega$ е неподвижна.
 
 </details>
