@@ -206,10 +206,10 @@ t
 $f_{A_\varphi}(\lambda)=\det(A_\varphi-\lambda E)=-(\lambda-a)(\lambda-b)(\lambda-c)$.
 </p>
 
-За $\lambda_1=a$ получаваме точката $U_1(b,-1,0)$. За $\lambda_2$ получаваме точката $U_2(a,-1,0), а за $\lambda=c$ получаваме точката
+За $\lambda_1=a$ получаваме точката $U_1(b,-1,0)$. За $\lambda_2$ получаваме точката $U_2(a,-1,0)$, а за $\lambda=c$ получаваме точката
 
 <p align="center">
-$P\left(-abq-(a+b-c)p,cq+r,(c-a)(c-b)\right)
+$P\left(-abq-(a+b-c)p,cq+r,(c-a)(c-b)\right)$
 </p>
 
 </details>
