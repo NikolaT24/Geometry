@@ -221,13 +221,13 @@ $f_{A_\varphi^{-1}}(\sigma)=\det(A_\varphi^{-1}-\sigma E)=-\left(\sigma-\frac{1}
 За $\sigma_1=\frac{1}{a}$ получаваме правата:
 
 <p align="center">
-\ell_1\lbrack a-c, a^2-ac, p+aq\rbrack
+$\ell_1\lbrack a-c, a^2-ac, p+aq\rbrack$
 </p>
 
 За $\sigma_2=\frac{1}{b}$ получаваме правата:
 
 <p align="center">
-\ell_2\lbrack b-c, b^2-bc, p+bq\rbrack
+$\ell_2\lbrack b-c, b^2-bc, p+bq\rbrack$
 </p>
 
 За $\sigma_3=\frac{1}{c}$ получаваме, че безкрайната права $\omega$ е неподвижна.
