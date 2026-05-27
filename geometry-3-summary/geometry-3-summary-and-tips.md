@@ -711,11 +711,11 @@ $$
 
 ### 🔔 Свойство 1
 
-$$
-\displaystyle\sum _{i\in I}(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i\in I} s_i,\displaystyle\sum _{i\in I}\overrightarrow{v_i}\right)
-$$
+Нека $(s_i,\overrightarrow{v_i})$, $i=\overline{1,n}$, са кватерниони. Тогава:
 
-където $I$ е непразно индексно множество.
+$$
+\displaystyle\sum _{i=1}^n(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i=1}^n s_i,\displaystyle\sum _{j=1}^n\overrightarrow{v_i}\right)
+$$
 
 # 13. Сферична линейна интерполация (SLERP) #
 
