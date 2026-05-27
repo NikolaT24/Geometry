@@ -330,7 +330,7 @@ $$
 \pi:Ax+By+Cz+Dt=0,\ (A,B,C,D)\neq (0,0,0,0)
 $$
 
-и пишем $\pi[A,B,C,D]$.
+и пишем $\pi\lbrack A,B,C,D\rbrack$.
 
 # 5. Безкрайни елементи в пространството #
 
@@ -446,7 +446,7 @@ $$
 
 #### 📌 Твърдение 3 (Cheat формула :shipit:)
 
-Аналитичното представяне на централно проектиране с проекционен център $S(x_S,y_S,z_S,t_S)$ и проекционна равнина $\pi[A_\pi,B_\pi,C_\pi,D_\pi]$ е:
+Аналитичното представяне на централно проектиране с проекционен център $S(x_S,y_S,z_S,t_S)$ и проекционна равнина $\pi\lbrack A_\pi,B_\pi,C_\pi,D_\pi\rbrack$ е:
 
 ```math
 \Psi_{\pi}^S:
@@ -564,7 +564,131 @@ y
 \end{pmatrix}
 ```
 
+Нека спрямо афинна координатна система $K=O\vec{f}_1\vec{f}_2$ в $𝔼$, относно нехомогенни координати, е дадено изображението $\varphi:\mathbb{E}_2\to\mathbb{E}_2$ и нека е известно, че $\varphi:M(x,y)\to M^\star=\varphi(M)(x^\star, y^\star)$.
+
+> 🧩 **Уточнение**
+>
+> Изображението $\varphi:𝔼_2\to𝔼_2$ наричаме афинно, ако запазва афинните комбинации на точки.
+
+Тоест
+
+```math
+\begin{pmatrix}
+x
+\\
+y
+\end{pmatrix}
+=
+\sum_j \lambda_j 
+\begin{pmatrix}
+x_j
+\\
+y_j
+\end{pmatrix}
+\Rightarrow\varphi
+\begin{pmatrix}
+x
+\\
+y
+\end{pmatrix}
+=\sum_j \lambda_j \varphi
+\begin{pmatrix}
+x_j
+\\
+y_j
+\end{pmatrix},\ \text{където}\ \sum_j \lambda_j=1
+```
+
+> 🧩 **Уточнение**
+>
+> Афинна трансформация (афинен изоморфизъм) $\varphi:𝔼_2\to𝔼_2$ наричаме биективно афинно изображение.
+
+Веднага можем да заключим, че $\varphi$ е афинна трансформация тогава и само тогава, когато $\det(A_\varphi)\neq 0$, т.е. когато матрицата $A_\varphi$ на $\varphi$ е обратима (неособена).
+
+Нека матрицата $A_\varphi=(a_{ij})_{i,j=1}^2\in\mathcal M_2(ℝ)$ задава афинната трансформация $\varphi$.
+
+### 📘 Твърдения
+
+#### 📌 Твърдение 1
+
+Изображението $\varphi$ е афинно тогава и само тогава, когато 
+
+```math
+\varphi:
+\begin{pmatrix} x^\star \\
+y^{\star}
+\end{pmatrix}
+=
+A_\varphi
+\begin{pmatrix} x \\
+y
+\end{pmatrix}+\vec{b}_{\varphi}
+```
+
+където $A_\varphi\in \mathcal M_2(ℝ)$ и $\vec{b}_{\varphi}=( b_1\ b_2)^\top$ е вектор стълб от свободни елементи.
+
+#### 📌 Твърдение 2 (композиция на афинни трансформации в равнината)
+
+Нека $\varphi_1:𝔼_2\to𝔼_2$ и $\varphi_2:𝔼_2\to𝔼_2$ са афинни трансформации, зададени аналитично по следния начин: 
+
+```math
+\varphi_i:
+\begin{pmatrix} x^\star \\
+y^\star
+\end{pmatrix}
+=
+A_{\varphi_i}
+\begin{pmatrix} x\\
+y\end{pmatrix}
++\vec{b}_{\varphi_i},\ i=1,2
+```
+
+Тогава 
+
+```math
+\varphi_2\circ\varphi_1:
+\begin{pmatrix} x^\star \\ 
+y^{\star}
+\end{pmatrix}
+=A_{\varphi_2}A_{\varphi_1}
+\begin{pmatrix} x \\
+y
+\end{pmatrix}
++A_{\varphi_2}\vec{b}_{\varphi_1}+\vec{b}_{\varphi_2}
+```
+
 # 9. Класификация на еднаквостите в равнината #
+
+Нека $K=Oxy$ е ОКС в $𝔼_2$. Афинната трансформация $\psi:𝔼_2\to 𝔼_2$ е еднаквост тогава и само тогава, когато матрицата ѝ $A_\psi\in \mathcal M_2(ℝ)$ е ортогонална. Тогава 
+
+$$
+A_\psi A_\psi^\top= A_\psi^\top A_\psi=E\Rightarrow \det(A_\psi)=\pm 1
+$$
+
+Ако $\det(A_\psi)=1$, то $\psi$ е **движение** - запазва се ориентацията в равнината.
+
+Ако $\det(A_\psi)=-1$, то $\psi$ е **отражение** - променя ориентацията в равнината. 
+
+Аналитичното представяне е: 
+
+```math
+\psi:
+\begin{pmatrix} x^\star \\
+y^{\star}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\theta & -\varepsilon\sin\theta \\
+\sin\theta & \varepsilon\cos\theta
+\end{pmatrix}
+\begin{pmatrix} x \\
+y
+\end{pmatrix}+
+\begin{pmatrix} a \\
+b
+\end{pmatrix},\ \text{където}\ \varepsilon=\pm 1
+```
+
 # 10. Афинни и ортогонални трансформации в пространството #
 # 11. Класификация на еднаквостите в пространството #
 # 12. Представяне на ротациите в пространството чрез кватерниони #
