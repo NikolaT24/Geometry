@@ -714,7 +714,7 @@ $$
 Нека $(s_i,\overrightarrow{v_i})$, $i=\overline{1,n}$, са кватерниони. Тогава:
 
 $$
-\displaystyle\sum _{i=1}^n(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i=1}^n s_i,\displaystyle\sum _{j=1}^n\overrightarrow{v_i}\right)
+\displaystyle\sum _{i=1}^n(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i=1}^n s_i,\displaystyle\sum _{j=1}^n\overrightarrow{v_j}\right)
 $$
 
 # 13. Сферична линейна интерполация (SLERP) #
