@@ -660,7 +660,7 @@ y
 Нека $K=Oxy$ е ОКС в $𝔼_2$. Афинната трансформация $\psi:𝔼_2\to 𝔼_2$ е еднаквост тогава и само тогава, когато матрицата ѝ $A_\psi\in \mathcal M_2(ℝ)$ е ортогонална. Тогава $A_{\psi}^\top=A_{\psi}^{-1}$, откъдето:
 
 $$
-A_\psi A_\psi^\top= A_\psi^\top A_\psi=E\Rightarrow \det(A_\psi)=\pm 1
+A_\psi A_\psi^\top= A_\psi^\top A_\psi=E\Rightarrow \det(A_\psi^\top A_\psi)=\det(E) \Rightarrow \det(A_\psi)^2=1\Rightarrow \det A_\psi=\pm 1
 $$
 
 Ако $\det(A_\psi)=1$, то $\psi$ е **движение** - запазва се ориентацията в равнината.
