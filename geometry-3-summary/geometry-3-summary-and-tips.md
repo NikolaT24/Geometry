@@ -707,6 +707,16 @@ $$
 
 където $\vec{v}(x,y,z)\in𝔼_3$.
 
+## ✍️ Свойства
+
+### 🔔 Свойство 1
+
+$$
+\displaystyle\sum _{i\in I}(s_i,\overrightarrow{v_i})=\left(\displaystyle\sum _{i\in I} s_i,\displaystyle\sum _{i\in I}\overrightarrow{v_i}\right)
+$$
+
+където $I$ е непразно индексно множество.
+
 # 13. Сферична линейна интерполация (SLERP) #
 
 Сферичната линейна интерполация (SLERP) е геодезична интерполация върху единичната n-сфера ![Sn](https://latex.codecogs.com/png.image?\dpi{110}S^n), използвана за плавни преходи между ориентации и посоки.
