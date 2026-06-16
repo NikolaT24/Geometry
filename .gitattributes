@@ -1,17 +1,56 @@
 * text=auto
 
-*.md   text eol=lf
-*.tex  text eol=lf
-*.cpp  text eol=lf
-*.hpp  text eol=lf
-*.h    text eol=lf
-*.c    text eol=lf
-*.txt  text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+Makefile text eol=lf
+*.mk text eol=lf
 
-*.pdf  binary
-*.png  binary
-*.jpg  binary
+*.c text eol=lf
+*.cc text eol=lf
+*.cpp text eol=lf
+*.cxx text eol=lf
+*.h text eol=lf
+*.hh text eol=lf
+*.hpp text eol=lf
+*.ipp text eol=lf
+
+# LaTeX source files
+*.tex text eol=lf
+*.sty text eol=lf
+*.cls text eol=lf
+*.bib text eol=lf
+
+# Documentation and structured text
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.svg text eol=lf
+
+*.sh text eol=lf
+*.bash text eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+*.pdf binary
+*.png binary
+*.jpg binary
 *.jpeg binary
-*.gif  binary
+*.gif binary
 *.webp binary
-*.svg  text eol=lf
+*.ico binary
+*.bmp binary
+
+*.zip binary
+*.7z binary
+*.tar binary
+*.gz binary
+
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
