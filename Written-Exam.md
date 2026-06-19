@@ -50,7 +50,7 @@ $$
 
 $$
 g:\begin{cases}
-x-y+z=0
+x-y+z=0 \\
 x+2y-z+2=0
 \end{cases}
 $$
