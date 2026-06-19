@@ -22,26 +22,26 @@ $$
 \psi:
 \left(
 \begin{pmatrix}
-x^\star
+x^\star \\
 y^\star
 \end{pmatrix}
 \right) =
 \left(
 \begin{pmatrix}
-x
+x \\
 y
 \end{pmatrix}
 \right)
 \sqrt{2}{2}\left(
 \begin{pmatrix}
-1 & -1
+1 & -1 \\
 -1 & -1
 \end{pmatrix}
 \right)
 +
 \left(
 \begin{pmatrix}
-\sqrt{2}+1
+\sqrt{2}+1 \\
 1
 \end{pmatrix}
 \right)
