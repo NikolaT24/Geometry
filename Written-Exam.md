@@ -24,14 +24,14 @@ $$
 x^\star \\
 y^\star
 \end{pmatrix} =
-\begin{pmatrix}
-x \\
-y
-\end{pmatrix}
 \frac{\sqrt{2}}{2}
 \begin{pmatrix}
 1 & -1 \\
 -1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y
 \end{pmatrix}
 +
 \begin{pmatrix}
