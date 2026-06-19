@@ -20,31 +20,24 @@ $$
 
 $$
 \psi:
-\left(
 \begin{pmatrix}
 x^\star \\
 y^\star
-\end{pmatrix}
-\right) =
-\left(
+\end{pmatrix} =
 \begin{pmatrix}
 x \\
 y
 \end{pmatrix}
-\right)
-\sqrt{2}{2}\left(
+\frac{\sqrt{2}}{2}
 \begin{pmatrix}
 1 & -1 \\
 -1 & -1
 \end{pmatrix}
-\right)
 +
-\left(
 \begin{pmatrix}
 \sqrt{2}+1 \\
 1
 \end{pmatrix}
-\right)
 $$
 
 Да се определи видът на $\psi$. Да се намери образът на правата $g:x-y=0$ под действие на $\psi$.
