@@ -79,3 +79,11 @@ $$
 ### Афинни операции с вектори. Скаларно произведение. Векторно произведение. Смесено произведение (може да бъде задача с триъгълник, но може и да бъде с тетраедър).
 
 ## 🧩 Пример:
+
+Дадени са векторите: 
+
+$$
+\overrightarrow{CA}=\vec{a}\times(\vec{b}\times\vec{a}),\quad \overrightarrow{CB}=\vec{a}+\vec{b}\quad \text{и}\ \overrightarrow{CD}=\vec{a}\times\vec{b},
+$$
+
+като $\vert\vec{b}\vert=2\vert\vec{a}\vert=2$ и $\measuredangle(\vec{a},\vec{b})_e=\pi/3$.
