@@ -74,8 +74,6 @@ _minted-*/
 *.backup
 *.orig
 
-# Written-Exam is a versioned documentation bundle.
-# Keep its Markdown sources and published PDFs tracked.
 !/Written-Exam/
 !/Written-Exam/**/
 !/Written-Exam/**/*.md
