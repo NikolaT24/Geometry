@@ -26,7 +26,6 @@ compile_commands.json
 *.so
 *.dll
 *.dylib
-
 *.exe
 *.out
 a.out
@@ -74,3 +73,10 @@ _minted-*/
 *.bak
 *.backup
 *.orig
+
+# Written-Exam is a versioned documentation bundle.
+# Keep its Markdown sources and published PDFs tracked.
+!/Written-Exam/
+!/Written-Exam/**/
+!/Written-Exam/**/*.md
+!/Written-Exam/**/*.pdf
