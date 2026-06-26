@@ -14,13 +14,11 @@ Makefile text eol=lf
 *.hpp text eol=lf
 *.ipp text eol=lf
 
-# LaTeX source files
 *.tex text eol=lf
 *.sty text eol=lf
 *.cls text eol=lf
 *.bib text eol=lf
 
-# Documentation and structured text
 *.md text eol=lf
 *.txt text eol=lf
 *.json text eol=lf
@@ -31,7 +29,6 @@ Makefile text eol=lf
 
 *.sh text eol=lf
 *.bash text eol=lf
-
 *.bat text eol=crlf
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
@@ -44,13 +41,14 @@ Makefile text eol=lf
 *.webp binary
 *.ico binary
 *.bmp binary
-
 *.zip binary
 *.7z binary
 *.tar binary
 *.gz binary
-
 *.ttf binary
 *.otf binary
 *.woff binary
 *.woff2 binary
+
+/Written-Exam/**/*.md text eol=lf
+/Written-Exam/**/*.pdf binary
